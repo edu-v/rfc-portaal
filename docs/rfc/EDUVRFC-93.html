@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-93 — Toevoegen van robuuste link tussen Group en SubjectOffering</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-93 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-93" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Toevoegen van robuuste link tussen Group en SubjectOffering</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>9 Feb 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">17 Feb 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Administratiesystemen</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Het verzoek is om het object <code>Group</code> (specifiek voor <code>groupType</code> = 'lesson-group') in de Association API uit te breiden metreferenties naar <code>SubjectOffering</code></p><p>Huidige situatie:<br>Het object <code>Group</code> bevat momenteel geen directe informatie over de inhoud (vak/niveau). Deze informatie moet nu indirect worden afgeleid via relaties met personen:</p><ul><li><p>Via <code>Assignment</code> (welk vak geeft de gekoppelde docent aan deze groep?).</p></li><li><p>Via <code>Enrollments</code> (welke inschrijving hebben de leerlingen in deze groep?).</p></li></ul><p>Gewenste situatie:<br>Een directe relatie op het <code>Group</code> object, zodat de metadata van de groep (vak, niveau, leerjaar) bekend is, los van de personele bezetting of leerling-indeling.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><ol><li><p>Robuustheid: De definitie van een lesgroep zou structureel vast moeten liggen en niet afhankelijk moeten zijn van de aanwezigheid van personen (docenten/leerlingen). Het huidige model faalt in scenario's waar de structuur er is, maar de personen nog niet.</p></li><li><p>Tijdige inrichting: Digitale leermiddelen en leeromgevingen moeten vaak ingericht worden <em>voordat</em> het rooster definitief is. Scholen willen in de zomervakantie content klaarzetten. De huidige afhankelijkheid van <code>Assignment</code> blokkeert dit proces als de docent nog niet bekend is.</p></li><li><p>Datakwaliteit: Afleiden van vakken op basis van namen (string parsing van "H3-Wi-A") is foutgevoelig. Een expliciete relatie voorkomt fouten.</p></li><li><p>Scope: Dit sluit aan bij het inzicht dat een lesgroep intrinsiek verbonden is met een vak, niveau en leerjaar (scope "groepvaknivoleerjaar").</p></li></ol></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/147652609/Association+API</div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

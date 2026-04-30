@@ -35,8 +35,8 @@
 </head>
 <body>
 <h1>Edu-V RFC Overzicht</h1>
-<div class="meta">Gegenereerd op 30 April 2026 &nbsp;|&nbsp; 0 RFC's &nbsp;|&nbsp; Bron: Jira project EDUVRFC</div>
-<div class="badges"></div>
+<div class="meta">Gegenereerd op 30 April 2026 &nbsp;|&nbsp; 100 RFC's &nbsp;|&nbsp; Bron: Jira project EDUVRFC</div>
+<div class="badges"><span style="background:#888;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Released <strong>55</strong></span> <span style="background:#c0392b;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Afgewezen <strong>27</strong></span> <span style="background:#e07020;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Impactanalyse <strong>7</strong></span> <span style="background:#888;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Implementatie release-candidate <strong>3</strong></span> <span style="background:#888;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">On-hold <strong>3</strong></span> <span style="background:#888;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Intake RFC <strong>2</strong></span> <span style="background:#888;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Release-candidate <strong>2</strong></span> <span style="background:#888;color:white;padding:3px 10px;border-radius:3px;font-size:11px;">Check Stelselarchitect voor architectenraad <strong>1</strong></span></div>
 <table>
   <thead>
     <tr>
@@ -48,7 +48,607 @@
     </tr>
   </thead>
   <tbody>
-
+    <tr>
+      <td><a href="EDUVRFC-101.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-101</a></td>
+      <td>Toevoeging aparte "guardian" scope voor studenten</td>
+      <td><span class="badge" style="background:#888;">Intake RFC</span></td>
+      <td style="font-size:11px;color:#888;">17 Apr 2026</td>
+      <td style="font-size:11px;color:#888;">17 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-100.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-100</a></td>
+      <td>Fijnmazigere autorisatie voor dateOfBirth en emailsParents in Students API 1.1.0</td>
+      <td><span class="badge" style="background:#888;">Intake RFC</span></td>
+      <td style="font-size:11px;color:#888;">9 Apr 2026</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-99.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-99</a></td>
+      <td>Wijziging vullingsregel StudyCode</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Mar 2026</td>
+      <td style="font-size:11px;color:#888;">13 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-98.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-98</a></td>
+      <td>Consistentie van required-regel voor ProductInfo.defaultAccessUrl</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">18 Mar 2026</td>
+      <td style="font-size:11px;color:#888;">31 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-96.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-96</a></td>
+      <td>Schoolidentiteiten in de leermiddelenketen: filterByOrgId en V_ID als non-breaking uitbreiding op de SIS API's (Administratiegegevens)</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">5 Mar 2026</td>
+      <td style="font-size:11px;color:#888;">2 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-95.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-95</a></td>
+      <td>Hoe kan ik distributeurstegoed opvragen binnen Edu-V</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">4 Mar 2026</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-94.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-94</a></td>
+      <td>infoLink ook beschikbaar in Product object</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">18 Feb 2026</td>
+      <td style="font-size:11px;color:#888;">17 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-93.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-93</a></td>
+      <td>Toevoegen van robuuste link tussen Group en SubjectOffering</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">9 Feb 2026</td>
+      <td style="font-size:11px;color:#888;">17 Feb 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-92.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-92</a></td>
+      <td>Leerlingnummers meesturen</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">9 Feb 2026</td>
+      <td style="font-size:11px;color:#888;">17 Feb 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-91.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-91</a></td>
+      <td>Verwijderen/verbergen referenties Course en Progress API</td>
+      <td><span class="badge" style="background:#888;">Implementatie release-candidate</span></td>
+      <td style="font-size:11px;color:#888;">16 Dec 2025</td>
+      <td style="font-size:11px;color:#888;">3 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-90.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-90</a></td>
+      <td>Tabellen van de Confluence pagina's moeten duidelijker de status en versie communiceren.</td>
+      <td><span class="badge" style="background:#888;">Implementatie release-candidate</span></td>
+      <td style="font-size:11px;color:#888;">11 Dec 2025</td>
+      <td style="font-size:11px;color:#888;">18 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-89.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-89</a></td>
+      <td>DigiDeliveryId toevoegen aan enrollment object om afnemers te ondersteunen met overstappen op Edu-v in het VO</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">8 Dec 2025</td>
+      <td style="font-size:11px;color:#888;">12 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-88.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-88</a></td>
+      <td>Signing certificate keten</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">27 Nov 2025</td>
+      <td style="font-size:11px;color:#888;">13 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-87.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-87</a></td>
+      <td>Product en ProductInfo in Catalogue API</td>
+      <td><span class="badge" style="background:#888;">Check Stelselarchitect voor architectenraad</span></td>
+      <td style="font-size:11px;color:#888;">14 Nov 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-86.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-86</a></td>
+      <td>Foutcodes levervarianten op Verwerven berichten</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">14 Nov 2025</td>
+      <td style="font-size:11px;color:#888;">5 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-85.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-85</a></td>
+      <td>Toevoegen DeliveryContact en BuyerContact in Order API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+      <td style="font-size:11px;color:#888;">31 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-84.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-84</a></td>
+      <td>Inconsistentie beschrijving gegevensdienst Leerresultaten</td>
+      <td><span class="badge" style="background:#888;">Implementatie release-candidate</span></td>
+      <td style="font-size:11px;color:#888;">4 Nov 2025</td>
+      <td style="font-size:11px;color:#888;">3 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-83.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-83</a></td>
+      <td>Definities leermiddelen en leermaterialen op Confluence</td>
+      <td><span class="badge" style="background:#888;">Release-candidate</span></td>
+      <td style="font-size:11px;color:#888;">4 Nov 2025</td>
+      <td style="font-size:11px;color:#888;">13 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-82.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-82</a></td>
+      <td>preferredFirstName in Students API</td>
+      <td><span class="badge" style="background:#888;">Release-candidate</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-81.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-81</a></td>
+      <td>Fout in Students API yaml</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-80.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-80</a></td>
+      <td>Roosteritems leerlingen</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">5 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-79.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-79</a></td>
+      <td>Pasfoto leerling</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">5 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-78.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-78</a></td>
+      <td>Rapport- en SE-cijfers leerlingen</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">5 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-77.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-77</a></td>
+      <td>Ziekmeldingen en verlofaanvragen</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-76.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-76</a></td>
+      <td>Gecorrigeerd percentiel Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-75.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-75</a></td>
+      <td>Veld Edition verplicht</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">31 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-74.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-74</a></td>
+      <td>Veld Price verplicht</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-73.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-73</a></td>
+      <td>Veld ProductFamilyName verplicht</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">31 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-72.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-72</a></td>
+      <td>Status- en foutcodes</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">13 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-71.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-71</a></td>
+      <td>Waardenlijst leergebieden (vakkenlijst)</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-70.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-70</a></td>
+      <td>Onderwijsmedewerker in de result</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-69.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-69</a></td>
+      <td>deliveryOrderId optioneel maken</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-68.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-68</a></td>
+      <td>Optioneel maken van de entitlement</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-67.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-67</a></td>
+      <td>Ondersteuning batchverwerking entitlement-records</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-66.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-66</a></td>
+      <td>Uitbreiden Order-API met Delivery API componenten (EDUVRFC-68)</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-65.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-65</a></td>
+      <td>Uitbreiding gegevensset onderwijsdeelnemer</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-64.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-64</a></td>
+      <td>Levervarianten I en IV (open levering)</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-63.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-63</a></td>
+      <td>Verwijderen overbodige query-parameters op endpoints</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-62.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-62</a></td>
+      <td>Uitbreiding Status- en Foutcodes met details schema validatie</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">2 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-61.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-61</a></td>
+      <td>Algemeen maken HTTP 401-code</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-60.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-60</a></td>
+      <td>Verwijderen voorloopnullen bij statuscodes</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-59.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-59</a></td>
+      <td>Fouten Confluence/Wiki tav M2M implementaties</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-58.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-58</a></td>
+      <td>Consent gegevensdienst</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">31 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-57.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-57</a></td>
+      <td>Digitale identiteit onderwijsmedewerkers</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-56.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-56</a></td>
+      <td>Schema Employee AIP mist identifiers</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-55.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-55</a></td>
+      <td>Verwijderen SourceID uit Organisation object</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-54.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-54</a></td>
+      <td>Implementatie endpoint</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-53.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-53</a></td>
+      <td>Identifier omzetten vanuit UUID naar type string</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-52.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-52</a></td>
+      <td>Verwijderen Since uit LAS/SIS</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-51.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-51</a></td>
+      <td>Verwijderen Source uit LAS/SIS API's</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-50.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-50</a></td>
+      <td>Implementeren gegevensdienst Consent UI</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-49.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-49</a></td>
+      <td>Diverse wijzigingen op toetredingsproces</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-48.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-48</a></td>
+      <td>Diverse wijzigingen op Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-47.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-47</a></td>
+      <td>StudyCode verplicht maken</td>
+      <td><span class="badge" style="background:#888;">On-hold</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">9 Dec 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-46.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-46</a></td>
+      <td>Paginering</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">29 Oct 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-45.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-45</a></td>
+      <td>Filterin administratiegegevens</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">3 Mar 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-44.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-44</a></td>
+      <td>Aanpassing filtering administratiegegevensdienst</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-43.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-43</a></td>
+      <td>Wijziging in dienstniveaus</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-42.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-42</a></td>
+      <td>Procedure Klachten en geschillencommissie</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-41.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-41</a></td>
+      <td>Verplicht maken veld 'Price'</td>
+      <td><span class="badge" style="background:#e07020;">Impactanalyse</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Apr 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-40.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-40</a></td>
+      <td>Verduidelijking HTTP codes</td>
+      <td><span class="badge" style="background:#888;">On-hold</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-39.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-39</a></td>
+      <td>Enrollment School</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-38.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-38</a></td>
+      <td>Verwerkingstijd bij synchrone berichten</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">29 Oct 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-37.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-37</a></td>
+      <td>Deelnemersovereenkomst artikel 6.2</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-36.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-36</a></td>
+      <td>Model verwerkersovereenkomst advies KAP</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-35.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-35</a></td>
+      <td>Intentieverklaring voor deelnemers met nieuwe gegevensdienst v2</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-34.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-34</a></td>
+      <td>Het veld Employees optioneel maken</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-33.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-33</a></td>
+      <td>Schrijven toestaan op Association API</td>
+      <td><span class="badge" style="background:#888;">On-hold</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">14 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-32.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-32</a></td>
+      <td>ProductInfo link in Catalogue API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-31.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-31</a></td>
+      <td>Enrollment StudyYear</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-30.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-30</a></td>
+      <td>Juiste format Opleidingseenheidcode in Catalogue API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-29.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-29</a></td>
+      <td>OpenAPI schemas in GIT repository</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-28.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-28</a></td>
+      <td>Verbeteren routeerbaarheid van Edu-V API's</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-27.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-27</a></td>
+      <td>Aanpassingen intentieverklaring en het toetredingsproces</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-26.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-26</a></td>
+      <td>Aanpassing artikel 3.1 en 3.2 Deelnemersovereenkomst</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-25.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-25</a></td>
+      <td>Toevoegen foutcodes Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-24.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-24</a></td>
+      <td>Toevoegen LAS-Key aan Schema EmployeeEntry Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-23.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-23</a></td>
+      <td>Toevoegen 201 status aan Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-22.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-22</a></td>
+      <td>Meerdere Bestelregels in Order API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-21.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-21</a></td>
+      <td>Uitbreiden Object Assessment Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-20.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-20</a></td>
+      <td>Resultaattype Percentiel toevoegen aan Results API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-19.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-19</a></td>
+      <td>Aanpassing StudyOffering object in Education API en Catalogue API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-18.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-18</a></td>
+      <td>SubjectOffering string ipv uuid</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-17.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-17</a></td>
+      <td>Correctie tabel technische vereisten gegevensdiensten</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">29 Oct 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-16.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-16</a></td>
+      <td>Vestigingserkenning verwijderen als secundaire identifier bij onderwijsaanbieder</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-15.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-15</a></td>
+      <td>Entitlements PUT toevoegen</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-14.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-14</a></td>
+      <td>Uitsluiten mTLS voor referentiecomponenten</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-13.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-13</a></td>
+      <td>MUST NOT discovery - verwijderen</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-12.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-12</a></td>
+      <td>MUST API design conform Kennisplatform API design rules</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-11.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-11</a></td>
+      <td>Verduidelijking toepassing PKIo met OIN</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-10.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-10</a></td>
+      <td>Verduidelijking toepassing private_key-jwt authenticatie</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-9.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-9</a></td>
+      <td>Verplichten toepassing JWKS_URI bij clients</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-8.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-8</a></td>
+      <td>Gebruik Cliend IT M2M authenticatie</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-7.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-7</a></td>
+      <td>BRIN6 identifier apart veld</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-6.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-6</a></td>
+      <td>Type opleiding opnemen</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-5.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-5</a></td>
+      <td>Gebundelde call instellingsbestand</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-4.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-4</a></td>
+      <td>Toevoegen Leerjaar 0 Education API</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">12 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-3.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-3</a></td>
+      <td>Meerdere inloglinks in Catalogue API</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-2.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-2</a></td>
+      <td>Toevoegen scope prefixing aan alle API's</td>
+      <td><span class="badge" style="background:#888;">Released</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">22 Jan 2026</td>
+    </tr>    <tr>
+      <td><a href="EDUVRFC-1.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">EDUVRFC-1</a></td>
+      <td>Toevoegen toetsmetadata Results API</td>
+      <td><span class="badge" style="background:#c0392b;">Afgewezen</span></td>
+      <td style="font-size:11px;color:#888;">24 Oct 2025</td>
+      <td style="font-size:11px;color:#888;">21 Nov 2025</td>
+    </tr>
   </tbody>
 </table>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>

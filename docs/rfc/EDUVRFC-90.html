@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-90 — Tabellen van de Confluence pagina's moeten duidelijker de status en versie communiceren.</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-90 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-90" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Tabellen van de Confluence pagina's moeten duidelijker de status en versie communiceren.</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Implementatie release-candidate</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
+    <tr><td>Datum aangemaakt</td><td>11 Dec 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">18 Mar 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Versiebeheer is een belangrijk aandachtspunt van het Edu-V afsprakenstelsel nu we een groot aantal afspraken in de beheerfase hebben. Ook de registratie bij Edustandaard en de onderliggende samenwerkingsovereenkomst vragen om duidelijk versiebeheer.</p><p>De huidige tabellen die elke pagina van Edu-V kent op Confluence moeten duidelijkheid geven wat de status is en welke versie gehanteerd wordt. De huidige tabellen zijn ontwikkeld om de ontwikkeling van het stelsel goed te kunnen duiden, maar vragen nu een aanpassing.  </p><p><strong>Issues huidige versie-tabel:</strong></p><p>De tabellen zijn te onderhoudsgevoelig en geven onduidelijke en soms overbodige/verkeerde informatie. Voorbeelden:</p><ul><li><p>De velden van de status zijn niet duidelijk en de kleurcode wordt niet begrepen/ herkent. De status labels matchen ook niet (meer) met de status beschrijvingen die we nu in de roadmap gebruiken.</p></li></ul><ul><li><p>Versienummer wordt nu niet goed bijgehouden Het is ook verwarrend dat elke pagina moet voldoen aan semantic versioning terwijl dit bedacht is voor de gegevensdiensten.</p></li></ul><ul><li><p>Is de Auteur de eigenaar? Of is de werkgroep de plek waar het beheerd wordt? Het begrip Auteur is onduidelijk.</p></li></ul><ul><li><p>De velden acties en datum vragen te veel onderhoud wat willen we communiceren?</p></li></ul></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p><strong>Voorstel Status labels</strong></p><p> VOORFASE</p><p>In deze fase wordt de opdrachtformulering gemaakt en wordt er een marktverkenning gedaan naar de gewenste oplossing.</p><p> DEFINITIEFASE</p><p>In deze fase wordt er een conceptueel en generiek functioneel model ontwikkeld van de gegevensdienst en de bijbehorende transactiepatronen.</p><p> IMPLEMENTATIEFASE</p><p>Tijdens deze fase wordt de gegevensdienst/afspraak voor het eerst toegepast in de praktijk. We hanteren hier een 0.9.0 versienummer.</p><p> BEHEERFASE</p><p>De afspraak/gegevensdienst heeft de implementatiefase doorlopen en is voldoende in de praktijk gebracht om in beheer te brengen.</p><p><strong>Tabel Afsprakenstelsel algemeen</strong></p><p>Titel</p><p>Architectuurkader – Architectuurprincipes</p><p>Versiestatus</p><p>Beheerfase</p><p>Versienummer</p><p>Architectuurkader 1.0</p><p>Beheer</p><p>Architectenraad Edu-V</p><p>Registratiestatus</p><p>Vastgesteld door het bestuur Edu-V - December 2024</p><p>Datum registratie</p><p><strong>Tabel Gegevensdiensten voorbeeld:</strong></p><p>Titel</p><p>Students API</p><p>Versiestatus</p><p> implementatiefase</p><p>Versie</p><p>0.9.0</p><p>Datum registratie</p><p> 12-11-2025</p><p>Praktijksituatie</p><p>Doorgifte Administratie </p><p>Beheer</p><p>Werkgroep Doorgifte Administratie</p><p>Gebruiksadvies</p><p>Verplicht (link keurmerkbeleid)</p><hr><p> <a href="" target="_blank">[EV1]</a>Mis toch zo iets als ingangsdatum!</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/77758465/Order+API</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Geen impact verwacht. Het kan wel voorkomen dat we tijdens de uitvoering erachter komen dat een versienummer niet klopt. Wanneer dit een pagina betreft met enkel een beschrijving dan passen we het aan. Gebeurt het en heeft het invloed op een API dan maken we er een aparte RFC van en behandelen we de wijziging volgens het proces. </p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Geen impact verwacht. We hopen dat het vooral duidelijker wordt wat de status is en of het onderdeel is van de implementatie</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Zeer laag, het betreft alleen de vorm die we aanpassen. </p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Geen impact op de praktijksituaties </p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><ul><li><p>Deze RFC betreft een redactionele en structurele verduidelijking van statussen binnen het afsprakenstelsel. </p></li></ul><ul><li><p>Er vinden geen inhoudelijke wijzigingen plaats aan het stelsel zelf. Het CAB is positief en ziet dit als een verbeterstap in begrijpelijkheid en transparantie. Er wordt aandacht gevraagd voor eenduidig gebruik van begrippen als ‘implementatie’ en ‘beheer’. </p></li></ul></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Niet van toepassing. Het betreft geen inhoudelijke wijziging. Het is puur bedoeld om te verduidelijken wat de status is van elk onderdeel van het afsprakenstelsel en of de betreffende pagina onderdeel is van de release (implementatie aanpak).  </p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

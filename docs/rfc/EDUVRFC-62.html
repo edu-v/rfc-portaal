@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-62 — Uitbreiding Status- en Foutcodes met details schema validatie</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-62 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-62" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Uitbreiding Status- en Foutcodes met details schema validatie</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">2 Apr 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>In de huidige situatie, als er een schema validatie fout optreedt, wordt teruggegeven: HTTP 400 + statuscode: 0011 + statusmessage “Schema incorrect.”. De client, die een dergelijk bericht van de server ontvangt, kan aan de hand van de informatie in het bericht niet herleiden waar en waarom de fout in de schema validatie is opgetreden. Daarom het voorstel het statusmessage uit te breiden met de details van de foutsituatie. </p><p><u>Voorstel:</u> </p><p>statusMessage ::= “Schema incorrect.” &lt;details&gt; </p><p>details ::= “” | &lt;string&gt; </p><p>In het symbool “string”, in bovenstaande definitie, kunnen details met betrekking tot de geconstateerde schema validatie fout worden opgenomen, bijvoorbeeld als json-value.  </p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Als de server details over de opgetreden fout deelt met de client, kan de client direct een onderzoek starten naar de oorzaak. De client hoeft niet eerst contact met de beheerder van de server op te nemen om te achterhalen wat er is misgegaan. </p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/81625095/Status-+en+foutcodes</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Nihil. De statusmessage string kan in geval van schema validatie fouten een langere waarde gaan bevatten. </p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Het vermelden van details in het statusmessage is optioneel. Bestaande implementatie zijn niet verplicht om deze uitbreiding door te voeren. </p><p>De client hoeft deze waarde niet te verwerken. De waarde is bedoeld om informatief te zijn voor de beheerder van de client en dient ter ondersteuning bij het achterhalen van de oorzaak waardoor de foutsituatie is ontstaan. </p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Security; de mogelijkheid bestaat de servers onbedoeld informatie over hun verwerkingsmethode delen met onbevoegden. </p><p>Privacy; er bestaat een kans dat privacygevoelige informatie via de foutmelding in logbestanden terecht komt. </p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>N.v.t.</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>Het CAB heeft vastgesteld dat niet alle details rond het proces goed geregistreerd zijn in Jira. Met de juiste onderbouwing is besloten akkoord te geven op deze RFC, details worden nog aangevuld.</p><p>Het CAB geeft ook aan dat een vergelijkbare verwerking ook mogelijk zou moeten zijn bij andere status- en foutcoded. Deze optie wordt overwogen en mogelijk opgevoerd als een nieuwe RFC. </p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-75 — Veld Edition verplicht</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-75 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-75" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Veld Edition verplicht</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
+    <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">31 Mar 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Combineren en Arrangeren</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Veld "Edition" verplicht (V) of vullingsregel toevoegen</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Belangrijk voor de keuzecatalogus en leermiddelenapplicatie waar vanuit het onderwijs aan wordt gewerkt. </p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21692475/Catalogue+API</div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><h5>Optie 1: Edition-veld Verplicht (V)</h5><p><strong>Aanpak</strong>:</p><ul><li><p>Maak het edition-veld in het datamodel verplicht voor alle leermiddelen</p></li><li><p>Definieer helder wat "editie" betekent (versie, jaar, update-nummer, etc.)</p></li><li><p>Wijs uitgevers op de verplichting bij aanleveringen</p></li></ul><p><strong>Voordelen</strong>:</p><ul><li><p>Volledige dekking: alle leermiddelen hebben editie-informatie</p></li><li><p>Eenvoudig te valideren: technisch dwingend</p></li></ul><p><strong>Nadelen</strong>:</p><ul><li><p>Streng: kan aanleveringsproblemen veroorzaken</p></li><li><p>Vereist coördinatie met uitgevers</p></li><li><p>Sommige leermiddelen hebben wellicht geen klassieke "editie"</p></li></ul><hr><h5>Optie 2: Vullingsregel Toevoegen</h5><p><strong>Aanpak</strong>:</p><ul><li><p>Maak het veld optioneel, maar voeg regels toe voor wanneer het WEL ingevuld moet zijn</p></li><li><p>Bijvoorbeeld: "Als meerdere versies van dezelfde titel bestaan, moet edition verplicht zijn"</p></li><li><p>Bouw defaults in voor edge cases (digitale-only, permanent beschikbare bronnen)</p></li></ul><p><strong>Voordelen</strong>:</p><ul><li><p>Flexibel: niet alle leermiddelen hebben een editie nodig</p></li><li><p>Pragmatisch: onderkent dat niet alles in klassieke edities past</p></li><li><p>Minder wrijving met uitgevers</p></li></ul><p><strong>Nadelen</strong>:</p><ul><li><p>Complexer om te implementeren</p></li><li><p>Meer casuswerk nodig om regels goed in te vullen</p></li></ul></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><h4>Probleem</h4><p>De keuzecatalogus en leermiddelenapplicatie kunnen niet betrouwbaar onderscheid maken tussen edities van dezelfde titel. Dit leidt tot:</p><ul><li><p><strong>Verkeerde selecties</strong> door vaksecties: dezelfde titel, maar verkeerde editie</p></li><li><p><strong>Incompleet aanbod</strong> in catalogi: edities ontbreken of zijn niet actueel</p></li><li><p><strong>Verwarring rond logistiek</strong>: onzekerheid over prijs, bestellijsten en beschikbaarheid per editie</p></li><li><p><strong>Synchronisatieproblemen</strong>: catalogi kunnen niet tijdig bijgewerkt worden op wijzigingen in editie-informatie</p></li></ul><p><strong>Oorzaak</strong>: Content leveranciers hanteren inconsistente nummering voor edities. Het EAN-nummer verandert soms wel, soms niet. Meerdelige series worden in losse jaargangen aangeleverd. Oude edities blijven circuleren naast nieuwe. Edu-V mist een eenduidige manier om dit vast te leggen.</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>Er is discussie over toepasbaarheid voor digitale producten zonder duidelijke edities.<code> </code><br>Het CAB geeft een voorlopig akkoord, met de afspraak dat het werkgroepbesluit en de vullingsregels expliciet worden vastgelegd in de RFC. <br>Individuele vragen over specifieke leverancierssituaties worden buiten het CAB opgepakt.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><ul><li><p>Op basis van praktijkervaring wordt Optie 1 aanbevolen, het verplicht maken van edition veld. Dit is niet onredelijk: als edities bestaan (en dat doen ze), moeten ze genoemd worden. Dit dwingt duidelijkheid af bij de bron in plaats van het probleem naar achteren in het proces te schuiven.​</p><p>​<br><br><br>Frank vraagt zich af of digitale en print versies die aan elkaar gekoppeld zijn ook dezelfde versies moeten hebben, aangegeven wordt dat dit via de naam gebeurd en daar niet een aparte link nodig heeft.​<br>De digitale producten worden meestal anders genummerd en is aan het voorbeeld toegevoegd.​</p><p><br><br>Werkgroep is akkoord met RFC.​<br><br><br><br><br></p></li></ul><p><strong>Leermiddel</strong> ​</p><p><strong>Type editie</strong> ​</p><p><strong>Voorbeeld</strong> ​</p><p><strong>Moderne Wiskunde (jaarlijks bijgewerkt)</strong> ​</p><p>Schooljaar ​</p><p>2025-2026 ​</p><p><strong>BINAS (meerdere jaren geldig)</strong> ​</p><p>Druk/versie ​</p><p>7de druk ​</p><p><strong>Woordenboek (geen jaarlijkse update)</strong> ​</p><p>Verschijningsjaar ​</p><p>2025 ​</p><p><strong>Digitale Versie (Doorlopend bijgewerkt)</strong> ​</p><p>​</p><p>Versie​</p><p>8.2​</p><p><br><br></p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-91 — Verwijderen/verbergen referenties Course en Progress API</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-91 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-91" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Verwijderen/verbergen referenties Course en Progress API</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Implementatie release-candidate</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
+    <tr><td>Datum aangemaakt</td><td>16 Dec 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">3 Mar 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Op de <a href="https://edu-v.atlassian.net/wiki/home" target="_blank">Confluence omgeving van Edu-V</a> staat documentatie van gegevensdiensten die niet in Edu-V werkgroepen besproken, laat staan vastgesteld zijn. Het gaat om de <strong>Course API</strong> en de <strong>Progress API</strong> onder respectievelijk de werkgroepen Combineren &amp; Arrangeren en Evalueren Leerresultaten en -Resultaten. Om verwarring van implementerende partijen te voorkomen is tijdens de Confluence Day is besloten om de genoemde gegevensdiensten te verbergen/verwijderen en pagina’s waarop naar deze diensten verwezen wordt aan te passen.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Naast de documentatiewijzigingen op Confluence dienen er drie wijzigingen in YAMLs (Catalogue, Notifications, Consent API) doorgevoerd te worden, wat formeel een nieuwe release zou vereisen. De aanname is dat deze objecten (course, courseReference, scopes) niet gebruikt worden en verwijdering dus technisch/functioneel geen problemen op zou moeten leveren, maar het behelst wel nieuwe versies van de genoemde APIs.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Als het goed is laag/geen; de genoemde functionaliteit wordt (nog) niet gebruikt.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag, maar de wijzigingen moeten wel consciëntieus doorgevoerd worden om fouten te voorkomen.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>C&amp;A, EL&amp;R, overstijgend (architectuur)</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>RFC is zonder wijzigingen akkoord bevonden.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>n.v.t. </p><p>Deze (interne) RfC is werkgroepoverstijgend; betreft zowel C&amp;A als EL&amp;R.</p><p>De genoemde APIs zijn nooit door de werkgroepen vastgesteld en de verwijdering/verberging hoeft dan ook niet in de respectievelijke werkgroepen besproken te worden; dit zou wellicht alleen maar voor verwarring zorgen in aanloop naar nieuwe voorstellen op dit vlak.</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

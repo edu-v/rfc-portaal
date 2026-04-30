@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-96 — Schoolidentiteiten in de leermiddelenketen: filterByOrgId en V_ID als non-breaking uitbreiding op de SIS API's (Administratiegegevens)</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-96 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-96" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Schoolidentiteiten in de leermiddelenketen: filterByOrgId en V_ID als non-breaking uitbreiding op de SIS API's (Administratiegegevens)</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
+    <tr><td>Datum aangemaakt</td><td>5 Mar 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">2 Apr 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Administratiesystemen</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Twee wijzigingen worden voorgesteld als tijdelijke oplossing voor een acuut probleem met schoolidentiteiten in de SIS API's (Administratiegegevens):</p><ol><li><p>Toevoeging van de optionele boolean parameter <code>filterByOrgId</code> aan de request van de SIS API's (Administratiegegevens). De parameter is altijd optioneel. Bij afwezigheid geldt de sectorspecifieke default. De parameter is alleen relevant in combinatie met <code>orgId</code> en <code>orgIdType</code>, en geeft de afnemer expliciete controle over of de response gefilterd wordt op de opgegeven secundaire identiteit, of dat de volledige set van de bijbehorende onderwijsaanbieder teruggegeven wordt.</p></li><li><p>Toevoeging van <code>V_ID</code> (VestigingsId) als nieuw orgIdType op het niveau van de Onderwijsaanbieder. Dit is een identifier met hetzelfde formaat als de VE_CODE (BRIN6), maar met een bredere scope die ook dummy vestigingen omvat.</p></li></ol><p>Dit is een non-breaking change. Bestaande implementaties hoeven niets aan te passen. De volledige onderbouwing is opgenomen in de bijgevoegde notitie "Schoolidentiteiten in de leermiddelenketen".</p><p>Dit voorstel vervangt RFC 89.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>De huidige implementaties van de SIS API's (Administratiegegevens) werken in PO en VO fundamenteel anders met dezelfde parameters. In PO werkt <code>orgId</code> als filter op vestigingsniveau, in VO als alternatief ophaalmechanisme waarmee altijd de volledige onderwijsaanbieder-scope wordt teruggegeven. Dit leidt tot inconsistentie, onvoorspelbaar gedrag voor afnemers die in beide sectoren actief zijn, en een dataminimalisatievraagstuk.</p><p>Daarnaast ontbreekt een geschikte identifier voor vestigingsniveau inclusief dummy vestigingen, wat in de praktijk leidt tot workarounds met AS_ID.</p><p>Dit voorstel lost beide problemen op zonder bestaande productie-implementaties te breken. Het is expliciet bedoeld als tijdelijke oplossing. De structurele discussie over organisatiemodellering binnen Edu-V — met name de positie van de Vestigingserkenning in het identiteitenmodel en de betekenis en toepassing van de V_ID — dient separaat en op termijn gevoerd te worden binnen de werkgroep doorgifte administratiesystemen.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>De wijziging betreft twee aanpassingen aan de request-interface van de SIS API's (Administratiegegevens):</p><ol><li><p>Toevoeging van de optionele boolean parameter <code>filterByOrgId</code>. Geen wijziging aan het objectmodel of de response-structuur.</p></li><li><p>Toevoeging van <code>V_ID</code> als nieuw waarde in de enum van <code>orgIdType</code> op het niveau van de Onderwijsaanbieder, met BRIN6-formaat, inclusief niet officiële BRIN6</p></li></ol><p>Dit is een non-breaking change: bestaande aanroepen zonder <code>filterByOrgId</code> gedragen zich ongewijzigd conform de sectorspecifieke default. Het is de verantwoordelijkheid van de afnemer om vooraf te verifiëren of de betreffende bron <code>filterByOrgId</code> ondersteunt alvorens hier gebruik van te maken.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Voor afnemers is er geen verplichte aanpassing, bestaande implementaties blijven werken. Afnemers die gebruik willen maken van de nieuwe filterfunctionaliteit dienen <code>filterByOrgId</code> toe te voegen aan hun requests. Voor bronnen (LAS-leveranciers) is implementatie van de parameter vereist, inclusief de bijbehorende foutafhandeling. De sectorspecifieke defaults (PO: <code>True</code>, VO: <code>False</code>) borgen backwards compatibility. Documentatie van de SIS API's dient te worden bijgewerkt met de nieuwe parameter en het nieuwe orgIdType.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Het risico van deze wijziging is beperkt door het non-breaking karakter. Een aandachtspunt is dat de sectorspecifieke default-waarden het gedragsverschil tussen PO en VO niet oplossen maar consolideren, dit is een bewuste keuze als tijdelijke oplossing. Het structurele vraagstuk rond de positie van de Vestigingserkenning in het Edu-V identiteitenmodel blijft onopgelost en dient separaat te worden geadresseerd in de werkgroep doorgifte administratiesystemen. Introductie van <code>V_ID</code> als identifier met bredere scope dan <code>VE_CODE</code> introduceert een nieuwe semantische laag die in toekomstige modellering zorgvuldig gepositioneerd moet worden.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Afnemers die actief zijn in zowel PO als VO ondervinden momenteel inconsistent gedrag bij het aanroepen van de SIS API's met een secundaire identiteit: in PO wordt gefilterd op vestigingsniveau, in VO wordt altijd de volledige onderwijsaanbieder-scope teruggegeven. Dit leidt tot onvoorspelbare responses en onnodige datadeling. Met de introductie van <code>filterByOrgId</code> krijgen afnemers expliciete controle over de scope van de response, zonder bestaande integraties te breken. De toevoeging van <code>V_ID</code> als orgIdType lost daarnaast een praktische workaround op waarbij <code>AS_ID</code> gebruikt wordt om ook dummy vestigingen te adresseren.</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>CAB is akkoord met deze RFC, geen verdere opmerkingen.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Akkoord, graag ook aangeven welke foutcode er moet komen. Magister en Topicus hebben in de werkgroep al toegezegd dat ze deze wijziging zullen aanbieden in de aankomende voorjaarsrelease.</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

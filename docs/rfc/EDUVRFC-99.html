@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-99 — Wijziging vullingsregel StudyCode</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-99 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-99" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Wijziging vullingsregel StudyCode</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
+    <tr><td>Datum aangemaakt</td><td>24 Mar 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">13 Apr 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Administratiesystemen</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p><strong>Korte beschrijving RFC</strong></p><p>De vullingsregel voor de StudyCode verwijst nu in het geval van het PO en VO naar de RIO waardelijsten van de <u>opleidingseenheid code. </u></p><p>Zowel Magister als SOM gebruiken deze waarde nu niet in het systeem en deze wordt nu ook niet actief gebruikt door andere leveranciers in het VO. Voorstel is om in het VO de erkende opleidingscode te gebruiken. Deze wijziging voeren we alleen door in de gegevensdiensten van de doorgifte van administratiegegevens en dus bijvoorbeeld niet in de catalogus api. Voor het PO is er geen bezwaar om de opleidingseenheid code te hanteren, dus adviseren we hier om de RIO waardelijst te blijven gebruiken. </p><p><strong>Gewenste vullingsregel:</strong></p><p>Indien de AangebodenOpleiding erkend is dan is dit veld verplicht. Werkingsregel is om per sector de volgende waardelijsten te gebruiken:</p><ul><li><p><strong>Primair onderwijs:</strong> opleidingseenheid code (9 karakters) conform <u><a href="https://www.edustandaard.nl/standaard_werkgroepen/beheergroep-waardenlijsten-rio/" target="_blank">waardelijst RIO po</a></u></p></li><li><p><strong>Voortgezet onderwijs:</strong> erkende opleidingscode (4 karakters) conform <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0048579&bijlage=Ia&z=2025-08-28&g=2025-08-28" target="_blank">Regeling Codetabellen VO, VSO en MBO</a></p></li></ul><p>De twee formaten zijn ondubbelzinnig te onderscheiden op basis van lengte en structuur. Een afnemer kan beide correct interpreteren zonder risico op verwisseling.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Magister en Som beschikken niet over de waardes van Rio in het systeem. Ook ontbreken er codes in de excel lijsten van Magister waardoor er fouten kunnen ontstaan. </p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1250820183/Education+API+1.1.0</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Geen impact, Alleen de vullingsregel verandert naar de verwijzing van een andere waardelijst. </p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>De werkgroepleden vinden het vooral belangrijk dat het zichtbaar is welke waardelijst gebruikt wordt. Technisch dus ook meegeven via Pattern codering welke je gebruikt. </p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Er moet een lange termijn discussie gevoerd worden over het gebruik van RIO in de gehele keten. </p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>LAS leveranciers in het VO beschikken niet over de opleidingseenheidscode en er ontbreken ook een aantal codes in de lijst. </p><p>Impact om ipv de de eenheidscode de erkende opleidingscodes te gaan gebruiken is minimaal. Ook omdat ze waardes op dit moment gebruikt worden in de keten.</p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p>NVT bij deze RFC</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>CAB geeft akkoord voor deze RFC.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Na review op de voorgestelde oplossing is het definitieve voorstel:</p><p><strong>Gewenste vullingsregel:</strong></p><p>Indien de AangebodenOpleiding erkend is dan is dit veld verplicht. Werkingsregel is om per sector de volgende waardelijsten te gebruiken:</p><ul><li><p>Primair onderwijs (BO &amp; SO): opleidingseenheid code (9 karakters) conform <a href="https://www.edustandaard.nl/standaard_werkgroepen/beheergroep-waardenlijsten-rio/" target="_blank">waardelijst RIO po</a></p></li><li><p>Voortgezet onderwijs (VO &amp; VSO): erkende opleidingscode (4 karakters) conform <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0048579&bijlage=Ia&z=2025-08-28&g=2025-08-28" target="_blank">Regeling Codetabellen VO, VSO en MBO</a></p></li></ul><p>De twee formaten zijn ondubbelzinnig te onderscheiden op basis van lengte en structuur. Een afnemer kan beide correct interpreteren zonder risico op verwisseling.</p><p><strong>Technische aanvulling:</strong></p><p>components:</p><p>  schemas:</p><p>    studyCode:</p><p>      type: string</p><p>      description: "Accepteert 4 cijfers (0011) of 4 cijfers, een 'O', en weer 4 cijfers (1000O0020)."</p><p>      example: "1000O0020"</p><p>      pattern: '^(\d{4}|\d{4}O\d{4})$'</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

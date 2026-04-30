@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-88 — Signing certificate keten</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-88 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-88" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Signing certificate keten</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>27 Nov 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">13 Apr 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>The EDU-V spec requires that the AS (Authorization Server) validates the chain of the signing certificate.</p><p>If all certificates in the chain provide the link to the public key of the issuer certificate with a URL referring to the certificate, the AS is able to build the whole chain, verify it and check if the root CA is trusted by the AS. </p><p>However, that's not always the case. In practice, it turns out that not all issued PKI certificates provide the proper link. The Noordhoff one, issued by KPN, only states "<a href="http://procsp.managedpki.com" target="_blank">http://procsp.managedpki.com</a> ". This URL leads to a web page where you can find the public key, but that's not how this field should be used, it should directly link to the public key of the issuing certificate. </p><p>There are 2 possible solutions to this problem: </p><ol><li><p>The AS has all the available intermediary certificates in loaded in the extra store. </p></li><li><p>The JWKS endpoint contains all certificates in the chain in the entry for the PKI Overheid certificate. </p></li></ol><p>The problem with (1) is that the list of available intermediaries is available on the PKI overheid website but not in a format that is easily parsable by a service. This means it's a manual action or an unhandy parser, to retrieve all the intermediaries. If there was a JSON or XML file that provides these certificates, things would be a lot easier. <br>Both solutions work, but they do require extra work on all sides and we would like the EDU-V spec to have an opinion on this.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Reduceren van de complexiteit, verhelderen van de afspraak</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://id.atlassian.com/join/user-access?resource=ari:cloud:confluence::site/07c4601b-3a2f-44c1-b29a-085739fd9332&amp;continue=https://eduv.atlassian.net/wiki/spaces/AFSPRAKENS/pages/10846209/M2M+identificatie%2520+authenticatie+en+autorisatie</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>De zorg die er is of partijen eigenlijk wel de ROOT valideren cq checken. Dit staat los van het wel of niet mee sturen van een ROOT certificaat.<br><br>Na onderzoek zal aan de ArchitectenRaad van Edu-V een voorstel gedaan worden waarin we gaan vastleggen wat er moet gebeuren. De kaders voor de uitwerking daarna zijn:<br><br><strong>JWKS x5c en certificaatvalidatie</strong></p><ol><li><p><strong>Verplicht</strong>: De AS <strong>valideert</strong> elke handtekening tegen een <strong>lokaal beheerde trust‑store</strong> met de <strong>PKIoverheid‑root(s)</strong> en relevante <strong>intermediate‑CA’s</strong>. Padvalidatie volgt <strong>RFC 5280</strong>. </p></li><li><p><strong>Toegestaan en aanbevolen</strong>: Leveranciers <strong>mogen</strong> in <code>x5c</code> het <strong>eindcertificaat gevolgd door alle intermediates</strong> aanleveren, <strong>zonder</strong> de root. De volgorde is conform <strong>RFC 7517 §4.7</strong>. </p></li><li><p><strong>Verboden</strong>: Het <strong>meesturen van de root</strong> in <code>x5c</code>. De root is een trust anchor en wordt onafhankelijk gedistribueerd. (Analogie met TLS: root <strong>MAY be omitted</strong>.) </p></li><li><p><strong>Operationeel</strong>: De AS‑beheerder <strong>houdt de PKIoverheid‑intermediates actueel</strong> op basis van de door PKIoverheid gepubliceerde overzichten. Een verwijzing naar de <strong>officiële PKIoverheid‑certificatenpagina</strong> wordt in de implementatiehandleiding opgenomen. </p></li></ol><p><u><em>Kleine onderbouwing:</em></u></p><p><strong>AS onderhoudt een extra store met alle intermediates</strong></p><p><strong>Voordelen</strong></p><ul><li><p><strong>Correcte trust‑scheiding</strong>: validatie gebeurt tegen de eigen, vertrouwde CA‑set; leveranciers leveren geen “vertrouwen” aan. </p></li><li><p><strong>Robuust bij misconfiguratie</strong> (ontbrekende/kapotte AIA‑URIs in certificaten), omdat de AS al over de noodzakelijke intermediates beschikt.</p></li></ul><p><strong>Nadelen</strong></p><ul><li><p><strong>Operationeel onderhoud</strong>: PKIoverheid publiceert de set, maar <strong>niet altijd</strong> als makkelijk parsebare feed; het is dus wat werk om te automatiseren. (De lijst is er wel, maar je zult zelf scraping/scripting of beheerprocedures moeten inrichten.) </p></li></ul><p><strong>Mitigaties (aanbevolen in EDU‑V)</strong></p><ul><li><p>Verwijs in de spec naar <strong>PKIoverheid‑bronpagina’s</strong> en verplicht <strong>periodieke synchronisatie</strong> van intermediates. </p></li><li><p>Neem een <strong>non‑normative appendix</strong> met voorbeeld‑automatisering (bv. cron + script) op.</p></li></ul><p><u><strong>ROOT in </strong></u><code>x5c</code><u><strong>?</strong></u></p><p><strong>Nee mag niet!.</strong></p><ul><li><p><strong>JWK §4.7</strong> vereist het <strong>leaf</strong> en staat “additional certificates” toe — dit duidt op <strong>intermediates</strong> (issuer van vorige), <strong>niet</strong> op de trust anchor.</p></li><li><p><strong>TLS/PKI‑praktijk</strong>: de <strong>root “MAY be omitted”</strong>; clients moeten ‘m zelf hebben. Meesturen is niet nodig en kan tot verwarring leiden.</p></li></ul><p><strong>Voordelen van root weglaten</strong></p><ul><li><p>Helder trust‑model; geen schijnvertrouwen door aangeleverde root.</p></li><li><p>Iets kleinere JWKS‑payloads.</p></li><li><p>Minder kans op validatie‑edge‑cases bij sommige libraries. (Sommige stacks reageren onvoorspelbaar op extra/onnodige certs in de header of JWKS.)</p></li></ul><p><strong>Nadelen (praktisch beperkt)</strong></p><ul><li><p>Geen; de root hoort toch al in de AS‑truststore te staan.</p></li></ul><p><u><strong>Praktisch gevolg:</strong></u></p><p>AS-zijde: lokale PKIoverheid-root(s)-store vraagt om extra implementatie werk (zie opmerking Noordhoff binnen de RFC). En vraagt om een periodieke sync. Voor de periodieke sync geldt dat een leverancier dagelijks zijn store bijwerkt. </p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Raakt alle inhoudelijk de praktijk situaties niet. </p><p>Issue op niveau van Infra</p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p><strong><em>RFC 0088 Signing Certificate</em></strong></p><p>De architectuurraad is akkoord met onderstaande implementatie kader:</p><p><strong>Belangrijkste aanleiding:</strong></p><ol><li><p>Is de chain nu wel of niet verplicht binnen de JWKS</p></li><li><p>Chain wel of niet opslaan eigen trust</p></li></ol><p><strong>Functioneel besluit:</strong></p><ol><li><p>In de lijn van W3C: JWKS hoeft de x5c chain niet op te nemen. Maar MAG wel,<br>dus chain mag ook met root</p></li><li><p>Omdat de chain niet opgenomen hoeft te worden moet de server de gehele chain<br>in de eigen trusted ca directory plaatsen</p></li><li><p>Je moet de chain altijd valideren tegen je eigen trusted CA directory. Die bevat<br>zowel root alsook intermediates.</p></li></ol><p><strong>Next steps:</strong></p><ul><li><p>omdat het hier gaat om een nadere toelichting op hoe om te gaan met is het advies om de CAB per mail hierover te informeren.</p></li><li><p>het functionele besluit zal verwerkt worden binnen confluence. De link naar de pagina waar dit wordt verwerkt zal ter info gestuurd worden naar de Architectuurraad als de implementatie partijen. </p></li></ul></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>CAB geeft akkoord voor deze RFC.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Advies werkgroep niet van toepassing bij deze RFC.</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-58 — Consent gegevensdienst</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-58 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-58" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Consent gegevensdienst</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
+    <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">31 Mar 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Consent geven voor administratiegegevensdiensten mag als één gegevensdienst <strong>conform het voorbeeld op de pagina</strong>. <br>Dus: de gegevensdienst ‘Onderwijsorganisatie’ als cluster van de diensten ‘Onderwijsaanbod’, ‘Onderwijsinrichting’, ‘Onderwijsdeelnemers’ en ‘Onderwijsmedewerkers’ is toegestaan in de consent UI. </p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>De administratiegevensdiensten hebben een sterke onderlinge samenhang en refereren naar elkaar. Hierdoor zijn er bij afnemers afhankelijkheden in het datamodel. Het uit kunnen zetten van bijvoorbeeld ‘Education API’ middels consent zorgt er daardoor voor dat een noodzakelijk gegeven ontbreekt met problemen voor de school en leverancier tot gevolg. </p><p>Effectief kan hiermee een ‘verplicht veld’ uitgezet worden, door de complete dienst waar dit veld in zit uit te zetten via de consent UI.  </p><p>Deze problemen worden voorkomen door de set van gegevensdiensten en scopes per afnemer in te richten in de consent UI van de bron op een dusdanig manier dat de school alleen consent kan geven of intrekken op combinaties die daadwerkelijk functioneel zijn. <code> </code><br><code> </code><br>Dat wordt als volgt bereikt: <code> </code><br>Als een leverancier, zoals een uitgever, aangeeft alle vier de gegevensdiensten nodig te hebben om het datamodel correct te vullen, dan wordt de consent ui voor die specifieke uitgever ingericht op basis van de minimale gegevens (scopes) die de uitgever nodig heeft om de dienst te kunnen leveren aan de school. De school krijgt vervolgens de mogelijkheid om daar consent voor te geven voor specifieke onderwijsaanbieders. Wanneer dit consent gegeven is, heeft de uitgever in dit voorbeeld direct toegang tot de volledige benodigde hiërarchie van gegevens. Er ontstaan geen problemen omdat slechts consent gegeven is op een deel van de benodigde entiteiten, waarbij de uitgever dus al objecten ontvangt die deze nog niet kan verwerken omdat de benodigde relaties met andere objecten niet gemaakt kunnen worden omdat daarvoor (nog) geen consent gegeven is. </p><p>Voor scholen is er dus ook minder dat ze fout kunnen doen qua inrichting. Deze werkwijze komt overeen met de huidige werkwijze: Beheerders zijn gewend dat ze maar één keer voor een leverancier consent hoeven geven. Wanneer ze dit meerdere keren apart moeten doen is het waarschijnlijk dat de andere diensten vergeten worden. </p><p>Wanneer er wel een zinvolle functionele scheiding is, dan wordt de consent apart aangeboden en apart zichtbaar gemaakt voor de beheerders op de school. Aanvullende informatie die dus niet vereist is in de minimale set om de koppeling te laten werken valt dus wél onder apart consent. Denk hierbij aan resultaten terugkoppeling vanuit een product van dezelfde uitgever. Het apart aanbieden van dit consent heeft geen invloed op bestelprocessen, levering en toegang tot het digitaal materiaal. Dit kan dus prima als apart consent aangeboden worden en heeft dan ook alleen effect op de functionaliteit van het terugschrijven van resultaten. </p><p>Om een zo soepel mogelijke overgang naar Edu-V aan te bieden bij gebruikers wil indiener het mogelijk maken om consent voor benodigde onderdelen van administratiediensten in 1x te kunnen geven. Dit is logisch voor gebruikers, omdat dit is wat ze nu ook gewend zijn. Het is onlogisch voor gebruikers dat de consent 4x gegeven moet worden en dit zal daardoor ook fout gaan. </p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/75169822/Voorschriften+voor+Consent+UI</div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

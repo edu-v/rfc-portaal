@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-72 — Status- en foutcodes</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-72 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-72" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Status- en foutcodes</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">13 Apr 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p><strong>N.B.: bij deze RFC hoort een uitgebreide herziening van status- en foutcodes, deze is uitgewerkt in een PDF die als bijlage bij deze RFC is gevoegd. </strong> </p><p><strong>Beoogd resultaat</strong> </p><ol><li><p>Het doel van deze wijziging is om de specificaties <strong>eenduidiger, vollediger, consistenter en praktischer toepasbaar</strong> te maken voor leveranciers (kandidaat-deelnemers). </p></li></ol><ol><li><p>Daarmee krijgt Edu-V een sterker kader om leveranciers uniform te toetsen en worden discussies over interpretaties geëlimineerd. </p></li></ol><p><strong>Huidige probleem</strong> </p><p>Op dit moment zijn de foutcodes per gegevensdienst of groepen van gegevensdiensten beschreven. Daardoor moeten leveranciers zelf puzzelen welke foutcodes van toepassing zijn op welke endpoints. Het gepuzzel kost niet alleen veel tijd, maar leidt ook tot interpretatie verschillen per leverancier. Dit leidt weer tot verschillende implementaties. Het Edu-V Afsprakenstelsel is toch juist bedoeld zodat partijen hetzelfde bouwen? </p><p>Voor Edu-V betekent dit dat we leveranciers niet (stevig) kunnen aanspreken op afwijkende implementaties, omdat we het zelf onmogelijk kunnen onderbouwen met feiten. </p><p><strong>Voordeel</strong> </p><p>De voorgestelde wijziging  </p><ul><li><p>voorkomt uiteenlopende implementaties,  </p></li></ul><ul><li><p>verkleint de kans op fouten,  </p></li></ul><ul><li><p>versnelt het ontwikkel- en testtrajecten en  </p></li></ul><ul><li><p>geeft Edu-V de beschikking over een uniform toetsingskader. </p></li></ul><p><strong>Alternatieven</strong> </p><p>Een alternatief zou zijn om de huidige situatie te handhaven en leveranciers nog steeds zelf te laten bepalen hoe en waar ze de foutcodes toepassen. Dit is echter onwenselijk gebleken: zie boven. </p><p>Daarom is gekozen voor de oplossingsrichting om foutcodes per endpoint vast te leggen, aansluitend bij de systematiek van de meeste andere onderdelen van het Afsprakenstelsel waarin duidelijkheid en consistentie centraal staan. </p><p><strong>Samenvatting van de wijziging</strong> </p><p>De voorgestelde wijziging omvat: </p><ul><li><p>Het expliciet aangeven dat de foutcodes "MOETEN worden opgenomen", omdat sommige leveranciers dachten dat het optioneel was omdat er "KUNNEN worden opgenomen" staat. </p></li></ul><ul><li><p>Het expliciet koppelen van foutcodes aan endpoints in plaats van alleen op gegevensdienstniveau of groepen van gegevensdiensten. </p></li></ul><ul><li><p>Het toevoegen van ontbrekende foutcodes om consistentie te waarborgen met andere velden in de JSON berichten. </p></li></ul><ul><li><p>Het verduidelijken van de plaats waar foutcodes thuishoren (Request- of Response body). </p></li></ul><p>Deze aanvullingen/wijzigingen zijn in samenwerking met (en/of afgestemd met) de architecten gedaan. Bovendien hebben kandidaat-deelnemers van de huidige release een track-changes document met de wijzigingen alvast (onder voorbehoud) ontvangen. Dit geldt voor zowel het PO als VO. </p><p><strong>Conclusie</strong> </p><p>De wijziging vraagt mogelijk een eenmalige aanpassing in Confluence en afstemming met meerdere werkgroepen, maar levert structureel voordeel op in de vorm van eenduidigheid, verminderde interpretatieverschillen, snellere ontwikkeltraject en efficiëntere kwalificatie. Daarmee zijn de voordelen groter dan de impact. </p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Zie beschrijving</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Aanvullingen op de foutcodes hebben een indirecte technische impact. Daarom is de nieuwe versie van deze afspraak gekoppeld aan alleen de nieuwe “Final Recommended” versies van de API vanaf release 4! De oude afspraak Status en Foutcodes blijft gekoppeld aan de oude versies van de API’s</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Zie beschrijving impact Technisch</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Geen grote risico’s juist meer duidelijkheid met de aangevulde foutcodes. Hogere kwaliteit van testen mogelijk.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Geen impact op de scenario’s in de praktijksituaties</p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p>Niet van toepassing</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>Reeds doorgevoerd in de release maart 2026. Tijdens CAB 10-04 alsnog besloten dat deze RFC akkoord is.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>De RFC is onder de aandacht gebracht bij de verschillende werkgroepen en is akkoord</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>
