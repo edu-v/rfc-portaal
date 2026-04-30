@@ -1,0 +1,237 @@
+# Edu-V RFC configuratie — individuele RFC-pagina's
+# Zet visible: true om een veld te tonen op de losse RFC-pagina.
+# De overzichtspagina (index) gebruikt altijd de vaste kolommen.
+
+fields:
+
+  # ── Basis ──────────────────────────────────────────────────────────────────
+  summary:
+    label: Titel
+    visible: true
+
+  status:
+    label: Status
+    visible: true
+
+  customfield_10059:
+    label: RFC Type
+    visible: true
+
+  customfield_10371:
+    label: RFC Type (platte tekst voor publicatie)
+    visible: false
+
+  customfield_10058:
+    label: Categorie
+    visible: false
+
+  priority:
+    label: Prioriteit
+    visible: false
+
+  labels:
+    label: Labels
+    visible: false
+
+  fixVersions:
+    label: Releaseversies
+    visible: false
+
+  # ── Indiener ───────────────────────────────────────────────────────────────
+  customfield_10158:
+    label: Naam indiener
+    visible: false
+
+  customfield_10159:
+    label: Functie indiener
+    visible: false
+
+  customfield_10190:
+    label: E-mailadres indiener
+    visible: false
+
+  customfield_10161:
+    label: Telefoonnummer indiener
+    visible: false
+
+  customfield_10157:
+    label: Naam organisatie
+    visible: false
+
+  customfield_10223:
+    label: Product indiener
+    visible: false
+
+  customfield_10224:
+    label: Bron of afnemer
+    visible: false
+
+  reporter:
+    label: Melder (Jira-account)
+    visible: false
+
+  # ── Behandeling ────────────────────────────────────────────────────────────
+  assignee:
+    label: Behandelaar
+    visible: false
+
+  customfield_10126:
+    label: Beoordelaar
+    visible: false
+
+  created:
+    label: Datum aangemaakt
+    visible: true
+
+  updated:
+    label: Laatst gewijzigd
+    visible: true
+
+  duedate:
+    label: Einddatum
+    visible: false
+
+  customfield_10271:
+    label: Datum werkgroep
+    visible: false
+
+  customfield_10267:
+    label: Datum Architectenraad
+    visible: false
+
+  customfield_10268:
+    label: Datum CAB
+    visible: false
+
+  customfield_10191:
+    label: Werkgroep
+    visible: true
+
+  customfield_10068:
+    label: Werkcategorie
+    visible: false
+
+  # ── Scope ──────────────────────────────────────────────────────────────────
+  customfield_10225:
+    label: Gegevensdienst
+    visible: false
+
+  customfield_10226:
+    label: Referentiecomponent
+    visible: false
+
+  customfield_10227:
+    label: Gegevensdienst anders
+    visible: false
+
+  customfield_10228:
+    label: Referentiecomponent anders
+    visible: false
+
+  customfield_10091:
+    label: Aandachtsgebieden
+    visible: false
+
+  # ── Inhoud RFC ─────────────────────────────────────────────────────────────
+  description:
+    label: Beschrijving
+    visible: true
+
+  customfield_10166:
+    label: Praktijkvoorbeeld
+    visible: false
+
+  customfield_10167:
+    label: Onderbouwing van nut of noodzaak
+    visible: true
+
+  customfield_10168:
+    label: Gewenst moment van invoering
+    visible: true
+
+  customfield_10165:
+    label: Link naar Confluence-pagina
+    visible: true
+
+  customfield_10261:
+    label: Confluence link naar pre-release informatie
+    visible: false
+
+  customfield_10338:
+    label: Publiceer RFC op Confluence
+    visible: false
+
+  # ── Impact ─────────────────────────────────────────────────────────────────
+  customfield_10169:
+    label: Impact Technisch
+    visible: true
+
+  customfield_10170:
+    label: Impact Implementatie
+    visible: true
+
+  customfield_10171:
+    label: Impact Risico's
+    visible: true
+
+  customfield_10172:
+    label: Past de wijziging binnen bestaande roadmap
+    visible: true
+
+  customfield_10124:
+    label: Impact Praktijksituatie
+    visible: true
+
+  # ── Adviezen ───────────────────────────────────────────────────────────────
+  customfield_10175:
+    label: Advies Architectenraad
+    visible: true
+
+  customfield_10176:
+    label: Advies CAB
+    visible: true
+
+  customfield_10177:
+    label: Advies werkgroep
+    visible: true
+
+  customfield_10179:
+    label: Stelselarchitectgroep
+    visible: false
+
+  customfield_10269:
+    label: Opmerkingen stelselarchitect
+    visible: false
+
+  # ── Besluit & communicatie ─────────────────────────────────────────────────
+  customfield_10127:
+    label: Reden van afwijzing
+    visible: true
+
+  customfield_10264:
+    label: Status van afwijzing
+    visible: true
+
+  customfield_10270:
+    label: Reden voor on-hold
+    visible: false
+
+  customfield_10258:
+    label: Indiener communicatie na impactanalyse
+    visible: false
+
+  customfield_10260:
+    label: Indiener communicatie na afwijzen
+    visible: false
+
+  customfield_10259:
+    label: Indiener communicatie na pre-release
+    visible: false
+
+  customfield_10266:
+    label: Opmerkingen voor (pre-)release
+    visible: false
+
+  customfield_10305:
+    label: Notitie voor backlog
+    visible: false

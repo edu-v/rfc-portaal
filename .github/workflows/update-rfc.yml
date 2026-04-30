@@ -1,0 +1,37 @@
+name: RFC Overzicht genereren
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 2"  # elke dinsdag 11:00 Amsterdam (09:00 UTC zomer)
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python instellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Afhankelijkheden installeren
+        run: pip install pyyaml
+
+      - name: RFC pagina's genereren
+        env:
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+        run: python3 tools/generate_rfc_docs.py docs/rfc
+
+      - name: Wijzigingen committen en pushen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/rfc/
+          git diff --cached --quiet || git commit -m "RFC overzicht bijgewerkt ($(date '+%Y-%m-%d'))"
+          git push
