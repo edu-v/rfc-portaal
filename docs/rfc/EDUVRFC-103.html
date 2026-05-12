@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>EDUVRFC-87 — Product en ProductInfo in Catalogue API</title>
+  <title>EDUVRFC-103 — Afsplitsen en hernoemen Dashboards</title>
   <style>
     body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
     h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
@@ -35,16 +35,16 @@
 </head>
 <body>
 <div class="nav"><a href="index.html">← RFC Overzicht</a></div>
-<div class="rfc-key">EDUVRFC-87 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-87" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
-<div class="rfc-title">Product en ProductInfo in Catalogue API</div>
+<div class="rfc-key">EDUVRFC-103 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-103" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Afsplitsen en hernoemen Dashboards</div>
 <p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
 <h2>Status</h2>
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Check Stelselarchitect voor architectenraad</span></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
     <tr><td>RFC-type</td><td>Trivial</td></tr>
-    <tr><td>Datum aangemaakt</td><td>14 Nov 2025</td></tr>
+    <tr><td>Datum aangemaakt</td><td>12 May 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
@@ -52,23 +52,23 @@
   <div class="field-label">Laatst gewijzigd</div>
   <div class="field-value">12 May 2026</div>
   <div class="field-label">Werkgroep</div>
-  <div class="field-value">Verwerven en in gebruikname</div>
+  <div class="field-value">Toetsen en examineren</div>
   <div class="field-label">Beschrijving</div>
-  <div class="field-value"><p>In de Catalogue API zijn twee hoofdobjecten beschikbaar: Product en ProductInfo. ProductInfo is feitelijk een subset van Product. Maar in de beschrijving zien we wat mis gaan bij de verplichtheid van velden. </p><p>In het object ProductInfo (voornamelijk bedoeld voor ELO's) staat bij het veld "type" dat het een enum is met mogelijke waarden "physical", "digital" of "combi". Physical lijkt me hier onlogisch. Vooral omdat verderop staat (in het object MediaCollectionProductInfo) dat de velden "publisherThumbnail" en "mainThumbnailURL" verplicht zijn, terwijl in het object MediaCollection (vanuit het object Product) het attribuut mainThumbnailURL optioneel is. </p><p>Vandaar dat we twee wijzigingen voorstellen: </p><ol><li><p>ProductInfo bevat per definitie de subset van producten waarvoor type = digital of combi. Dat houdt in dat in de objectdefinitie "physical" uit de enum van het type moet verdwijnen. </p></li><li><p>In product worden de hiervoven genoemde velden conditioneel verplicht. Als in Product het type physical is, dan zijn de waarden leeg. Als het type de waarde combi of digital heeft, dan zijn de velden verplicht.</p></li></ol></div>
+  <div class="field-value"><p>Er is een inconsistentie op Confluence m.b.t. Dashboards: binnen <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/2195481/Referentiecomponenten" target="_blank">Referentiecomponenten </a>bestaat er slechts een enkel dasboard (het Leermiddelendashboard), maar op de <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/927301633/Keurmerk+vereisten+-+Verplicht+of+Pas+toe+of+leg+uit" target="_blank">Keurmerk vereisten</a> pagina is tevens een “Dashboard voortgang” opgenomen, vooruitlopend op activiteiten van de werkgroep Evalueren leervoortgang en -resultaten.</p><p>De huidige definitie is erg breed en dekt zowel leermiddelen als onderwijsdeelnemers, wat o.a. verwarrend is binnen de werkgroep Toetsen en examineren aangezien het daar uitsluitend onderwijsdeelnemers (en niet leermiddelen) betreft.</p><p>Het voorstel is om:</p><ul><li><p>de huidige referentiecomponent “Leermiddelendashboard” te hernoemen naar “Dashboard leermiddelen” (meer in lijn met referentiecomponenten zoals Administratiesysteem leerresultaten) en de scope ervan te beperken tot alleen leermiddelen, gericht op gebruik door leermiddelen coördinatoren. Verdere uitwerking hiervan zal plaatsvinden binnen de <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/edit-v2/1355546625?draftShareId=a302a01b-8633-4062-abdb-389a9633dc4c" target="_blank">onderhanden pagina’s</a> van de werkgroep Evalueren</p></li><li><p>een nieuwe referentiecomponent af te splitsen: “Dashboard onderwijsdeelnemers”, dit dashboard heeft als oriëntatie uitsluitend de voortgang en resultaten van leerlingen</p><ul><li><p>dit dashboard vervangt binnen het scenario <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/22020133/Administreren+leerresultaten" target="_blank">Administreren leerresultaten</a> van de praktijksituatie Toetsen en examineren het huidige Leermiddelendashboard</p></li><li><p>deze nieuwe referentiecomponent vervangt tevens “Dashboard voortgang” op de Keurmerk vereisten pagina</p></li></ul></li></ul></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
-  <div class="field-value"><p>De huidige beschrijving is niet consistent en kan tot problemen leiden bij de verwerking van de catalogus als geheel en de afhandeling in ELO's.</p></div>
+  <div class="field-value"><p>Interne inconsistentie en basis voor uitwerking Evalueren leervoortgang &amp; -resultaten</p></div>
   <div class="field-label">Impact Technisch</div>
-  <div class="field-value"><p>In product worden de hiervoven genoemde velden conditioneel verplicht. Als in Product het type physical is, dan zijn de waarden leeg. Als het type de waarde combi of digital heeft, dan zijn de velden verplicht.</p><p><br>Dit ook doorvoeren voor andere attributen zoals “<strong>defaultAccessUrl</strong>”</p></div>
+  <div class="field-value"><p>Het betreft aanpassingen in documentatie op Confluence (teksten, diagrammen), documenten (o.a. ook tegemoetkomingsregeling) en websites (o.a. Keurmerk register). Alle documentatie moet grondig doorgenomen worden om dit consistent door te voeren.</p></div>
   <div class="field-label">Impact Implementatie</div>
-  <div class="field-value"><p>NVT</p></div>
+  <div class="field-value"><p>Geen, het betreft alleen tekstuele wijzigingen</p></div>
   <div class="field-label">Impact Risico's</div>
-  <div class="field-value"><p>NVT</p></div>
+  <div class="field-value"><p>Verwarring door inconsistente documentatie</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
   <div class="field-label">Impact Praktijksituatie</div>
-  <div class="field-value"><p>Geen, is goed.</p></div>
+  <div class="field-value"><p>Deze RfC raakt zowel aan de praktijksituaties T&amp;E (huidig) als EL&amp;R (toekomstig), maar niet inhoudelijk</p></div>
   <div class="field-label">Advies werkgroep</div>
-  <div class="field-value"><p>Geen werkgroep voor deze rfc</p></div>
+  <div class="field-value"><p>Deze wijziging is voorgesteld in de werkgroep EL&amp;R en geen bezwaren op teruggehoord. In de werkgroep T&amp;E is deze niet formeel besproken, maar bezwaren worden niet voorzien aangezien de brede definitie van “Leermiddelendasboard” al langer voor verwarring zorgde.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
