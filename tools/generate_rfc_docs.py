@@ -188,6 +188,9 @@ BASE_CSS = """
     .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
     .status-tbl td:first-child { color: #555; width: 180px; }
     .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+    .intro { font-size: 13px; color: #333; margin-bottom: 24px; max-width: 820px; }
+    .intro p { margin: 0 0 10px; line-height: 1.6; }
+    .intro a { color: #2176c7; }
 """
 
 # ── Overzichtspagina ──────────────────────────────────────────────────────────
@@ -202,18 +205,20 @@ def generate_index(issues, output_path):
 
     rows = []
     for issue in issues:
-        f       = issue["fields"]
-        key     = issue["key"]
-        summary = f.get("summary", "")
-        status  = f["status"]["name"]
-        updated = fmt_date(f.get("updated", ""))
-        created = fmt_date(f.get("created", ""))
-        color   = status_color(status)
+        f         = issue["fields"]
+        key       = issue["key"]
+        summary   = f.get("summary", "")
+        status    = f["status"]["name"]
+        updated   = fmt_date(f.get("updated", ""))
+        created   = fmt_date(f.get("created", ""))
+        color     = status_color(status)
+        werkgroep = render_value("customfield_10191", f.get("customfield_10191"))
 
         rows.append(f"""    <tr>
       <td><a href="{key}.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">{key}</a></td>
       <td>{summary}</td>
       <td><span class="badge" style="background:{color};">{status}</span></td>
+      <td style="font-size:11px;color:#666;">{werkgroep}</td>
       <td style="font-size:11px;color:#888;">{created}</td>
       <td style="font-size:11px;color:#888;">{updated}</td>
     </tr>""")
@@ -233,6 +238,12 @@ def generate_index(issues, output_path):
 <body>
 <h1>Edu-V RFC Overzicht</h1>
 <div class="meta">Gegenereerd op {date.today().strftime("%-d %B %Y")} &nbsp;|&nbsp; {total} RFC's &nbsp;|&nbsp; Bron: Jira project {JIRA_PROJECT}</div>
+<div class="intro">
+  <p>Welkom op het Edu-V RFC-portaal! Dit portaal is ingericht om inzicht te geven in wijzigingsverzoeken die we ontvangen voor het Edu-V afsprakenstelsel. Deze wijzigingsverzoeken noemen we een &ldquo;request for change&rdquo;, oftewel een RFC.</p>
+  <p>We vinden het belangrijk dat het RFC-proces transparant is voor alle geïnteresseerden. Enerzijds is het informatief voor deelnemers, anderzijds kunnen zo wijzigingen in het afsprakenstelsel gecontroleerd worden.</p>
+  <p>Een nieuwe RFC indienen? Dat kan via het <a href="https://edu-v.atlassian.net/servicedesk/customer/portal/67/create/104" target="_blank">RFC-formulier</a>.</p>
+  <p>Dit portaal is in ontwikkeling. Oude informatie wordt nog toegevoegd. Daarnaast is ook voor oudere RFC&rsquo;s niet altijd alle informatie compleet. Bij vragen, neem contact op via <a href="mailto:rfc@edu-v.org">rfc@edu-v.org</a>.</p>
+</div>
 <div class="badges">{badges}</div>
 <table>
   <thead>
@@ -240,6 +251,7 @@ def generate_index(issues, output_path):
       <th style="width:110px;">RFC</th>
       <th>Titel</th>
       <th style="width:140px;">Status</th>
+      <th style="width:140px;">Werkgroep</th>
       <th style="width:90px;">Ingediend</th>
       <th style="width:90px;">Gewijzigd</th>
     </tr>
