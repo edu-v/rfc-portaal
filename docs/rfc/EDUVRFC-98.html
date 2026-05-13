@@ -42,15 +42,15 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">CAB beoordeling advies</span></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
     <tr><td>Datum aangemaakt</td><td>18 Mar 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 May 2026</div>
+  <div class="field-value">13 May 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -59,6 +59,18 @@
   <div class="field-value"><p>De specificatie bevat een inconsistentie: <code>defaultAccessUrl</code> is generiek als verplicht opgenomen in de OpenAPI, terwijl de veldbeschrijving aangeeft dat dit alleen geldt voor <code>digital</code> en <code>combi</code>.</p><p>Dit kan ertoe leiden dat fysieke producten (<code>type = physical</code>) onterecht als ongeldig worden afgekeurd.</p><p>De voorgestelde wijziging herstelt deze inconsistentie en zorgt ervoor dat de verplichting van het veld aansluit bij de functionele betekenis. Hierdoor wordt validatie eenduidiger en worden onnodige fouten voorkomen.</p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1169588225/Catalogue+API+2.0</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Het endpoint /products/info filtert op type = digital en type = combi. Een aanlevering van een fysiek product resulteert in een 400 Bad Request. Geen wijziging aan het ProductInfo-schema of het Product-schema.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Partijen die momenteel fysieke producten aanleveren via /products/info dienen hun implementatie aan te passen. Overige implementoren ondervinden geen impact.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Breaking change voor implementoren die physical producten via /products/info aanbieden. Vereist communicatie en een migratietermijn.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Leveranciers die fysieke producten aanleveren via /products/info worden niet langer geaccepteerd op dat endpoint. Zij dienen voor fysieke productinformatie gebruik te maken van GET /products.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>De werkgroep adviseert /products/info expliciet af te bakenen tot producten van het type digital en combi. Fysieke producten vallen daarmee bewust buiten de scope van dit endpoint.</p><p>Als gevolg hiervan zijn defaultAccessUrl en mainThumbnailUrl onvoorwaardelijk verplicht binnen ProductInfo. De gemelde inconsistentie verdwijnt daarmee vanzelf: een conditionele verplichting is niet nodig omdat physical niet voorkomt in /products/info.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
