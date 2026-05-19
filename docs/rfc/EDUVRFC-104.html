@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-104 — Conflicterende specificaties urlStatus corrigeren</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+    .intro { font-size: 13px; color: #333; margin-bottom: 24px; max-width: 820px; }
+    .intro p { margin: 0 0 10px; line-height: 1.6; }
+    .intro a { color: #2176c7; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-104 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-104" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Conflicterende specificaties urlStatus corrigeren</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>18 May 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">19 May 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Verwerven en in gebruikname</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p><em>Belangrijk! Verduidelijk de documentatie z.s.m. om problemen tijdens uitrol start schooljaar te voorkomen. Dat moet zonder inhoudelijke change vanwege de freeze, dus mogelijk moet de RFC eerst gedeeltelijk doorgevoerd worden en later volledig.</em></p><p>De urlStatus wordt bepaald door leermiddelenportaal / Het leermiddelenportaal is de bron van de urlStatus.</p><p><br><em>Aanvullend: Overweeg een breaking change in een volgende stap waarbij de statussen van de url’s letterlijk overeenkomen met de status van het tonen. Dus bijvoorbeeld ‘visible’ en 'activated'  i.p.v. ‘processed’. (naamgeving t.b.d.)</em></p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>De specificaties over het gebruik van urlStatus spreken zichzelf tegen waardoor er meerdere interpretaties mogelijk zijn die niet compatibel zijn met elkaar. In de ketentesten ging het daarom fout. Daarom moet de specificatie z.s.m. verduidelijkt worden.</p><p>Concreet voorbeeld: Het toestandsdiagram van de urlStatus geeft geen pad van ‘processed’ naar ‘initialized’.  <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/137396225/Leveringsorders+aanspraken+leermiddelorders+en+contracten#Statussen.1" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/137396225/Leveringsorders+aanspraken+leermiddelorders+en+contracten#Statussen.1</a>  </p><p>De API specificatie beschrijft in de tabel echter wel een geval waarin de aanspraakmanager ‘initialized’ stuurt, terwijl de actuele urlstatus van het leermiddelenportaal dan processed is.</p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0#Event-mediator%3A-Aanspraakmanager" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0#Event-mediator%3A-Aanspraakmanager</a> </p><p>De sequence diagrammen tonen ook de urlstatus alsof de aanspraakmanager deze oplegt aan het portaal. Dat moet ook gecorrigeerd worden o.a. hier:</p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21070040/In+gebruik+nemen+digitaal+leermiddel#Interactieanalyse%3A-In-gebruik-nemen-digitaal-leermiddel" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21070040/In+gebruik+nemen+digitaal+leermiddel#Interactieanalyse%3A-In-gebruik-nemen-digitaal-leermiddel</a> </p><p>Deze specificaties conflicteren. Als het portaal de aanspraakmanager zou volgen bestaat de kans dat de link tijdelijk niet zichtbaar is voor de leerling totdat de nieuwe request volledig verwerkt is. Dat is uiteraard onwenselijk. Idem aan de kant van de aanspraakmanager waar het in de administratie ook lijkt of de link tijdelijk niet zichtbaar is totdat de confirmation is ontvangen.</p><p>De urlStatus zou bepaald moeten worden door het leermiddelportaal. Door het leermiddelportaal expliciet bron te maken, voorkomen we onduidelijkheid.</p><p><em>aanvulling: de urlStatus waarden komen deels overeen met hoe een eindgebruiker (leerling/docent) werkelijk de link ziet, behalve bij de status 'processed': de link is dan zichtbaar, maar kan wel of niet geactiveerd zijn. De informatie van de toestand in het leermiddelenportaal is beschikbaar en waardevol om terug te geven. Het geeft ook nog duidelijker aan in de confirmation dat de link werkelijk naar de volgende toestand is gegaan. Merk op dat ook het toestandsdiagram van de urlstatus hierop uitgebreid moet worden.</em></p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0</div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>
