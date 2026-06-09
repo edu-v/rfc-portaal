@@ -46,14 +46,14 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Nog vast te stellen</td></tr>
     <tr><td>Datum aangemaakt</td><td>18 May 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">26 May 2026</div>
+  <div class="field-value">4 Jun 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -62,8 +62,16 @@
   <div class="field-value"><p>De specificaties over het gebruik van urlStatus spreken zichzelf tegen waardoor er meerdere interpretaties mogelijk zijn die niet compatibel zijn met elkaar. In de ketentesten ging het daarom fout. Daarom moet de specificatie z.s.m. verduidelijkt worden.</p><p>Concreet voorbeeld: Het toestandsdiagram van de urlStatus geeft geen pad van ‘processed’ naar ‘initialized’.  <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/137396225/Leveringsorders+aanspraken+leermiddelorders+en+contracten#Statussen.1" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/137396225/Leveringsorders+aanspraken+leermiddelorders+en+contracten#Statussen.1</a>  </p><p>De API specificatie beschrijft in de tabel echter wel een geval waarin de aanspraakmanager ‘initialized’ stuurt, terwijl de actuele urlstatus van het leermiddelenportaal dan processed is.</p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0#Event-mediator%3A-Aanspraakmanager" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0#Event-mediator%3A-Aanspraakmanager</a> </p><p>De sequence diagrammen tonen ook de urlstatus alsof de aanspraakmanager deze oplegt aan het portaal. Dat moet ook gecorrigeerd worden o.a. hier:</p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21070040/In+gebruik+nemen+digitaal+leermiddel#Interactieanalyse%3A-In-gebruik-nemen-digitaal-leermiddel" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21070040/In+gebruik+nemen+digitaal+leermiddel#Interactieanalyse%3A-In-gebruik-nemen-digitaal-leermiddel</a> </p><p>Deze specificaties conflicteren. Als het portaal de aanspraakmanager zou volgen bestaat de kans dat de link tijdelijk niet zichtbaar is voor de leerling totdat de nieuwe request volledig verwerkt is. Dat is uiteraard onwenselijk. Idem aan de kant van de aanspraakmanager waar het in de administratie ook lijkt of de link tijdelijk niet zichtbaar is totdat de confirmation is ontvangen.</p><p>De urlStatus zou bepaald moeten worden door het leermiddelportaal. Door het leermiddelportaal expliciet bron te maken, voorkomen we onduidelijkheid.</p><p><em>aanvulling: de urlStatus waarden komen deels overeen met hoe een eindgebruiker (leerling/docent) werkelijk de link ziet, behalve bij de status 'processed': de link is dan zichtbaar, maar kan wel of niet geactiveerd zijn. De informatie van de toestand in het leermiddelenportaal is beschikbaar en waardevol om terug te geven. Het geeft ook nog duidelijker aan in de confirmation dat de link werkelijk naar de volgende toestand is gegaan. Merk op dat ook het toestandsdiagram van de urlstatus hierop uitgebreid moet worden.</em></p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Nog nader te bepalen nadat de voorgestelde uitwerking besproken is met de werkgroep.</p><p><br><u>Concept uitwerkingsrichting:</u><br>Vullingsregel urlStatus : verduidelijken dat urlStatus in een request een actietrigger is; <strong>het portaal is de autoriteit over de werkelijke status van de url binnen zijn omgeving en rapporteert via newUrlStatus</strong>.</p><p><strong>In gebruik nemen digitaal leermiddel</strong><br>o InitialActivation: toevoegen dat het portaal urlStatus: initialized accepteert wanneer de huidige status processed is, en antwoordt met newUrlStatus: processed<br></p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Re-work bij bestaande implementatie.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag bij goed RFC traject en implementatie traject. Lijkt op dit moment 1 portaalleverancier te raken. </p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><ul><li><p>Verwerven en ingeruiknemen. <br>In binnen het processcenario  stuurt de Aanspraakmanager urlStatus: initialized naar een portaal dat al processed is.</p></li><li><p>Het portaal weigert deze update, want het toestandsdiagram kent geen overgang processed → initialized.<br>Beide partijen handelen spec-conform.</p></li><li><p>De RFC stelde voor de overgang processed → initialized toe te voegen aan het toestandsdiagram.</p></li><li><p>Dat is onjuist: urlStatus in een EntitlementRequest is een actie-trigger van de Aanspraakmanager, geen<br>gewenste eindstatus van het portaal.</p></li><li><p>Het portaal gaat in dit scenario niet naar initialized; het verwerkt de opdracht en antwoordt met<br>newUrlStatus: processed.</p></li></ul></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
