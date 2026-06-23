@@ -45,7 +45,7 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Uitwerken RFC</span></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">CAB beoordeling advies</span></td></tr>
     <tr><td>RFC-type</td><td></td></tr>
     <tr><td>Datum aangemaakt</td><td>18 Feb 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
@@ -53,7 +53,7 @@
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">16 Jun 2026</div>
+  <div class="field-value">17 Jun 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -62,8 +62,18 @@
   <div class="field-value"><p>De huidige situatie, waarin infoLink alleen in ProductInfo beschikbaar is, sluit niet aan op het beoogde gebruik door alle doelgroepen.<br>Voor een brede toepasbaarheid van aanvullende productinformatie moet het veld ook in Product beschikbaar zijn.<br>Dit voorkomt implementatievragen en zorgt voor consistentie tussen de objecten, zoals eerder gebruikelijk was.</p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/634421249/Catalogue+API#%5BinlineExtension%5DObject%3A-ProductInfo</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Twee additive veldwijzigingen in de Catalogue API: infoLink toevoegen als optioneel veld aan het object Product, en specificAccessUrl toevoegen als optioneel veld aan ProductInfo. Beide wijzigingen zijn backwards compatible; bestaande implementaties breken niet. De OpenAPI-spec en documentatie van de Catalogue API moeten worden bijgewerkt.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Partijen die werken via het Product-object (overkoepelende leermiddelencatalogus) kunnen infoLink voortaan direct ophalen zonder extra call naar ProductInfo. Partijen die werken via ProductInfo (leermiddelenportalen) krijgen specificAccessUrl op de logische plek. Gebruik van de nieuwe velden is optioneel; bestaande implementaties hoeven niet aan te passen.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag. Het gaat om een additive change zonder breaking changes. Aandachtspunt: infoLink bestaat tijdelijk op twee plekken (Product en ProductInfo), wat kan leiden tot inconsistent vulgedrag bij aanbieders. Duidelijke documentatie is noodzakelijk om te bepalen welk object leidend is per use case.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Partijen die de overkoepelende leermiddelencatalogus aanbieden hoeven niet langer ProductInfo te bevragen alleen voor de infoLink. Leermiddelenportalen kunnen specificAccessUrl ophalen in de logische context van ProductInfo. Dit lost de implementatievragen op die zijn ontstaan door de omgekeerde veldplaatsing in RFC 0032 en RFC 0003.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>De werkgroep Verwerven en in gebruik nemen heeft op 9 juni 2026 akkoord gegeven op het voorstel. De uitwerking wordt meegenomen in de release van januari 2027.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
