@@ -53,7 +53,7 @@
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">5 May 2026</div>
+  <div class="field-value">25 Jun 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -63,17 +63,19 @@
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21692475/Catalogue+API</div>
   <div class="field-label">Impact Technisch</div>
-  <div class="field-value"><p>geen impact</p></div>
+  <div class="field-value"><p>Als de werkgroep akkoord gaat dan is de change MAJOR want we gaan van een optioneel naar een verplicht veld.</p></div>
   <div class="field-label">Impact Implementatie</div>
-  <div class="field-value"><p>Geen impact</p></div>
+  <div class="field-value"><p>Nihil vanwege het releasebeleid van Edu-V  </p></div>
   <div class="field-label">Impact Risico's</div>
-  <div class="field-value"><p>Risico dat sommige aanbieders de catalogus niet gaan implementeren omdat ze geen prijs willen communiceren </p></div>
+  <div class="field-value"><p>Tijdens de werkgroepmeeting van …. <br>Is vastgesteld dat een deel van de werkgroep ziet geen bezwaren. Echter geen unaniem advies. Werkgroepvoorzitter acht kans aanwezig dat een deel van de aanbieders van leermiddelen (uitgevers) niet verplicht een prijs willen doorgeven en dus niet zal instappen. Voorzitter heeft aangegeven hierop een grotere consultatie te willen bij aanbieders.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
-  <div class="field-value">Nee</div>
+  <div class="field-value">Ja</div>
   <div class="field-label">Impact Praktijksituatie</div>
-  <div class="field-value"><p>Risico dat sommige aanbieders de catalogus niet gaan implementeren omdat ze geen prijs willen communiceren </p></div>
+  <div class="field-value"><p>Door het ontbreken van een prijs kan het orientatie-/selectieproces niet goed uitgevoerd worden</p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p>NVT. wordt geinformeerd</p></div>
   <div class="field-label">Advies werkgroep</div>
-  <div class="field-value"><p>Prijs veld verplicht, 0 prijs mag ook.<br><br>Tevevens, SchoolSize en Tier objecten toegevoegd om te zogen dat we alle prijs wensen voor nu kunnen verwerken.<br><br>Na 3 inhoudelijke sessies is de werkgroep akkoord gegaan.</p></div>
+  <div class="field-value"><p>De RFC 41 is tijdens drie werkgroep bijeenkomsten uitgebreid behandelt. De stappen die zijn gevolgd zijn hier samengevat beschreven:<br><br>Stap 1: De RFC is besproken in de werkgroep van oktober 2025. Vastgesteld is dat er een rondvraag moet plaatsvinden langs de verschillende uitgeverijen en licentie kantoren. De werkgroep staat niet negatief tegenover een verplichte waarde voor prijs. We zien alleen usecases waarin er geen prijs gehanteerd wordt. </p><p>Stap 2: (Dec 2025) Resultaten rondvraag: Het invullen van het veld prijs in de Edu-V catalogus blijkt complexer dan op het eerste gezicht lijkt. Niet ieder product heeft een eenduidige of vaste prijs. Er bestaan verschillende situaties waarin een prijs ontbreekt of slechts indicatief is, bijvoorbeeld bij:​ gratis materiaal​, proef- en demoversies , combi-artikelen​, staffel-licenties die afhankelijk zijn van schoolgrootte.<br>Het voorstel is om een business rule te hanteren waarin de prijs verplicht gevuld wordt wanneer het veld ‘ForSale” is gevuld met de waarde 'True’ Dit voorstel wordt akkoord bevonden door de leden van de werkgroep. Echter moet er een oplossing komen voor de staffelprijzen.</p><p>Stap 3: (Jan 2026) oplossing voor staffelprijzen. In het po hanteren een groot aantal partijen staffel prijzen (op basis van de grote van de school, aantal leerlingen) Dit is opgelost door een Tier object toe te voegen waarin de verschillende staffels als een tabel kunnen worden meegegeven via de API. </p><p><strong>Samenvatting: </strong>Prijs veld verplicht, 0 prijs mag ook.<br>Tevens, SchoolSize en Tier objecten toegevoegd om te zogen dat we alle prijs wensen voor nu kunnen verwerken.<br>Na 3 inhoudelijke sessies is de werkgroep akkoord gegaan.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
