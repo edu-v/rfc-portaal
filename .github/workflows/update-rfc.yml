@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout
@@ -27,6 +29,11 @@ jobs:
         env:
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
         run: python3 tools/generate_rfc_docs.py docs/rfc
+
+      - name: RFC's naar Confluence publiceren
+        env:
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+        run: python3 tools/publish_confluence.py
 
       - name: Wijzigingen committen en pushen
         run: |
