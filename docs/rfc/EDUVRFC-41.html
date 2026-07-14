@@ -45,7 +45,7 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">CAB beoordeling advies</span></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
     <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
@@ -53,7 +53,7 @@
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">25 Jun 2026</div>
+  <div class="field-value">10 Jul 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -74,6 +74,8 @@
   <div class="field-value"><p>Door het ontbreken van een prijs kan het orientatie-/selectieproces niet goed uitgevoerd worden</p></div>
   <div class="field-label">Advies Architectenraad</div>
   <div class="field-value"><p>NVT. wordt geinformeerd</p></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>Toelichting op de RFC was initieel onvolledig, deze is later toegevoegd en akkoord bevonden. Deze RFC is ook al eerder meegenomen in de voorjaarsrelease 2026. Dat is een onregelmatigheid, maar niet bezwaarlijk. </p></div>
   <div class="field-label">Advies werkgroep</div>
   <div class="field-value"><p>De RFC 41 is tijdens drie werkgroep bijeenkomsten uitgebreid behandelt. De stappen die zijn gevolgd zijn hier samengevat beschreven:<br><br>Stap 1: De RFC is besproken in de werkgroep van oktober 2025. Vastgesteld is dat er een rondvraag moet plaatsvinden langs de verschillende uitgeverijen en licentie kantoren. De werkgroep staat niet negatief tegenover een verplichte waarde voor prijs. We zien alleen usecases waarin er geen prijs gehanteerd wordt. </p><p>Stap 2: (Dec 2025) Resultaten rondvraag: Het invullen van het veld prijs in de Edu-V catalogus blijkt complexer dan op het eerste gezicht lijkt. Niet ieder product heeft een eenduidige of vaste prijs. Er bestaan verschillende situaties waarin een prijs ontbreekt of slechts indicatief is, bijvoorbeeld bij:​ gratis materiaal​, proef- en demoversies , combi-artikelen​, staffel-licenties die afhankelijk zijn van schoolgrootte.<br>Het voorstel is om een business rule te hanteren waarin de prijs verplicht gevuld wordt wanneer het veld ‘ForSale” is gevuld met de waarde 'True’ Dit voorstel wordt akkoord bevonden door de leden van de werkgroep. Echter moet er een oplossing komen voor de staffelprijzen.</p><p>Stap 3: (Jan 2026) oplossing voor staffelprijzen. In het po hanteren een groot aantal partijen staffel prijzen (op basis van de grote van de school, aantal leerlingen) Dit is opgelost door een Tier object toe te voegen waarin de verschillende staffels als een tabel kunnen worden meegegeven via de API. </p><p><strong>Samenvatting: </strong>Prijs veld verplicht, 0 prijs mag ook.<br>Tevens, SchoolSize en Tier objecten toegevoegd om te zogen dat we alle prijs wensen voor nu kunnen verwerken.<br>Na 3 inhoudelijke sessies is de werkgroep akkoord gegaan.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>

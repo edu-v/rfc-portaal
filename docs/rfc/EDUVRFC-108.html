@@ -53,7 +53,9 @@
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">23 Jun 2026</div>
+  <div class="field-value">14 Jul 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Toetsen en examineren</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>Wij verzoeken om een uitbreiding van de Results API (versie 2.1.0, gegevensdienst Leerresultaten, transactierol Verzender) zodat een <strong>leverancier-gedefinieerde categorische of ordinale uitslag</strong> verstuurd kan worden <strong>zonder verplichte numerieke score</strong>.</p><p>In de huidige specificatie is <code>resultType</code> een gesloten enumeratie zonder generieke of leverancier-eigen waarde, en moet <code>resultValue</code> voldoen aan het gekozen <code>resultType</code>. De enige manier om een eigen schaal te definieren is via het <code>ScoreScale</code>-object, dat verplicht aan een <code>ScoreEntry</code> met een verplichte numerieke <code>scoreValue</code> hangt. Een eigen, kwalitatieve uitslagband is daardoor alleen aan te leveren als tegelijk de onderliggende score en de cut-points worden meegestuurd.</p><p>Twee denkbare oplossingsrichtingen:</p><ol><li><p>Een generiek of uitbreidbaar <code>resultType</code> (bijvoorbeeld een ordinale band of een type <code>SupplierDefined</code>), waarmee de Verzender een eigen ordinale/categorische uitslag kan opnemen.</p></li><li><p>Een eigen waardelijst of legenda op result-niveau, losgekoppeld van <code>ScoreScale</code> en scores, waarmee de Verzender de toegestane categorische waarden en hun labels definieert zonder numerieke score.</p></li></ol><p>De wijziging is naar verwachting additief en niet-brekend voor bestaande implementaties.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
