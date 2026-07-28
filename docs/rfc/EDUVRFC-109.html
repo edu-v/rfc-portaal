@@ -53,13 +53,17 @@
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">3 Jul 2026</div>
+  <div class="field-value">22 Jul 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Administratiesystemen</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>Wij willen dat in de Employees API bij het object <code>Employee</code> expliciet wordt vastgelegd dat <code>nlEduPersonRealId</code> (<code>NEPRI</code>) als secundaire identifier voor onderwijsmedewerkers gebruikt mag worden en via <code>userIds</code> wordt meegegeven wanneer deze bij de bron bekend is.</p><p>Op dit moment kan een onderwijsmedewerker via Entree wel een koppelbare identiteit hebben, namelijk de <code>NEPRI</code>, terwijl dezelfde medewerker via de Edu-V Employees API alleen een ASI/LAS-key ontvangt. Voor afnemers is deze ASI niet voldoende om de onderwijsmedewerker betrouwbaar te koppelen aan de bestaande auth-user uit Entree. Daarnaast lijkt er geen reden dat <code>NEPRI</code> niet voor medewerkers beschikbaar zou moeten zijn, Magister stuurt dit netjes mee in Entree maar kan volgens de specs dit niet meesturen in Edu-V. Hierbij ontstaat een situatie dat ik gebruikers niet kan koppelen als deze geen <code>ECK_ID</code> of <code>NEPPI</code> hebben.</p><p>De gewenste wijziging is daarom:</p><ol><li><p>Leg expliciet vast dat <code>NEPRI</code> een toegestane secundaire identifier is voor onderwijsmedewerkers binnen <code>Employee.userIds</code>.</p></li><li><p>Leg vast dat een bron deze identifier moet meegeven wanneer deze beschikbaar is.</p></li><li><p>Zorg dat de Employees API-specificatie en de algemene pagina over digitale identiteiten hierin consistent zijn.</p></li></ol></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Afnemers die gebruikers uit Edu-V moeten koppelen aan authenticatiegebruikers uit Entree hebben minimaal één stabiele, ketenbreed herkenbare identifier nodig. Bij onderwijsmedewerkers is niet altijd een ECK iD beschikbaar of gekoppeld. Wanneer in dat geval alleen een ASI/LAS-key wordt geleverd, kan de afnemer de medewerker niet betrouwbaar koppelen aan de bestaande auth-user uit Entree.</p><p>Door <code>NEPRI</code> expliciet toe te staan en mee te geven voor onderwijsmedewerkers wanneer deze beschikbaar is, ontstaat een duidelijke en uitvoerbare fallback voor koppeling, zodat ik nooit met alleen een ASI zit.</p><p>De wijziging beperkt zich tot het verduidelijken en toepassen van een bestaande identifier voor onderwijsmedewerkers. Er hoeven geen extra persoonsgegevens te worden geïntroduceerd; het gaat om het beschikbaar maken van een identifier die nodig is voor betrouwbare koppeling tussen Edu-V-data en authenticatie via Entree.</p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1250820140/Employees+API+1.1.0</div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Nee</div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
