@@ -17,6 +17,10 @@ fields:
     label: RFC Type
     visible: true
 
+  customfield_10569:
+    label: RFC-scope
+    visible: true
+
   customfield_10371:
     label: RFC Type (platte tekst voor publicatie)
     visible: false

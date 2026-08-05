@@ -213,11 +213,13 @@ def generate_index(issues, output_path):
         created   = fmt_date(f.get("created", ""))
         color     = status_color(status)
         werkgroep = render_value("customfield_10191", f.get("customfield_10191"))
+        scope     = render_value("customfield_10569", f.get("customfield_10569"))
 
         rows.append(f"""    <tr>
       <td><a href="{key}.html" style="color:#2176c7;text-decoration:none;font-family:monospace;">{key}</a></td>
       <td>{summary}</td>
       <td><span class="badge" style="background:{color};">{status}</span></td>
+      <td style="font-size:11px;color:#666;">{scope}</td>
       <td style="font-size:11px;color:#666;">{werkgroep}</td>
       <td style="font-size:11px;color:#888;">{created}</td>
       <td style="font-size:11px;color:#888;">{updated}</td>
@@ -250,8 +252,9 @@ def generate_index(issues, output_path):
     <tr>
       <th style="width:110px;">RFC</th>
       <th>Titel</th>
-      <th style="width:140px;">Status</th>
-      <th style="width:140px;">Werkgroep</th>
+      <th style="width:130px;">Status</th>
+      <th style="width:120px;">Scope</th>
+      <th style="width:130px;">Werkgroep</th>
       <th style="width:90px;">Ingediend</th>
       <th style="width:90px;">Gewijzigd</th>
     </tr>

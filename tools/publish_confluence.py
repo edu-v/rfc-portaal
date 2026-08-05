@@ -108,6 +108,7 @@ def render_index_html(issues, links=None):
         updated   = fmt_date(f.get("updated", ""))
         created   = fmt_date(f.get("created", ""))
         werkgroep = render_value("customfield_10191", f.get("customfield_10191"))
+        scope     = render_value("customfield_10569", f.get("customfield_10569"))
         if links and key in links:
             key_cell = f'<td style="font-family:monospace;"><a href="{links[key]}">{key}</a></td>'
         else:
@@ -117,6 +118,7 @@ def render_index_html(issues, links=None):
             f"{key_cell}"
             f"<td>{summary}</td>"
             f"<td>{badge(status)}</td>"
+            f'<td style="font-size:11px;color:#666;">{scope}</td>'
             f'<td style="font-size:11px;color:#666;">{werkgroep}</td>'
             f'<td style="font-size:11px;color:#888;">{created}</td>'
             f'<td style="font-size:11px;color:#888;">{updated}</td>'
@@ -132,16 +134,17 @@ Totaal: <strong>{len(issues)}</strong> RFC's.</p>
 <table style="width:100%;">
   <colgroup>
     <col style="width:10%;" />
-    <col style="width:42%;" />
-    <col style="width:13%;" />
-    <col style="width:17%;" />
+    <col style="width:32%;" />
+    <col style="width:12%;" />
+    <col style="width:12%;" />
+    <col style="width:16%;" />
     <col style="width:9%;" />
     <col style="width:9%;" />
   </colgroup>
   <thead>
     <tr>
       <th>RFC</th><th>Titel</th><th>Status</th>
-      <th>Werkgroep</th><th>Ingediend</th><th>Gewijzigd</th>
+      <th>Scope</th><th>Werkgroep</th><th>Ingediend</th><th>Gewijzigd</th>
     </tr>
   </thead>
   <tbody>{"".join(rows)}</tbody>
