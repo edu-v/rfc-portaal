@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-115 — Verwarrende ZULU time restrictie verwijderen en volledige date-time volgens RFC 3339 ondersteunen</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+    .intro { font-size: 13px; color: #333; margin-bottom: 24px; max-width: 820px; }
+    .intro p { margin: 0 0 10px; line-height: 1.6; }
+    .intro a { color: #2176c7; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-115 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-115" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Verwarrende ZULU time restrictie verwijderen en volledige date-time volgens RFC 3339 ondersteunen</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>21 Aug 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">21 Aug 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>In de verschillende OpenAPI specificaties worden datum-tijd velden aangeduid met het type “<code>string</code>” en als formaat “<code>date-time</code>“.<br>Bij de OpenAPI standaard van dit formaat (<a href="https://spec.openapis.org/registry/format/date-time" target="_blank">https://spec.openapis.org/registry/format/date-time</a> ) staat het volgende:</p><ul><li><p>The <code>date-time</code> format represents a date and time as defined by date-time - <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6" target="_blank">RFC3339</a>. </p></li></ul><p>In de verwijzing naar <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6" target="_blank">RFC3339</a> staat volledig beschreven hoe de datum tijd notatie mag en moet zijn.</p><p>Nu is het verwarrend dat in de EduV specificaties de volgende <strong>opmerking</strong> staat:</p><pre><code>        dateCreated:
+          type: string
+          description: 'Indicates the date and time the object was first created. Format: Conform openapi in ZULU time zoals gespecificeerd in RFC 3339, section 5.6.'
+          format: date-time
+          example: "2017-07-21T17:32:28Z"</code></pre><p>Dus conform OpenAPI én RFC3339 én in ZULU time?</p><p>Nu wordt zowel in de OpenAPI standaard en RFC3339 niets afgedwongen met betrekking tot ZULU time maar juist verschillende tijdzones ondersteunt.<br>Dus is dit bedoeld als een voorbeeld van een bepaalde datum-tijd, of mag het alleen maar ZULU tijdzone zijn?</p><p>Nu is dat laatste onlogisch en onwenselijk om meerdere redenen:</p><ul><li><p>Als het goed is (is ook het advies van SEM) wordt er gebruik gemaakt van OpenAPI importers en zoveel mogelijk standaard packages en libraries voor bijvoorbeeld JSON</p></li><li><p>Alle OpenAPI en JSON libraries ondersteunen de <strong>volledige </strong>RFC3339 datum-tijd (dus ook tijdzones en msec nauwkeurigheid)</p></li><li><p>Er staat nergens een beperking qua controle dat het perse ZULU tijd moet zijn (dit staat alleen als <strong>opmerking</strong>) dus een JSON schema validator controleert hier niet op</p></li><li><p>Het is foutgevoelig om iedereen te verplichten om overal in de code de lokale tijd (wij hebben tijdzone Amsterdam, 1 of 2 uur offset afhankelijk van zomer en wintertijd) te moeten omzetten naar UTC c.q. ZULU tijd. Default ondersteunt alle software het dus waarom zou je het beperken?</p></li><li><p>Voor debuggen is het onhandig om niet de lokale tijd te kunnen zien maar zelf 1 of 2 uur moeten optellen</p></li><li><p>Ondersteuning voor landen en gemeenten in het Caribisch gebied is problematisch, omdat deze helemaal een andere tijdzone hebben, dus is ondersteuning voor tijdzones cruciaal</p></li></ul><p>Tot nu toe ondersteunen alle partijen de volledige JSON c.q. RFC3339 tijdnotatie, maar zorgt het bij het testen en koppelen en valideren wel voor verwarring.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Eenvoudiger, eenduidiger en robuustere API beschrijving.</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>
