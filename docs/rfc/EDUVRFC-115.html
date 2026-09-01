@@ -45,15 +45,19 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
     <tr><td>RFC-type</td><td></td></tr>
     <tr><td>Datum aangemaakt</td><td>21 Aug 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Stelsel</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">21 Aug 2026</div>
+  <div class="field-value">1 Sep 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Werkgroepoverstijgende RFC</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>In de verschillende OpenAPI specificaties worden datum-tijd velden aangeduid met het type “<code>string</code>” en als formaat “<code>date-time</code>“.<br>Bij de OpenAPI standaard van dit formaat (<a href="https://spec.openapis.org/registry/format/date-time" target="_blank">https://spec.openapis.org/registry/format/date-time</a> ) staat het volgende:</p><ul><li><p>The <code>date-time</code> format represents a date and time as defined by date-time - <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6" target="_blank">RFC3339</a>. </p></li></ul><p>In de verwijzing naar <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6" target="_blank">RFC3339</a> staat volledig beschreven hoe de datum tijd notatie mag en moet zijn.</p><p>Nu is het verwarrend dat in de EduV specificaties de volgende <strong>opmerking</strong> staat:</p><pre><code>        dateCreated:
           type: string
@@ -62,6 +66,8 @@
           example: "2017-07-21T17:32:28Z"</code></pre><p>Dus conform OpenAPI én RFC3339 én in ZULU time?</p><p>Nu wordt zowel in de OpenAPI standaard en RFC3339 niets afgedwongen met betrekking tot ZULU time maar juist verschillende tijdzones ondersteunt.<br>Dus is dit bedoeld als een voorbeeld van een bepaalde datum-tijd, of mag het alleen maar ZULU tijdzone zijn?</p><p>Nu is dat laatste onlogisch en onwenselijk om meerdere redenen:</p><ul><li><p>Als het goed is (is ook het advies van SEM) wordt er gebruik gemaakt van OpenAPI importers en zoveel mogelijk standaard packages en libraries voor bijvoorbeeld JSON</p></li><li><p>Alle OpenAPI en JSON libraries ondersteunen de <strong>volledige </strong>RFC3339 datum-tijd (dus ook tijdzones en msec nauwkeurigheid)</p></li><li><p>Er staat nergens een beperking qua controle dat het perse ZULU tijd moet zijn (dit staat alleen als <strong>opmerking</strong>) dus een JSON schema validator controleert hier niet op</p></li><li><p>Het is foutgevoelig om iedereen te verplichten om overal in de code de lokale tijd (wij hebben tijdzone Amsterdam, 1 of 2 uur offset afhankelijk van zomer en wintertijd) te moeten omzetten naar UTC c.q. ZULU tijd. Default ondersteunt alle software het dus waarom zou je het beperken?</p></li><li><p>Voor debuggen is het onhandig om niet de lokale tijd te kunnen zien maar zelf 1 of 2 uur moeten optellen</p></li><li><p>Ondersteuning voor landen en gemeenten in het Caribisch gebied is problematisch, omdat deze helemaal een andere tijdzone hebben, dus is ondersteuning voor tijdzones cruciaal</p></li></ul><p>Tot nu toe ondersteunen alle partijen de volledige JSON c.q. RFC3339 tijdnotatie, maar zorgt het bij het testen en koppelen en valideren wel voor verwarring.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Eenvoudiger, eenduidiger en robuustere API beschrijving.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

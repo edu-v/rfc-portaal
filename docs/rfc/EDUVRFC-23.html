@@ -46,14 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">31 Aug 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Op de pagina in de link in de tabel bij:<br>”Antwoorden (statuscodes)”<br>Na of voor “202 (Accepted): Het verzoek is geaccepteerd voor verwerking, maar de verwerking heeft nog niet plaatsgevonden…”<br>Het volgende toevoegen:<br>”201 (Created): Het verzoek is ontvangen en verwerkt, er zijn geen fouten geconstateerd. De ontvangen resultaten worden door een geautoriseerde gebruiker verder behandeld.”</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>De huidige statuscode 202 is onjuist bij synchrone verwerking van de aanvraag. De statuscode 201 geeft bij synchrone verwerking de juiste status aan, maar is niet opgenomen in de specificatie en zou dus niet voldoen.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/24182861/Results+API#%5BinlineExtension%5DPOST-%2Fresults</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Zeer beperkt. Betreft toevoeging statuscode aan api</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Zeer beperkt. Betreft toevoeging statuscode aan api die nog niet in productie is</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Geen</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Geen impact</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

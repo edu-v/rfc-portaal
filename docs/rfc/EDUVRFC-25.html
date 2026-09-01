@@ -46,14 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Blocker</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">31 Aug 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>De pagina « Status- en foutcodes » uitbreiden met minimaal codes voor results-api specifieke foutcondities genoemd in de pagina die de results API specificeert.<br>Zeer gewenst is om ook andere foutcondities die op kunnen treden te ondervangen met specifieke foutcondities.<br>Daarnaast zou het id in de StatusResponse ook het id van een ander object dan een studentscore/results kunnen zijn, bijvoorbeeld bij een fout in het hoofdobject AssesmentScoresAndResults zou de id in het StatusResponse op het hoofdobject kunnen slaan. De foutcode kan dan voldoende onderscheid bieden om te weten naar welk objecttype het id refereert.</p><p>afbeelding: Schema van StatusResponse specificeert dat het id verwijst naar een object van type StudentScoresAndResults.</p><p>[[informatie aangeleverd in afbeeldingen]]</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Duidelijk te onderscheiden foutsituaties zouden met unieke codes te onderscheiden moeten zijn om een goede afhandeling mogelijk te maken.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/24182861/Results+API#Status--en-foutcodes</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Beperkt, toevoegen foutcodes aan API</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Geen, API is nog niet in productie, geen afhankelijkheden met andere specificaties</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Geen</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Geen,</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

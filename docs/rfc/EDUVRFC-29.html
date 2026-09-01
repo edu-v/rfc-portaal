@@ -46,14 +46,20 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#c0392b;">Afgewezen</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">21 Nov 2025</div>
+  <div class="field-value">1 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Zorg dat de OpenAPI specificatiedocumenten van de Edu-V API’s beschikbaar worden gesteld in een vrij toegankelijke Git repository en maak het adres hiervan bekend.</p><p>Adviseer ontwikkelaars om deze repository als submodule op te nemen in de eigen repositories en code generators te gebruiken om responses volgens de juiste schema’s te genereren.</p><p>Overweeg het gebruik van Git tags om releasedata en/of versienummers van specifieke API’s aan te duiden:<br>De toestand van alle API’s tezamen zou met een tag op basis van datum aangeduid kunnen worden, bijvoorbeeld 2024-09-27<br>De huidige versie van de students API zou met de tag students-0.9.1 aangeduid kunnen worden</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Fouttolerantie, integreerbaarheid, bruikbaarheid: tijdens implementatie en onderhoud van Edu-V API’s is het belangrijk om de specificatie zo getrouw mogelijk te volgen. Door deze wijziging door te voeren, kunnen de Edu-V OpenAPI schema’s geautomatiseerd met hulp van een codegenerator omgezet worden naar programmacode. </p><p>Onderhoudbaarheid: wanneer er wijzigingen of uitbreidingen plaatsvinden in de OpenAPI schemas, kunnen ontwikkelaars de nieuwe versie integreren met hulp van Git tooling, en valideren dat de nieuwe versie correcte en verwachte wijzigingen bevat.</p><p>Transparantie: verbeterd historisch inzicht in hoe de specificaties zich hebben ontwikkeld.</p><p>Samenwerking: het adopteren van Git voor onderhoud van OpenAPI specs maakt het ook mogelijk om voor kleinere aanpassingen van de Pull Request workflow gebruik te maken, zodat er een lichtere variant van het RFC-proces ontstaat.</p><p>Modulariteit, hergebruik: wanneer OpenAPI specs gezamenlijk in een Git repository gehost worden, kunnen er over de API’s heen gedeelde types gedefinieerd worden, zoals bv. voor het attribuut status van het object StatusResponse, dat nu een integer is, zonder beperking op de geldige waarden.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/40992797/Change-+en+releasemanagement</div>
   <div class="field-label">Reden van afwijzing</div>
   <div class="field-value"><p>Ingetrokken door indiener</p></div>
   <div class="field-label">Status van afwijzing</div>

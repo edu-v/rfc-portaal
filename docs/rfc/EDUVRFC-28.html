@@ -46,14 +46,20 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#c0392b;">Afgewezen</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">21 Nov 2025</div>
+  <div class="field-value">31 Aug 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Zorg dat elke API een eenduidige path prefix gebruikt, bv:</p><p>Notifications API <br>/notifications/subscribe<br>/notifications/<br>/notifications/single  <br>(of laat dit endpoint vallen ten faveure van de multiple variant met een array van 1 element)</p><p>Education API <br>/education/organisations<br>/education/studyofferings<br>/education/subjectofferings</p><p>Association API<br>/association/schoolperiods/…<br>/association/enrollments/…<br>/association/assignments/…<br>/association/groups/…</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Aansluitende partijen zullen mogelijk meerdere API’s beschikbaar moeten stellen achter één hostname. Als de partij ervoor kiest om deze APIs als aparte runtime artifacten uit te leveren (bijvoorbeeld omwille van horizontale schaalbaarheid, foutisolatie en/of organisatorische taakverdeling), zal een request operationeel gezien door een load balancer / API gateway op basis van het path in de URL naar de juiste implementatie gerouteerd moeten worden m.b.v. een reverse proxy mechanisme.</p><p>Door deze RFC te implementeren, krijgen endpoints in de Notifications, Education en Association API’s eenduidige path prefixen, zoals andere Edu-V API’s dat ook al hebben.</p><p>Dit heeft verschillende positieve gevolgen: </p><p>Operationeel hoeft er per API maar één routeringsregel in de load balancer / API gateway ingericht te worden</p><p>Onderhoudbaarheid is beter in geval er in de toekomst nieuwe endpoints aan een bepaalde API toegevoegd worden</p><p>Monitoring, logging en traceerbaarheid zijn beter wanneer in één oogopslag te zien is op welke API een request betrekking heeft. Dit is ook relevant wanneer een request visueel geïnspecteerd wordt.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21463345/Notifications+API</div>
   <div class="field-label">Reden van afwijzing</div>
   <div class="field-value"><p>Afgewezen</p></div>
   <div class="field-label">Status van afwijzing</div>

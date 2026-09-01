@@ -46,14 +46,26 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Blocker</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">31 Aug 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Breid het gegevensobject Assessment (Toetsdefinitie) uit met het veld subject en het veld studylevelID zodat toetsresultaten automatisch verwerkt kunnen worden. </p><p>We stellen voor om toe te voegen: <br>subject <br>type: object<br>Omschrijving: Vak of leergebied van de toets<br>Voorbeeld: [(PO/spe,Spelling), (PO/verk,Verkeer)]</p><p>Dit object Subject heeft velden subjectPrefix (afkorting) en subjectName (naam), zoals in Catalogue API. Werkingsregel is om dit object Subject te vullen conform de waardelijst afspraken voor vakken, zie Waardenlijst vakken  subjectPrefix uit kolom “Prefix” en subjectName uit kolom Vaknaam van dit Excel-bestand te gebruiken.</p><p>en</p><p>studyLevelId<br>type: string<br>Format: uuid<br>Omschrijving: Unieke code van onderwijsniveau van de toets.<br>Voorbeeld: 82ca4442-246c-44b3-a562 -7b101793feb4</p><p>Waarde is de referentie naar het betreffende Object StudyLevel in Education API en Waardelijst Onderwijsniveaus gebaseerd op de niveaus van SLO (deze is hier te vinden: <a href="https://opendata.slo.nl/curriculum/2020/api/v1/niveau/" target="_blank">https://opendata.slo.nl/curriculum/2020/api/v1/niveau/</a>) .</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Automatische verwerking voorkomt dat elk toetsresultaat handmatig op toetsnaam toegewezen zou moeten worden door de leerkracht.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Beperkt, toevoegen van 2 velden</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Geen afhankelijkheid. Kan eenvoudig ingebed worden in initiele implementatierelease</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Geen</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Maakt automatische verwerking van toetsresultaten mogelijk</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

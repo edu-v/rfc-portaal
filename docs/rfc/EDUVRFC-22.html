@@ -46,14 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Blocker</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">31 Aug 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>De huidige OrderAPI kan slechts 1 bestelregel per bericht verwerken. Het weer samenvoegen van een bestelling met de regels is daardoor niet werkbaar. <br>Deze berichtopzet kost enorm veel losse calls, terwijl het ook volledig afwijkt van de opzet van gangbare bestel en verkoopsystemen. <br> <br>Voorstel is om de berichtstructuur aan te passen zodat het een complete bestelling als Order bericht met bestelregels verstuurd en ontvangen kan worden. <br>Kijk hierbij naar de veld opbouw van gangbare bericht formaten zoals UBL (Peppol) qua opzet en proces van Order, Order response en factuur. <br>Maak hierbij binnen EDU-V wel duidelijke afspraken hoe de berichten toegepast mogen worden. Bijvoorbeeld dat er slechts 1 afleveradres per bestelling mag zijn.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Reduceren van complexiteit en hoeveelheid uit te wisselen berichten.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/77758465/Order+API</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Wijziging in berichten.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Deze gegevensdienst faciliteert de inkoop van (digitale) leermiddelen en vormt daarmee een belangrijke schakel in de keten van verwerven en in gebruik nemen. Echter, vanwege competitieve reden, zijn de afhankelijkheden binnen het afsprakenstelsel indirect. De impact beperkt zich daarom alleen tot deelnemers met de gegevensdiensten Bestelomgeving- en Ordersysteem leermiddelen.</p><p>Deze gegevensdienst bevindt zich in implementatie-fase en mogelijke wijzigingen zijn daarin voorzien.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Toename van berichtcomplexiteit.<br>Digitale leermiddelen kunnen niet (binnen het afsprakenstelsel) worden verworven.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Verwerven en in gebruik nemen<br>Bestelomgeving leermiddelen<br>Ordersysteem leermiddelen</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
