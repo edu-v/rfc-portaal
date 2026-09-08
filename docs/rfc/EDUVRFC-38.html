@@ -46,14 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">29 Oct 2025</div>
+  <div class="field-value">8 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>De richtlijn hanteert een maximale verwerkingstijd van 50 milliseconden.<br>En gaat uit van asynchrone verwerking.</p><p>Voorstel is om 2 dingen te wijzigen:<br>de verwerking kan naar keuze van de gegevensafnemer synchroon of asynchroon zijn<br>langere maximale verwerkingstijd toestaan, zoals ook bij opvragen van gegevens al geldt:<br>enkel object: 300 milliseconden<br>batch: 1.500 milliseconden<br>initiële stand: 3.000 milliseconden</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Aanleiding is de verwerking van Results API. De 50 milliseconden zijn onrealistisch gebleken.</p><p>De verwerking kan ook synchroon zijn. Daarmee is in de responses ook rekening gehouden (zie met name het toegestane HTTP 201 response). Maar ook in geval van asynchrone verwerking moeten controles gedaan worden en persistentie van de gegevens gedaan worden.</p><p>Daarnaast kunnen de calls een bulk aan gegevens bevatten.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/53805057/Dienstenniveaus#4.-----Performance</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Deel 1 van deze aanvraag (optie synchroon/asynchroon) is reeds gehonoreerd binnen de praktijksituatie Toetsen &amp; examineren middels RFC0023 door toevoeging van de HTTP 201 return-code (resource created); al is de keuze van het type afhandeling aan de ontvangende (en niet de versturende) partij.</p><p>Deel 2 gaat over het oprekken van de (algemeen geldende) responsetijden voor POST operaties door deze gelijk te stellen aan de regels voor GET-operaties. Formeel is dit geen vraagstuk voor de werkgroep Toetsen &amp; examineren, al is het hier wel actueel. Vanuit de kopgroep T&amp;E is hier geen principieel bezwaar tegen, al moet wel gewaakt worden dat dit niet nog verder opgerekt gaat worden. Bij zeer grote (bulk) berichten is het waarschijnlijk beter om alsnog asynchroon te verwerken (keuze ontvanger) of in meerdere (kleinere) synchrone berichten op te knippen (keuze verstuurder)</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Groot, het gaat hier om een algemene afspraak over meerdere onderdelen van het stelsel heen, inclusief documentatie aanpassingen op meerdere plaatsen</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Dit zou ertoe kunnen leiden dat meer synchroon verstuurd gaat worden en de reponsetijden verder opgerekt; heldere principes zijn nodig om te bepalen wat in welke situaties nog acceptabel is</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Alle praktijksituaties met POST operaties</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

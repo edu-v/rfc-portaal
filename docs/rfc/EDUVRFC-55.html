@@ -46,14 +46,22 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">14 Apr 2026</div>
+  <div class="field-value">4 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>De aanvraag bestaat uit 2 onderdelen: 1. Verwijderen van de SourceID uit het Organisation object 2. Verwijderen van de API en definitie: /organisations/{id}</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Organisation objecten kunnen met primaire en secudaire identifiers opgehaald worden. Het gebruik van een extra sourceId identifier voor ELK organisation object is redundant.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/148406302/Education+API</div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Organisation (Onderwijsaanbieder) In de<br>Education API is het object Organisation (Onderwijsaanbieder) als volgt gedefinieerd:<br>”Het object Organisation beschrijft een onderwijsaanbieder die als administratieve eenheid beschikbaar is in het Administratiesysteem onderwijsdeelnemer.”<br>Organisation is de hoofdentiteit voor de administratie van een school in het gegevensmodel van Edu-V. Aan de Organisation zijn Onderwijsdeelnemers, Onderwijsmedewerkers, Aangeboden opleidingen, Aangeboden vakken en Schoolperiodes verbonden. Daarnaast zijn ook Consent en Leveringsorder: school verbonden aan een Organisation. De Organisation is dan ook de centrale entiteit van een administratie.</p><p>RIO of BRIN?<br>Het Edu-V gegevensmodel gaat uit van de RIO (Registratie Instellingen en Opleidingen) modellen. Het gebruik van deze modellen in de onderwijssector is verplicht. Er wordt nota bene niet voor niets gesproken van canonieke modellen! Het RIO OnderwijsaanbiederID, OA_ID, is dan ook de primaire<br>digitale identiteit van een Organisation in Edu-V.</p><p>Leveranciers van administratiesystemen geven aan dat hun administratieve eenheden zijn ingericht naar het<br>BRIN (Basisregister Instellingen). In praktijk blijkt dat die administratieve eenheden niet 1-op-1 te mappen zijn op een RIO Onderwijsaanbieder. Daarom kent de Organisation in Edu-V naast een primaire identiteit ook secundaire identiteiten. Hiermee kan een leverancier een administratieve eenheid die niet naar enkele Onderwijsaanbieder is te herleiden, op basis van secundaire identiteit als Organisation in Edu-V uitdrukken.<br>Een Organisation heeft dus een primaire identiteit (RIO) of één of meerdere secundaire identiteiten, zijnde: BRIN-4, BasispoortId, DigiDeliveryId of LAS-key. Enige voorwaarde aan een identiteit is dat deze uniek verwijst naar de Organisation.</p><p>SourceId<br>Het attribuut sourceId van Organisation is overgenomen uit de best practices van OneRoster. Het idee erachter is dat bij een bevraging aan de hand van parameters, zoals boardId<br>Of name, alle Organisations in de resultaat set een nieuw gegenereerd, unieke identifier meekrijgen als sourcedId. Dit<br>SourcedId kan worden gebruikt in ketens van transacties om naar een specifieke Organisation te verwijzen, zodat niet alle parameters hoeven te worden doorgeven en gekoppelde systemen op een uniforme manier kunnen verwijzen naar een Organisation.</p><p>In Edu-V is alleen het genereren van een<br>SourcedId door bronsystemen opgenomen. Het gebruik van<br>SourcedId is (nog?) nergens toegepast.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

@@ -46,16 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">14 Apr 2026</div>
+  <div class="field-value">4 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Bij Object Subject staat een verwijzing naar een tijdelijke vakkenlijst, maar er is nu een vakkenlijst vastgesteld door Edustandaard. Deze nieuwe vakkenlijst willen we graag hier opnemen. Waardenlijst Leergebieden en vakken po en vo, schooljaar 2025-2026 v1.0: <a href="https://www.edustandaard.nl/standaard_afspraken/waardenlijsten-rio-po/schooljaar-2025-2026/" target="_blank">https://www.edustandaard.nl/standaard_afspraken/waardenlijsten-rio-po/schooljaar-2025-2026/</a> </p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Deze nieuwe lijst is definitief afgestemd met o.a. OCW en daarom deze nieuwe lijst opnemen. De oude lijst kan verwijderd worden.</p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21692475/Catalogue+API</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Vervanging van de huidige verwijzing naar de tijdelijke vakkenlijst door de definitieve waardenlijst (schooljaar 2025-2026 v1.0).<br>Aanpassing in de data-implementatie: oude waardenlijst verwijderen, nieuwe lijst opnemen.<br>Impact is beperkt: geen aanpassingen in de API-structuur, alleen in de referentiewaarden.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Afhankelijkheid met afspraken over waardenlijstenbeheer binnen RIO en Edustandaard.<br>Geen afhankelijkheid met andere functionele onderdelen van het afsprakenstelsel.<br>Alleen relevant voor partijen die de vakkenlijst in hun systemen geïmplementeerd hebben.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Dataconsistentie: lopende implementaties moeten de tijdelijke codes mogelijk omzetten naar de nieuwe definitieve lijst.<br>Communicatie: partijen moeten weten dat de tijdelijke lijst vervalt en de officiële lijst verplicht wordt.<br>Verder geen wezenlijke risico’s, omdat dit een inhoudelijke vervanging is van afgesproken referentiewaarden.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Scholen, leveranciers en ketenpartners gebruiken voortaan de officiële en afgestemde vakkenlijst van Edustandaard.<br>Dit zorgt voor eenduidigheid en voorkomt verwarring over tijdelijke of afwijkende codes.<br>Praktisch geen impact voor gebruikers, behalve dat de waarden consistenter en definitief zijn.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

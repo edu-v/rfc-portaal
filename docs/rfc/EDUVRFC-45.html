@@ -46,14 +46,26 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">3 Mar 2026</div>
+  <div class="field-value">3 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Aanpassing van de filtering van de administratiegegevensdienst · Leerlingcode toevoegen als attribuut in students api · Personeelscode toevoegen als attribuut in employees api · SourceID verwijderen in beide api’s · Endpoint voor opvragen op sourceID verwijderen in beide api’s · LAS-KEY is optioneel, maar dient een unieke identifier geschikt als alternatieve ingang te zijn als deze aangeboden wordt.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Leerlingnummers en personeelscodes zijn onderdeel van het onderwijs en functioneel noodzakelijk voor veel systemen. Hierin moet het behandeld worden als een toevoeging of alias voor de eigen naam van een persoon. Leerlingnummers en personeelscodes kunnen veranderen en zijn daardoor minder geschikt als identifier in een API. Daarnaast zijn het veelal zeer korte codes, waarin een wisseling van één karakter meestal tot een geldige code voor een ander persoon leidt. Het is daarom aan te raden om sterkere technische identifiers (zoals een GUID) te gebruiken als LAS-KEY waarde. Wanneer een sterke identifier van de bron (LAS), reeds in de LAS-KEY waarde beschikbaar is, dan is een ‘sourceid’ in de student en employee objecten volledig overbodig. Implementaties die een mate van compatibiliteit met OneRoster/1EdTech nodig hebben kunnen voor personeelsleden en leerlingen de LAS-KEY gebruiken. Het opvragen op sourceid is hiermee gelijk aan het opvragen op LAS-KEY. Het is onnodig om extra endpoints te implementeren voor toegang op sourceid.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Administratiesystemen moeten extra veld opnemen.<br>Afnemende partijen zullen, als zij dat nodig vinden, het extra veld moeten verwerken.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Dit is een nieuw te introduceren veld en kent vooralsnog geen afhankelijkheden in het afsprakenstelsel.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Nihil.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Verwerven en in gebruik nemen<br>Bestelomgeving leermiddelen <br>Doorgifte Identiteiten<br>Dienst met SSO <br>Authenticerende Dienst <br>Authenticerende Identity Provider <br>Delegerende Identity Provider <br>Toetsen en examineren <br>Digitaal toetssysteem</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

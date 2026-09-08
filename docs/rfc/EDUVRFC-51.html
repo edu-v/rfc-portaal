@@ -46,14 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Critical</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">4 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Verwijderen van veld “sourceId” uit object Employee van Employees API.<br>Verwijderen van REST-endpoint o.b.v. “sourceId” uit Employees API<br>GET /employees/{sourceId}<br>Verwijderen van veld “sourceId” uit object Student van Students API.<br>Verwijderen van REST-endpoint o.b.v. “sourceId” uit Students API<br>GET /students/{sourceId}</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Overgenomen uit initiële versie van RFC0044:<br>Het sourceId en het aparte endpoint zijn overbodig. De LAS-KEY zal in principe dezelfde waarde bevatten als het SourceId. Daar bestaat al een ingang voor. Een extra ingang op sourceID is overbodig.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/148406273/Employees+API</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Administratiesystemen hoeven geen sourceId meer te genereren en bij te houden voor iedere student of medewerker.</p><p>Administratiesystemen hoeven geen endpoint o.b.v. van sourceId meer aan te bieden.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Het idee achter het veld sourceId is afkomstig uit OneRoster. Daar wordt het gebruikt om entiteiten in het systeem als geheel uniek aan te kunnen wijzen. Voor Edu-V deelnemers betekent de toepassing ervan dat zij bv. altijd aan een student kunnen refereren o.b.v. zijn sourceId, i.p.v. per student bij te houden o.b.v. welke identifier deze in de administratiesystemen bekend is.</p><p>Voor partijen die de administratiesystemen bevragen neemt de complexiteit door deze wijziging toe. Op dit moment volstaat het voor die partijen om enkel het sourceId als referentie naar de student of medewerker bij te houden. Als deze wijziging is doorgevoerd zullen zij meer referentie informatie moeten bijhouden, te weten:</p><p>userMasterIdentifier + organisationMasterIdentifier voor het bevragen het endpoint “students”.<br>userId + organisationMasterIdentifier voor het bevragen van het eindpoint “employees”.<br>secundaireIdentifiers voor de gevallen waarin de primaireIdentifiers niet beschikbaar zijn.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Door toename in complexiteit neemt de interoperabiliteit en toegankelijkheid van het afsprakenstelsel voor deelnemers af.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Verwerven en in gebruik nemen<br>Bestelomgeving leermiddelen<br>Doorgifte Identiteiten<br>Dienst met SSO<br>Authenticerende Dienst<br>Authenticerende Identity Provider<br>Delegerende Identity Provider<br>Toetsen en examineren<br>Digitaal toetssysteem</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>EDUVRFC-70 — Onderwijsmedewerker in de result</title>
+  <title>EDUVRFC-70 — Vullingsregel employees in Results API</title>
   <style>
     body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
     h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
@@ -39,21 +39,27 @@
 <body>
 <div class="nav"><a href="index.html">← RFC Overzicht</a></div>
 <div class="rfc-key">EDUVRFC-70 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-70" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
-<div class="rfc-title">Onderwijsmedewerker in de result</div>
+<div class="rfc-title">Vullingsregel employees in Results API</div>
 <p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
 <h2>Status</h2>
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">8 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>De waarde in kolom “O/V” is nu “O”. En, de vullingsregel over de verplichting van het veld employees binnen object AssessmentScoresAndResults van Results API 1.0.0 is nu: “Deze lijst van identitfiers van Onderwijsmedewerkers is optioneel.” De waarde in kolom “O/V” moet worden “V*”. En, de vullingsregel moet worden vervangen door: </p><p>“In po is dit veld niet verplicht. </p><p>In vo is voor uitwisseling naar referentiecomponent Administratiesysteem leerresultaten (zoals de cijferadministratie van Magister of Somtoday) minimaal 1 onderwijsmedewerker in dit veld ‘employees’ verplicht om de resultaten in het ontvangende systeem formeel door te kunnen zetten, aangezien deze resultaten doorgaans meetellen voor het PTO/PTA. </p><p>Voor uitwisseling naar referentiecomponent Leermiddelendashboard (zoals een LVS-dashboard binnen een LAS) geldt de verplichting van minimaal 1 onderwijsmedewerker in dit veld ‘employees’ niet. </p><p>De leverancier van een systeem die beide referentiecomponenten aanbiedt, heeft de keuze per component een specifiek aanleverpunt (endpoint) beschikbaar te stellen. Verzendende systemen koppelen vervolgens aan het (voor de ontvanger) best passende aanleverpunt (met bijbehorende verplichting van onderwijsmedewerker) voor de resultaten van de toetsen/examens. </p><p>Is het gebruik van de resultaten voor de verzender onbekend (bijvoorbeeld of deze meetellen voor PTO/PTA), dan moet worden aangeleverd bij het referentiecomponent Administratiesysteem leerresultaten. Het ontvangende systeem verzorgt dan eventueel zelf de interne gegevensoverdracht naar het referentiecomponent Leermiddelendashboard.” </p><p>Deze tekst komt in Results API 2.0.0 ook in plaats van de volgende formulering van de vullingsregel bij dit veld: “<em>In vo is voor uitwisseling naar Administratiesysteem leerresultaten (zoals Magister of Somtoday) minimaal 1 onderwijsmedewerker verplicht om de resultaten in het ontvangende systeem te kunnen doorzetten. Voor uitwisseling naar Leermiddelendashboard geldt de verplichting niet. In po is dit veld niet verplicht.” </em> </p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p><strong>Wat gaat er mis:</strong> </p><p>In Results API 1.0.0 staat dat de verwijzing naar medewerkers optioneel is. Deze lijst van identifiers van Onderwijsmedewerkers betreft het veld employees binnen het object AssessmentScoresAndResults . </p><p>In het vo is het belangrijk dat de vakdocent bepaalde cijfers (scores of resultaten van toetsen of examens) op de juiste plek in de cijferadministratie kan doorzetten. Daarom is het essentieel de verwijzing naar de betreffende vakdocent(en) in het bericht mee te geven want een leerling heeft in het vo meerdere vakdocenten (en een vakdocent mag niet alle cijfers van alle vakken van een leerling inzien). </p><p><strong>Wat is de oplossing: </strong> </p><p>Wanneer in het vo de ontvanger van de leerresultaten van het type cijferadministratie is (referentiecomponent Administratie leerresultaten) is het veld employees verplicht. En, wanneer in het vo de ontvanger van de leerresultaten van het type Leermiddelendashboard is, is het veld employees optioneel.  </p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p>Architectenraad adviseert om wijziging niet door te voeren in de 1.0 versie van de Results API. De wijziging is een breaking change en je wilt dit niet doorvoeren in een verouderde versie, terwijl partijen al aan het overstappen zijn naar de nieuwe 2.0 versie  </p><p>Advies aan de werkgroep is ook om voor de 3.0 versie die uiteindelijk zal volgen de transactiepatronen en businesslogica te herzien en weer in lijn te brengen met de architectuur principes. Op dit moment is het transactiepatroon bewust dezelfde gebleven tov de oude UWLR datastroom. In deze fase is dat akkoord, maar in de toekomst willen we de stap wel zetten naar transactiepatronen zoals deze in het architectuurkader zijn voorgeschreven. Juist om te voorkomen dat er in de vullingsregels van velden allerlei uitzonderingsregels gemaakt moeten worden.  </p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

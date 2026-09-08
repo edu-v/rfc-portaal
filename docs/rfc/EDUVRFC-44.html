@@ -46,14 +46,26 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">3 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Aanpassing van de filtering van de administratiegegevensdienst · Filtering op ‘Since’ wordt verwijderd in de volgende endpoints: o Education/studyofferings/school o Education/subjectofferings/school o Assocation/schoolperiods/school o Association/enrollments/school o Association/assignments/school o Association/groups/school o Students/school o Employees/school · Er wordt altijd gefilterd op een period. Het niet meegeven van een period wordt bestempeld als ‘nu’ en leidt tot filtering op basis van het huidige schooljaar. Dit geldt voor de volgende endpoints: o Education/studyofferings/school o Education/subjectofferings/school o Assocation/schoolperiods/school o Association/enrollments/school<br>o Association/assignments/school o Association/groups/school o Students/school o Employees/school · Dit wordt ondersteund met een vullingafspraak voor PeriodId van period van type schooljaar. Het PeriodID voor een period van het type schooljaar bestaat uit beide jaren voluit gescheiden door een koppelteken: “2024-2025”. · De volgende endpoints voor filtering op ‘SourceId’ worden verwijderd (sourceid is in principe gelijk aan LAS-KEY, deze wijziging is gerelateerd aan RFC ‘leerlingnummer en personeelscode en LAS-KEY’) o Students/{sourceid} o Employees/{sourceid}</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>De since parameter opent de deur om te pollen voor wijzigingen. Dit zal leiden tot hogere belasting van de administratiesystemen en synchronisatieproblemen met hoge kosten voor serviceverlening. Dit is ongewenst. Door de identifier van periodes voor schooljaren logisch op te bouwen uit de twee kalenderjaren kan het PeriodID berekend worden in plaats van dat het opgehaald moet worden uit een andere API. Dit maakt het eenvoudig om endpoints aan te roepen op basis van een schooljaar. Door altijd minimaal te filteren op een schooljaar wordt de gegevensset voldoende beperkt om efficiënt een stand op te kunnen halen.<br>Het sourceId en het aparte endpoint zijn overbodig. De LAS-KEY zal in principe dezelfde waarde bevatten als het SourceId. Daar bestaat al een ingang voor. Een extra ingang op sourceID is overbodig.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Administratiesystemen moeten 10 endpoints herzien.<br>Afnemende partijen zullen, indien zij anders dan de actuele stand wensen te ontvangen, een extra query-parameter moeten implementeren.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Dit is een nieuw te introduceren parameter en kent vooralsnog geen afhankelijkheden in het afsprakenstelsel.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Nihil.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Verwerven en in gebruik nemen<br>Selectieomgeving leermiddelen<br>Bestelomgeving leermiddelen<br>Aanspraakmanager<br>Leermiddelenportaal<br>Onderwijsleeromgeving<br>Leermiddelen dashboard<br>Doorgifte Identiteiten<br>Dienst met SSO<br>Authenticerende Dienst<br>Authenticerende Identity Provider<br>Delegerende Identity Provider<br>Toetsen en examineren<br>Digitaal toetssysteem</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

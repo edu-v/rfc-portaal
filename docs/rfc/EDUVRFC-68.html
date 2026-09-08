@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>EDUVRFC-68 — Optioneel maken van de entitlement</title>
+  <title>EDUVRFC-68 — Uitbreiding Order API met Delivery API componenten</title>
   <style>
     body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
     h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
@@ -39,21 +39,43 @@
 <body>
 <div class="nav"><a href="index.html">← RFC Overzicht</a></div>
 <div class="rfc-key">EDUVRFC-68 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-68" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
-<div class="rfc-title">Optioneel maken van de entitlement</div>
+<div class="rfc-title">Uitbreiding Order API met Delivery API componenten</div>
 <p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
 <h2>Status</h2>
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">8 Sep 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Verwerven en in gebruikname</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Het uitbreiden van de order API met optioneel de BUYER (standaard object EDU-V ) van de delivery API;  <br>Buyer: </p><ul><li><p>CustomerReference </p></li></ul><ul><li><p>SchoolReference </p></li></ul><ul><li><p>SchoolTekenbevoegde </p></li></ul><p>Volgende optionele attributen toevoegen: </p><ul><li><p>shouldDeliverDigitalOrder </p></li></ul><p>startDate </p><ul><li><p>ExpirationDate </p></li></ul><ul><li><p>activationUntilDate </p></li></ul></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Door de API uit te breiden kan de wederverkoper de order direct doorzetten, inclusief de juiste klantgegevens en gedetailleerde informatie over de levering. Hierdoor beschikt de leverancier over volledige en juiste gegevens om entitlements te kunnen aanmaken. </p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/77758465/Order+API</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>De wijziging betreft het uitbreiden van de order API met een aantal optionele velden die aansluiten op de delivery API en aanvullende leveringsinformatie mogelijk maken. </p><p>Concreet wordt het volgende toegevoegd: </p><p>Het <strong>standaardobject Buyer</strong> (zoals gedefinieerd binnen EDU-V), met daarin: </p><p><code>CustomerReference </code></p><p><code>SchoolReference </code></p><p>Een aanvullend attribuut buiten het standaard Buyer-object: </p><p><code>SchoolTekenbevoegde </code></p><p>(Let op: dit is geen standaard onderdeel van het EDU-V Buyer-object, maar wordt hier aanvullend voorgesteld ter ondersteuning van de praktijk in het primair onderwijs.) </p><p>Daarnaast worden de volgende optionele leveringsattributen toegevoegd: </p><p><code>shouldDeliverDigitalOrder </code></p><p><code>startDate </code></p><p><code>expirationDate </code></p><p><code>activationUntilDate </code></p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Verwerkende partijen (met name uitgeverijen) moeten hun systemen aanpassen om de optionele velden te kunnen ontvangen, interpreteren en opslaan. </p><p>Voor het opnemen van <code>SchoolTekenbevoegde </code>zal afstemming nodig zijn over structuur, formaat en semantiek, omdat dit geen standaardveld is. <br> <br>Systemen moeten de datumvelden (<code>startDate</code>, <code>expirationDate</code>, <code>activationUntilDate</code>) correct valideren, bijvoorbeeld op het juiste formaat (zoals ISO 8601) en de logische volgorde (zoals <code>startDate</code> vóór <code>expirationDate</code>). De velden zijn optioneel en mogen de verwerking niet blokkeren, maar bieden extra mogelijkheden voor het beheer van licentieactivering en geldigheid. </p><p>De wijziging is backward compatible: bestaande koppelingen blijven functioneren zonder aanpassing. </p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>De grootste risico’s liggen in het gebrek aan eenduidige afspraken over semantiek, validatie en consistent gebruik van de nieuwe attributen.  <br> <br>Vooral bij de datumvelden zijn de gevolgen van fouten groot, omdat deze direct invloed hebben op de geldigheid en activering van licenties. Onvoldoende of incorrect gebruik van referentievelden kan de traceerbaarheid en betrouwbaarheid van het uitleverproces ondermijnen. Het is daarom essentieel om heldere specificaties en validatieregels op te stellen en deze in de keten breed af te stemmen. </p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>De voorgestelde wijziging sluit beter aan op de werkwijze van wederverkopers in de praktijk. Door de mogelijkheid om aanvullende leveringsgegevens al bij de order mee te geven, wordt de communicatie tussen distributeur en uitgever vereenvoudigd en consistenter.  <br> <br>Met name in het primair onderwijs, waar de uitgever zelf verantwoordelijk is voor het omzetten van een order naar een entitlement, ontstaat hiermee een efficiënter proces. De benodigde informatie voor de levering is dan al beschikbaar bij de order, waardoor minder acties en aanvullende uitwisselingen nodig zijn. </p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p>Levervarianten staan beschreven om verschillende bestaande ketensamenwerkingen te toetsen aan referentiecomponenten. De referentiecomponenten dienen namelijk ondersteunend te zijn alle verschillende vormen van samenwerking. De genoemde levervarianten zijn niet voorschrijvend of uitputtend. En partijen in het Afsprakenstelsel ondersteunen middels referentiecomponenten alle samenwerkingsverbanden. Hiermee is en blijft het Afsprakenstelsel sector overstijgend. </p><p>AR ziet overeenkomst tussen nieuwe levervariant 2c en bestaande levervariant 4. In beide varianten is de hele afhandeling van een bestelling bij de leermiddelenaanbieder belegd. Wel is de rol van de Aanspraakmanager anders in de levering van de bestelling. Gezien de nadrukkelijk wens vanuit de Taskforce PO en de steun vanuit de werkgroep Verwerven, ziet de AR geen bezwaar tegen het opnemen van levervariant 2c in het Afsprakenstelsel en de bijbehorende uitbreiding van het Order-bericht, met de velden `buyer` en `deliveryType`. </p><p>AR adviseert om afspraken rondom demolicenties op te nemen in het Afsprakenstelsel. </p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Werkgroep concludeert dat het opnemen van aanvullende datum-velden in de Order API onwenselijk is. Productinformatie moet transparant via de Catalogue API worden gecommuniceerd. In bijzonder, ten aanzien van de toepassing in zake demo-licenties, is de staande afspraak dat uitgevers expliciet een demo-variant van betreffende producten in de catalogus dienen op te nemen. Daarmee is het onwenselijk om de velden: `startDate`, `expirationDate` en `activationUntilDate` aan de Order API toe te voegen. </p><p>Werkgroep vindt dat het veld `shouldDeliverDigitalOrder` onduidelijk is en voor verwarring kan zorgen. Werkgroep stelt voor om in plaats van het veld `shouldDeliverDigitalOrder` het veld `deliveryType` uit de Delivery API over te nemen in de Order API. Het veld kan worden gebruikt om expliciet te maken dat de Order aan de Leermiddelenaanbieder, naast een bestelling, ook de opdracht tot levering omvat. </p><p>Bovendien moet de waarde `school-admin` aan `deliveryType` worden toegevoegd. Dit om aan te duiden dat het gaat om een levering volgens levervariant 2c. </p><p>Werkgroep heeft geen bezwaar tegen het toevoegen van het veld `buyer` aan de Order API. </p><p>Werkgroep merkt tot slot op dat scenario’s rondom annulering van (gedeeltelijke) bestellingen in de RFC niet zijn uitgewerkt. </p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

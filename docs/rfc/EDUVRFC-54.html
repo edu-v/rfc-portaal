@@ -46,14 +46,22 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">14 Apr 2026</div>
+  <div class="field-value">8 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>http codes 404 mag teruggegeven worden op endpoints die geheel niet geïmplementeerd worden.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Het zou niet nodig moeten zijn om endpoints te implementeren alleen om te kunnen signaleren dat ze er niet zijn.<br>Hiervoor zou het standaard mechanisme uit HTTP gebruikt moeten worden. Dat is een 404 ‘not found’ teruggeven.</p><p>Merk op dat dit geen impact heeft op bestaande implementaties omdat die deze endpoints niet gebruikt worden.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21069947/Entitlement+API</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>RFC0054 is ingediend door een ontvanger van de gegevensdienst </p><p>Aanspraken. Onder de gegevensdienst Aanspraken valt de </p><p>Entitlement API. De Entitlement API definieert 8 endpoints, waarvan de ontvanger er 1 behoeft te implementeren. Volgens de huidige specificaties moet de ontvanger op de overige endpoints HTTP-code 405 "Method not allowed" teruggeven. Indiener betoogt dat hiermee extra implementatie last is gemoeid en dat HTTP-code 404 "Not found" hiervoor in plaats ook mogelijk zou moeten kunnen zijn. </p><p>Aangezien HTTP-code 404 en HTTP-code 405 onder dezelfde categorie vallen en er geen (aanvullende) use-cases in het stelsel bestaan aan de hand van een van beide HTTP-codes, is deze wijziging triviaal. </p><p>Advies luidt om deze wijziging direct </p><p>IN BEHANDELING te nemen en na goedkeuring door het CAB als patch-release door te voeren. </p><p>Het verzoek heeft betrekking op onderstaande endpoints van Gegevensdeinsten Leermiddelenportaal en Licentieregistratie </p><p>-GET/entitlements/{id} </p><p>-GET/entitlements/deliveryorder/{id} </p><p>-GET/entitlements/school </p><p>-POST/entitlements/school/user </p><p>-POST/entitlements/school/user/products </p><p>-GET/entitlements/contracts/{id} </p><p>-PUT/entitlements/confirmations </p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

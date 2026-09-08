@@ -46,14 +46,28 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Trivial</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">12 Nov 2025</div>
+  <div class="field-value">8 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Foutjes op Confluence/ wiki o.g.v. M2M identificatie, authenticatie en autorisatie.  </p><p><strong>FOUT 1: Processtap 5</strong> </p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/10846209/M2M+identificatie+authenticatie+en+autorisatie#:~:text=De%20Autorisatieserver%20ontcijfert%20de%20Client_jwt%20met%20de%20in%20de%20vorige%20stap%20verkregen%20public%20key" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/10846209/M2M+identificatie+authenticatie+en+autorisatie#:~:text=De%20Autorisatieserver%20ontcijfert%20de%20Client_jwt%20met%20de%20in%20de%20vorige%20stap%20verkregen%20public%20key</a>  <br> <br>Bij het proces stap 5 staat: ‘<em>De Autorisatieserver ontcijfert de Client_jwt met de in de vorige stap verkregen public key</em>’ <br> </p><p>Onze reactie: De JWT is niet versleuteld en hoeft/kan niet ontcijferd worden. De JWT is wél ondertekend (signed) met een signature. De Autorisatieserver moet de signature gebruiken om de JWT te valideren. </p><p>---------------------------------------------------------------------------- </p><p><strong>FOUT 2:</strong> </p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1998909/M2M+gegevensuitwisselingen#Laag-2.-Registratie-%E2%80%93-Deelnemers-zijn-gekoppeld:~:text=wks_uri%20van%20leverancier%20A" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1998909/M2M+gegevensuitwisselingen#Laag-2.-Registratie-%E2%80%93-Deelnemers-zijn-gekoppeld:~:text=wks_uri%20van%20leverancier%20A</a>  <br> </p><p>Hier staat: ‘w<em>ks_uri van leverancier A</em>’ </p><p>Moet volgens ons zijn: jwkt_uri <br> </p><p>---------------------------------------------------------------------------- </p><p><strong>FOUT 3: processtap 3</strong> </p><p><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/10846209/M2M+identificatie+authenticatie+en+autorisatie#nl-gov:~:text=scopes%20om%20te%20kunnen%20valideren%20of%20de%20Client%20het%20recht%20heeft%20op%20de%20gevraagde%20scopes" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/10846209/M2M+identificatie+authenticatie+en+autorisatie#nl-gov:~:text=scopes%20om%20te%20kunnen%20valideren%20of%20de%20Client%20het%20recht%20heeft%20op%20de%20gevraagde%20scopes</a>  <br> <br> Bij het proces stap 3 staat: ‘<em>scopes om te kunnen valideren of de Client het recht heeft op de gevraagde scopes.’</em> <br> </p><p>Hier wordt een lijstje veldnamen getoond die in de JWT zijn opgenomen. Omdat "scopes" in een &lt;code&gt; formattering wordt weergegeven lijkt dit ook de veldnaam te zijn. De juiste veldnaam in de JWT is echter "scope" (enkelvoud, waarbij als er meerdere scopes worden meegegeven deze met spatie gescheiden zijn). Dit zou verwarrend kunnen zijn, <br>misschien goed om in deze context expliciet de juiste veldnaam te noemen. </p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Controleren en corrigeren van genoemde fouten en door ons voorgestelde verbetering (zie toelichting bij bovengenoemde afzonderlijke fouten). </p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>N.v.t.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>N.v.t.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>N.v.t.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>N.v.t.</p></div>
+  <div class="field-label">Advies Architectenraad</div>
+  <div class="field-value"><p>Advies om RFC 59 door te sturen naar het CAB met het advies om de RFC te verwerken. Met correctie van een fout in de </p><p>oplossing (JWKT moet zijn JBKS) </p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

@@ -46,14 +46,20 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#888;">Released</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">29 Oct 2025</div>
+  <div class="field-value">3 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Eenduidige specificaties (zoals voorgesteld in de 0.9.0-versie van de Catalog API) vaststellen voor het toepassen va paginering maakt dat leveranciers die paginering willen implementeren, het op eenduidige manier doen waardoor er gedurende de implementatiefase minder onderlinge discussie nodig is (omdat iedereen het op dezelfde manier doet)  en een eenduidige manier het implementatieproces versoepelt. </p><p>Hierbij ook nog de link naar de versie waarin de specificatie van paginering was opgenomen:<br><a href="https://edu-v.atlassian.net/wiki/pages/viewpage.action?pageId=21692475&pageVersion=58#CatalogueAPI-Technisch%3AAPIspecificatie" target="_blank">https://edu-v.atlassian.net/wiki/pages/viewpage.action?pageId=21692475&amp;pageVersion=58#CatalogueAPI-Technisch%3AAPIspecificatie</a></p><p>De specificatie is terug te vinden als je onderaan de pagina de specificaties onder Get All products uitklapt.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Momenteel (in CatalogService ECK D&amp;T versie 2.5.2) zijn er catalogi met 2000 tot 5500 producten. In deze situatie is het voor zowel de aanbieder als de harvester van de dataobjecten voordelig om een vorm van paginering te gebruiken. Voor het koppelpunt is dit van essentieel belang. Om te voorkomen dat iedereen het op zijn eigen manier implementeert, is het handig om één implementatiemethode aan te bevelen. We stellen voor om het te doen op de manier zoals beschreven in versie 0.9.0 van de Catalog API.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/383483906/Paginering+sorteren+en+rate+limiting</div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

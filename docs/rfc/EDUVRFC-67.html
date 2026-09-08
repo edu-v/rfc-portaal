@@ -46,14 +46,26 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#c0392b;">Afgewezen</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Major</td></tr>
     <tr><td>Datum aangemaakt</td><td>24 Oct 2025</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">21 Nov 2025</div>
+  <div class="field-value">4 Sep 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>De huidige structuur van de entitlement-API ondersteunt slechts één entitlement-record per request. De gewenste wijziging is het aanpassen van de JSON-structuur zodat meerdere entitlement-records in één API-call meegegeven kunnen worden. Dit wordt gerealiseerd door de invoering van een array op het hoogste niveau van het request body, bijvoorbeeld onder de key entitlements.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Deze wijziging is gewenst omdat meerdere partijen regelmatig behoefte hebben aan het gelijktijdig aanleveren van meerdere entitlements. In de huidige situatie vereist dit voor elk afzonderlijk entitlement-record een aparte API-call, wat leidt tot onnodige complexiteit, verhoogd netwerkverkeer en vertraging in de verwerking. </p><p>De voorgestelde bulkmatige aanpak vermindert deze technische overhead en sluit beter aan bij de praktische werkwijze van betrokken partijen.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>De API moet worden uitgebreid met ondersteuning voor een array-structuur (entitlements) op root-niveau. Bestaande logica voor validatie, verwerking en foutafhandeling moet worden aangepast om meerdere records tegelijk te kunnen verwerken. De bestaande enkelvoudige structuur blijft ondersteund.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Deze wijziging raakt enkel de structuur van het entitlement-request, er zijn geen directe afhankelijkheden met andere onderdelen van het afsprakenstelsel, mits alle partijen de batchstructuur correct interpreteren.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>De voorgestelde bulkmatige verwerking verhoogt de complexiteit van foutafhandeling. In tegenstelling tot individuele API-calls, waar fouten per entitlement direct te identificeren en isoleren zijn, kunnen fouten in een bulk-aanvraag leiden tot gedeeltelijke verwerking. Dit betekent dat een deel van de entitlements succesvol wordt verwerkt, terwijl andere (bijvoorbeeld door validatiefouten of ontbrekende gegevens) worden afgewezen.<br> <br>Dit brengt risico’s met zich mee, zoals:<br> <br>Moeilijker te traceren welke records wel of niet zijn verwerkt zonder aanvullende rapportage.<br> <br>Verhoogde kans op inconsistenties tussen systemen bij onvolledige verwerking.<br> <br>Herstelscenario’s worden complexer, omdat opnieuw aanleveren van de gehele batch ongewenste duplicaten kan veroorzaken.</p></div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Batchverwerking maakt het mogelijk voor partijen om meerdere entitlements in één keer aan te leveren.</p></div>
   <div class="field-label">Reden van afwijzing</div>
   <div class="field-value"><p>Behandeld in CAB 15-7-2025, afgewezen</p></div>
   <div class="field-label">Status van afwijzing</div>
