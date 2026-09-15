@@ -55,7 +55,7 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">1 Sep 2026</div>
+  <div class="field-value">15 Sep 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -64,6 +64,10 @@
   <div class="field-value"><p>Zie boven</p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21069947/Entitlement+API</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Er ligt al een uitgewerkt voorstel voor dit probleem: entitlement-api-test2.yaml splitst het gedeelde EntitlementConfirmation-schema via oneOf in drie varianten — EntitlementConfirmationLicentieregistratie (newEntitlementStatus verplicht), EntitlementConfirmationLeermiddelenportaal (newUrlStatus verplicht) en EntitlementConfirmationAfwijzing (status verplicht bij success: false). Dit raakt hetzelfde object als RFC-104, dat on hold staat in afwachting van de bredere entitlements-deepdive (autoriteitsvraag entitlementStatus/urlStatus, werkgroep oktober). Deze RFC wordt meegenomen zodra de entitlement-api aan de beurt is in de OpenAPI 3.1-migratie, samen met de uitkomst van RFC-104.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Niet als losse patch vooraf doorvoeren. Wordt gebundeld met de 3.1-migratie van de entitlement-api (staat nog op de planning, nog niet gestart) en met de uitkomst van de entitlements-deepdive voor RFC-104, zodat het schema niet twee keer wijzigt.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>

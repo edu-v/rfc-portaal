@@ -46,7 +46,7 @@
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
     <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>RFC-type</td><td>Nog vast te stellen</td></tr>
     <tr><td>Datum aangemaakt</td><td>7 Aug 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
@@ -55,15 +55,25 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Stelsel</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">1 Sep 2026</div>
+  <div class="field-value">15 Sep 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Werkgroepoverstijgende RFC</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>RFC is algemeen --&gt; geldt voor het hele Afsprakenstelsel en specifiek op deze pagina:<br><a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/656244737/Status-+en+foutcodes+1.0.0" target="_blank">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/656244737/Status-+en+foutcodes+1.0.0</a> </p><p><strong>Huidige situatie</strong><br>Leveranciers die de Ontvanger‑endpoints of Bron‑endpoints implementeren, ontwikkelen regelmatig niet alle foutcodes die formeel bij het endpoint horen. In de praktijk wordt vaak eerst gecontroleerd op:</p><ul><li><p>Schemavalidatie --&gt; foutcode 400‑0011  </p></li><li><p>SchoolId onbekend --&gt; foutcode 400‑0023  </p></li><li><p>Consent required --&gt; foutcode 403‑0022  </p></li></ul><p>…voordat wordt bepaald of een endpoint‑specifieke foutcode moet worden geretourneerd.</p><p>Dit gedrag is logisch, want de huidige specificaties zijn dubbelzinnig over de volgorde en prioriteit van foutcodes. Daardoor ontstaat inconsistentie tussen leveranciers en testresultaten.</p><p><strong>Gevraagde aanpassing</strong><br>De specificaties moeten <strong>ondubbelzinnig</strong> worden gemaakt. Hiervoor zijn 3 concrete acties nodig.</p><p><strong>1 Verwijderen van overlappende “School unknown”‑foutcodes</strong></p><p>Er bestaan meerdere foutcodes met statusMessage “School unknown”:</p><ul><li><p>2001, 4132, 7032  (specifiek voor endpoints)</p></li><li><p>400‑0023 (algemene foutcode)</p></li></ul><p>Deze foutcodes overlappen functioneel. Om dubbelzinnigheid te voorkomen moet één van de twee sets worden verwijderd:</p><ul><li><p>Optie A: verwijder 2001, 4132, 7032  </p></li><li><p>Optie B: verwijder 400‑0023</p></li></ul><p>Beide opties herstellen eenduidigheid.</p><p><strong>2 Vastleggen dat foutcodes met statusMessage = “&lt;verplicht veld&gt; missing” voorrang hebben op de schemavalidatie foutcode (400-001).</strong><br>Veel (ca 20) endpoints hebben foutcodes met statusMessage “&lt;verplicht veld&gt; missing”.  <br>Deze foutcodes moeten altijd voorrang hebben boven de generieke schemavalidatiefout 400‑0011. Dit zodat de ontvanger van de foutcode exact weet welk verplicht veld ontbreekt.  Als altijd 400‑0011 wordt geretourneerd, verdwijnt deze precisie.</p><p>Alternatief (niet wenselijk):  <br>Alle “missing”‑foutcodes verwijderen en altijd 400‑0011 gebruiken.  Dit maakt foutdiagnose voor leveranciers en scholen onnodig moeilijk.</p><p><strong>3 Vastleggen van prioriteit tussen “School missing” en “Consent required”</strong><br>Er is onduidelijkheid over welke foutcode voorrang heeft:</p><ul><li><p>Endpoint‑foutcodes: “School missing” --&gt; 4031, 4131, 7031  </p></li><li><p>Consent‑foutcode: 403‑0022</p></li></ul><p>Deze foutcodes kunnen in dezelfde situatie optreden.  <br>De specificatie moet expliciet vastleggen:</p><ul><li><p>Welke foutcode wordt geretourneerd als beide condities waar zijn?  </p></li><li><p>Welke foutcode logisch gezien prioriteit heeft?</p></li></ul><p>Zonder deze vastlegging blijven leveranciers verschillende keuzes maken.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Waarom deze RFC belangrijk is</p><ul><li><p>Consistentie: leveranciers implementeren foutcodes uniform.  </p></li><li><p>Testautomatisering: de Edu‑V testvoorziening kan foutcodes correct genereren zonder handmatige uitzonderingen.  </p></li><li><p>Efficiëntie: minder supportvragen en minder correcties in testrapporten.  </p></li><li><p>Kwaliteit: foutcodes worden voorspelbaar en betekenisvol.</p></li></ul></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Nog nader te bepalen. Maar het doorvoeren van deze RFC kan mogelijk leiden tot een upgrade van de huidige OpenAPI spec. Namelijk de overgang naar OpenAPI   YAML 3.1. <br>Mocht dit het geval zijn, dan zal de overgang naar OpenAPI 3.1 eerst voorgelegd worden aan de Architectenraad.<br>De RFC gaat vanwege het stelseloverstijgende karakter naar de Architectenraad. De werkgroepen worden daarna op de hoogte gebracht van deze wijziging.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Wijziging is onderdeel van het Release Beleid dus gemiddeld.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Wijziging is onderdeel van Release Beleid dus gemiddeld</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Geen functionele impact op de Praktijksituaties. Doorvoeren draagt bij aan een nog betere gebruikservaring ook al wil je natuurlijk geen foutmeldingen.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Dit is een werkgroepoverstijgende RFC, wordt daarom besproken in de Architectenraad. </p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>
