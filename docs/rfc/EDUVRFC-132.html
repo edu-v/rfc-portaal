@@ -45,19 +45,35 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">CAB beoordeling advies</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>6 Oct 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">6 Oct 2026</div>
+  <div class="field-value">13 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Toetsen en examineren</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>In de Results API (results-api.yaml 2.1.0) kent SchoolIdEntry.organisationIdType de waarden OIE_CODE, BP_ID, DD_ID en AS_ID. In de administratie-API's van hetzelfde stelsel (Students, Association, Education) kent de query-parameter orgIdType dezelfde waarden plus V_ID.</p><p>Voorstel: V_ID toevoegen aan de enum van SchoolIdEntry.organisationIdType in de Results API, zodat een school die met V_ID is bevraagd ook met V_ID in de SchoolReference kan worden teruggeleverd. De wijziging is additief en raakt geen bestaande implementaties die AS_ID, OIE_CODE, BP_ID of DD_ID gebruiken.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>De identifier-sets voor bevraging (administratie-API's: orgIdType) en terugkoppeling (Results API: SchoolIdEntry.organisationIdType) horen gelijk te zijn. Nu moet elke resultatenleverancier in het PO een vertaalslag van V_ID naar AS_ID of OIE_CODE inbouwen en bijhouden, met een extra aanroep van GET /organisations per school.</p><p>AS_ID is een intern nummer van het LAS dat de school zelf niet kent, zodat het niet bruikbaar is voor afstemming met de school bij het inrichten van de koppeling. OIE_CODE (BRIN4) is niet uniek bij meerdere vestigingen onder een BRIN. De V_ID is wel bekend bij de school en ligt op vestigingsniveau, hetzelfde niveau als de toestemming in het LAS.</p><p>V_ID toevoegen aan de enum maakt de Results API consistent met de administratie-API's en met de PO-praktijk, zonder gevolgen voor partijen die AS_ID, OIE_CODE, BP_ID of DD_ID blijven gebruiken. De wijziging is additief en kan in een minor release mee.</p><p>Prioriteit: laag. SCALIQ heeft een werkende omweg (AS_ID in de SchoolReference, geaccepteerd met HTTP 202 op de ParnasSys acceptatieomgeving, 6 oktober 2026).</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Laag, alleen toevoegen van een waarde aan een enumeratie; dit zal niet tot backwards compatibility problemen leiden</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Laag</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Administreren leerresultaten</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>N.v.t. deze toevoeging rechtvaardigt ons (Mark, Jos, Vincent) inziens geen bijeenkomst van de werkgroep T&amp;E (in reactieve modus). Kan gewoon door.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

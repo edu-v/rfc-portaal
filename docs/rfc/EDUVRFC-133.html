@@ -45,19 +45,33 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>6 Oct 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">6 Oct 2026</div>
+  <div class="field-value">11 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>Op dit moment bevat een Leermiddelorder verstuurd via de Order API enkel een status over de acceptatie van de order voor verwerking. Een inkopende organisatie heeft echter de behoefte om afhankelijk van de levering vervolgstappen te ondernemen. Bijvoorbeeld alloceren aan scholen (via een DeliveryOrderRequest) of het toekennen aan gebruikers (via een EntitlementRequest). We stellen derhalve voor om in de <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/826998785/Order+API+1.0.0" target="_blank">Order API</a> informatie over de status van de levering te delen.</p><p>Hiervoor zouden we graag twee nieuwe attributen toevoegen:</p><ol><li><p><code>fulfilmentStatus</code>: geeft de status van de levering aan via een ENUM met de waarden: <code>pending-fulfilment</code>, <code>backordered</code>, <code>partially-fulfilled</code> en <code>fulfilled</code>.</p></li><li><p><code>quantityFufilled</code>: geeft het aantal geleverde producten door. Het aantal is veelal gelijk aan de <code>quantity</code>. Echter het geeft de mogelijkheid om een lager aantal door te geven zodra de <code>fulfilmentStatus</code> gelijk is aan <code>partially-fulfilled</code>. In het geval van een combi artikel zal dit aantal dan gelijk zijn aan het aantal geleverde folio artikelen.</p></li></ol><p>In dit voorstel hebben we ook een aantal alternatieven overwogen om tegemoet te komen aan de use case:</p><ul><li><p>Terugmelding via de DeliveryOrder API. Dit leek ons niet wenselijk omdat de DeliveryOrder een ander functioneel doel heeft. Namelijk het verlenen van een leveringsorder aan een Aanspraakmanager om aanspraken aan te maken en deze toe te kennen aan gebruikers.</p></li><li><p>Een separaat <code>Fulfilment</code> object in een nieuwe <code>Fulfilment API</code>. Dit maakt het stelsel onnodig uitgebreid en complex.</p></li></ul></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Deze wijziging heeft impact op bestaande implementaties van de Order API. Het is echter geen breaking change. Het bericht OrderConfirmation dient voor het object OrderLineConfirmation uitgebreid te worden met twee nieuwe attributen. We voorzien geen risico's als gevolg van deze wijzging.</p><p>Deze RFC heeft een relatie met <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1487077377/EDUVRFC-95+Hoe+kan+ik+distributeurstegoed+opvragen+binnen+Edu-V" target="_blank">RFC-95</a>.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>De voorgestelde richting wijkt af van het ingediende voorstel. In plaats van fulfilmentStatus en quantityFulfilled op de OrderConfirmation wordt een shipment geïntroduceerd als sub-resource van de order in de Order API. Reden: de OrderConfirmation is een eenmalig antwoord op de acceptatie van de order en wordt per requestReferenceId maar één keer verwerkt. Een leverstatus verandert in de tijd en past daar niet in.</p><p>Uitwerking:</p><ul><li><p>Een order heeft 0 tot n shipments (deelleveringen); een shipment hoort bij één order.</p></li><li><p>Een shipmentregel verwijst naar de purchaseOrderLineId en bevat het aantal en het onderdeel (fysiek of digitaal). Een combi-artikel levert twee shipmentregels op dezelfde orderregel.</p></li><li><p>Geleverd aantal en leverstatus per orderregel worden afgeleid uit de shipments: nog niet geleverd, deels geleverd, volledig geleverd.</p></li><li><p>Backordered is niet af te leiden en blijft een expliciete aanduiding op de orderregel, eventueel met een verwachte leverdatum.</p></li><li><p>Bij elke shipment gaat een event naar de besteller. GET /orders/{id} geeft de orderregels met afgeleide aantallen en status.</p></li><li><p>De OrderConfirmation blijft ongewijzigd en gaat alleen over acceptatie.</p></li></ul><p>Scope: fysieke en digitale levering in één concept, voor de hele order. Digitaal verplicht, fysiek optioneel in de eerste versie. Vervoerder, track and trace en adresgegevens vallen buiten scope.</p><p>Minor wijziging: nieuwe resource en endpoints, backward compatible.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Bronnen (Ordersysteem leermiddelen) maken bij elke levering een shipment aan en versturen een event. Voor digitale levering is dat het moment waarop de tegoeden zijn klaargezet. Afnemers die leverinformatie willen gebruiken, verwerken de shipment-events of bevragen de order; afnemers die dat niet doen hoeven niets aan te passen. Uitgevers die fysieke levering via een fulfilmentpartner laten verlopen, moeten die gegevens kunnen ophalen om fysieke shipments te vullen.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Middel.</p><ul><li><p>Dubbele bron: fysieke leverinformatie loopt mogelijk al via bestaande logistieke kanalen (pakbon, EDI). Afstemming met distributeurs voorkomt twee waarheden.</p></li><li><p>De definitie van digitale levering (klaargezet in het licentiekantoor of beschikbaar voor de distributeur) moet eenduidig worden vastgelegd.</p></li><li><p>Retouren en creditorders vallen nog buiten deze uitwerking.</p></li><li><p>De richting wijkt af van het ingediende voorstel en vraagt afstemming met de indiener.</p></li></ul></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Een bestellende partij (distributeur of schoolbestuur) weet na doorvoering per orderregel wat er geleverd is, fysiek en digitaal, en kan op basis daarvan alloceren (DeliveryOrder) en toekennen aan gebruikers (Entitlement). Bij combi-artikelen zijn fysieke en digitale levering afzonderlijk te volgen, zodat een verschil tussen geleverde boeken en klaargezette licenties zichtbaar wordt. Sluit aan op de use case van RFC-95 (distributeurstegoed).</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

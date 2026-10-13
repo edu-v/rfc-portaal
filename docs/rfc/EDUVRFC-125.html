@@ -45,19 +45,35 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>15 Sep 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">15 Sep 2026</div>
+  <div class="field-value">9 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
-  <div class="field-value"><p>Toevoegen van een nieuw optioneel object physicalCharacteristics aan het Product-schema in de Catalogus API, met de velden aantal pagina’s (exact aantal), afmeting (lengte/breedte/dikte in mm), gewicht (in gram), bindwijze en verschijningsvorm. De precieze waardelijst-structuur voor bindwijze en verschijningsvorm (een gecombineerde of twee losse lijsten, aansluiting bij een bestaande standaard zoals Onix/CB) wordt nog nader uitgewerkt. Het object wordt verplicht zodra het producttype gelijk is aan physical.</p></div>
+  <div class="field-value"><p>Toevoegen van de endpoints /products/physicalinfo en /products/physicalinfo/{id} aan de Catalogus API, specifiek voor fulfillmentpartijen. Het schema ProductPhysicalInfo bevat per product: aantal pagina's (numberOfPages, exact aantal), afmeting (dimensions: height/width/thickness in mm), gewicht (weight, in gram), verschijningsvorm inclusief bindwijze (productForm) en optioneel een nadere specificatie zoals de bindwijze (productFormDetail).</p><p>De waarden van productForm en productFormDetail sluiten aan bij ONIX (codelijst 150 Product form en codelijst 175 Product form detail), zoals ook Centraal Boekhuis hanteert. De maten sluiten aan bij ONIX Measure (codelijst 48).</p><p>Het endpoint levert alleen producten van het type physical. Combiproducten vallen erbuiten; de fysieke onderdelen daarvan zijn als losse producten via containedProducts op te vragen.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Het logistieke belang van deze gegevens (calculatie verzendverpakking, retourcontrole) is onderstreept. Voor de waardelijsten wordt aansluiting bij een bestaande standaard (zoals Onix/CB) overwogen in plaats van een nieuwe lijst. Besproken en akkoord bevonden in werkgroep Verwerven en in gebruik nemen, 8 september 2026.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://github.com/edu-v/afsprakenstelsel/blob/Catalogue-API-2.1/apis/catalogue-api.yaml</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Nieuwe endpoints /products/physicalinfo en /products/physicalinfo/{id} in de Catalogue API met schema ProductPhysicalInfo: numberOfPages, dimensions (height/width/thickness in mm), weight (gram), productForm (ONIX codelijst 150, verplicht) en productFormDetail (ONIX codelijst 175, optioneel). Alleen producten van type physical; combiproducten vallen erbuiten. Gekozen voor een apart endpoint in plaats van een object op Product, omdat de gegevens alleen voor fulfillmentpartijen bedoeld zijn. Opgenomen in branch Catalogue-API-2.1, minor versie 2.1.0.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Bronnen met fysieke producten bieden het nieuwe endpoint aan. Fulfillmentpartijen kunnen de gegevens ophalen in plaats van zelf te meten. Waarden sluiten aan bij ONIX, zoals ook Centraal Boekhuis hanteert, waardoor uitgevers bestaande gegevens kunnen hergebruiken. Bestaande endpoints wijzigen niet.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag tot middel. Backward compatible, maar de technische uitwerking wijkt af van de RFC-tekst (apart endpoint in plaats van object op Product) en ligt nog ter feedback bij de werkgroep. Open: of productFormDetail nodig is voor fulfillment.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Heutink en Osinga de Jong gebruiken nu zelf gemeten waarden om het doostype voor verzending te bepalen. Na doorvoering zijn de gegevens uit de catalogus beschikbaar voor calculatie van verzendverpakking en retourcontrole.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Besproken en akkoord bevonden in werkgroep Verwerven en in gebruik nemen, 8 september 2026.</p><p>De technische uitwerking (apart endpoint, aansluiting bij ONIX codelijsten 150 en 175) ligt ter feedback bij de werkgroep.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

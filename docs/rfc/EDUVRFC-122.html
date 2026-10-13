@@ -45,19 +45,35 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">CAB beoordeling advies</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>15 Sep 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">15 Sep 2026</div>
+  <div class="field-value">9 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
-  <div class="field-value"><p>Toevoegen van een optioneel veld vatRate (waarden: high/low) binnen het price-object van het Product-schema in de Catalogus API, naast de bestaande verplichte velden priceExcl, priceIncl, priceCurrency en validFrom.</p></div>
+  <div class="field-value"><p>Toevoegen van een optioneel veld vatRate (waarden: high/low/none) binnen het price-object van het Product-schema in de Catalogus API, naast de bestaande verplichte velden priceExcl, priceIncl, priceCurrency en validFrom. Met none is de enum volledig, ook voor prijzen waarop geen btw van toepassing is.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>De huidige prijsvelden bevatten geen expliciet btw-tarief, wat bij gemengde tarieven tot onduidelijkheid bij facturatie leidt. Heutink en Van Dijk gaven aan een los veld zonder problemen te kunnen toevoegen. Besproken en akkoord bevonden in werkgroep Verwerven en in gebruik nemen, 8 september 2026.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://github.com/edu-v/afsprakenstelsel/blob/Catalogue-API-2.1/apis/catalogue-api.yaml</div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Nieuw optioneel veld vatRate (enum: high, low, none) in het price-object van Product in de Catalogue API. Ten opzichte van de RFC is none toegevoegd, zodat de enum volledig is. Opgenomen in branch Catalogue-API-2.1, minor versie 2.1.0.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Bronnen kunnen het btw-tarief per prijs meegeven. Afnemers kunnen het veld gebruiken voor facturatie, maar hoeven niets aan te passen zolang ze het niet gebruiken.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag. Optioneel veld, backward compatible.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Bij samengestelde producten met gemengd btw-tarief (bijvoorbeeld folio met digitale component) is het tarief nu niet af te leiden uit priceIncl/priceExcl. Na doorvoering is dit expliciet beschikbaar voor facturatie.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Besproken en akkoord bevonden in werkgroep Verwerven en in gebruik nemen, 8 september 2026.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-138 — Update bestaande Waardenlijsten en aanscherping vulregels</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+    .intro { font-size: 13px; color: #333; margin-bottom: 24px; max-width: 820px; }
+    .intro p { margin: 0 0 10px; line-height: 1.6; }
+    .intro a { color: #2176c7; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-138 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-138" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Update bestaande Waardenlijsten en aanscherping vulregels</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>11 Oct 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Stelsel</div>
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">13 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Werkgroepoverstijgende RFC</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>Edustandaard heeft nieuwe waardenlijsten voor schooljaar 2026-2027 gepubliceerd. <strong>Die vervangen de lijsten waar de Edu-V API's nu naar verwijzen</strong>.</p><p>De lijsten worden jaarlijks vernieuwd als er wijzigingen zijn.</p><p>Dat de lijsten nu pas definitief zijn heeft te maken met het doorvoeren van een aantal wensen vanuit het veld waaronder het toevoegen van opleidingsgroepen op meerdere niveaus. Dit was nodig omdat de lijsten in meerdere ketens en samenwerkingsverbanden buiten examinering en bekostiging worden gebruikt.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Update is voor 2027 noodzakelijk omdat de informatie voor 2027/2028 goed verwerkt moet zijn<br><br>•Voor opleidingen en vakken gaat het om nieuwe versies van lijsten die we al gebruiken.</p><p>•Bij het onderwijsniveau (StudyLevel): laten we de SLO-niveaus los en gaan over op de Edustandaard-lijst Niveaus, met uitzondering van het element studyLevelPrefix. Hier blijven we de waarden van SLO gebruiken. <a href="https://opendata.slo.nl/curriculum/2024/api/v1/niveau/" target="_blank">SLO Curriculum Browser</a></p><p>•De wijzigingen volgen het RFC-proces. Na akkoord worden alle wijzingen concreet doorgevoerd op Confluence als releasekandidaat.</p><p>•Beoogde live gang Edu-V januari Release</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>API</p><p>Object.attribuut</p><p>Nieuwe lijst</p><p>Tabblad, kolom</p><p>Education API</p><p>StudyOffering.studyCode</p><p>Opleidingen en opleidingsgroepen vo</p><p>Opleidingseenheden (volledig), kolom A (O-code)</p><p>Education API</p><p>StudyOffering.studyName</p><p>Opleidingen en opleidingsgroepen vo</p><p>Opleidingseenheden (volledig), korte naam</p><p>Education API</p><p>StudyOffering.studyLevel</p><p>Niveaus, school/studiejaar</p><p>Edu-V - StudyLevel</p><p>Education API</p><p>SubjectOffering.subjectCode</p><p>Vakken en leergebieden po en vo</p><p>Leermiddelenketen, kolom C (Prefix)</p><p>Catalogue API</p><p>Product.studies (Study)</p><p>Opleidingen en opleidingsgroepen vo + Niveaus</p><p>Opleidingseenheden (volledig) en Edu-V - StudyLevel</p><p>Catalogue API</p><p>Product.subjects (Subject)</p><p>Vakken en leergebieden po en vo</p><p>Leermiddelenketen, kolom C (Prefix) + kolom B (Vaknaam)</p><p>Results API</p><p>Assessment.subjects</p><p>Vakken en leergebieden po en vo</p><p>Leermiddelenketen, kolom C (Prefix) + kolom B (Vaknaam)</p><p>Results API</p><p>Assessment.studyLevelId</p><p>Niveaus, school/studiejaar</p><p>Edu-V - StudyLevel</p><p>Resource API (concept)</p><p>subject</p><p>Vakken en leergebieden po en vo</p><p>Leermiddelenketen, kolom C (Prefix)</p><p>Resource API (concept)</p><p>extensions.eduv:leerjaar</p><p>Niveaus, school/studiejaar</p><p>Edu-V - StudyLevel, samengestelde code</p><p>Welke waardenlijsten:</p><p>•<a href="https://www.edustandaard.nl/app/uploads/2026/07/Waardenlijst-Opleidingen-en-opleidingsgroepen-vo-schooljaar-2026-2027-v1.01.xlsx" target="_blank">Waardenlijst Opleidingen en opleidingsgroepen vo, schooljaar 2026-2027, v1.01</a></p><p>•<a href="https://www.edustandaard.nl/app/uploads/2026/09/Waardenlijst-Vakken-en-leergebieden-po-en-vo-schooljaar-2026-2027-v1.01.xlsx" target="_blank">Waardenlijst Vakken en leergebieden po en vo, schooljaar 2026-2027, v1.01</a></p><p>•<a href="https://www.edustandaard.nl/app/uploads/2026/07/Waardenlijst-Niveaus-school-studiejaar-2026-2027-v0.91.xlsx" target="_blank">Concept Waardenlijst Niveaus, school-/studiejaar 2026-2027, v0.91</a></p><p>Voor po blijft de RIO-po-lijst gelden voor studyCode en studyName (<a href="https://www.edustandaard.nl/standaard_afspraken/waardenlijsten-rio-po/waardenlijsten-rio-po-schooljaar-2026-2027/" target="_blank">Waardenlijsten RIO-po 2026-2027</a>). De Association API, Students API, Employees API en Delivery API veranderen niet.</p><p>De Waardenlijst Niveaus, school-/studiejaar 2026-2027, v0.91 is nog een concept en wordt eind oktober 2026 definitief. Opzet en structuur veranderen niet; de codes kunnen tot dan nog op details wijzigen.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Aangeschrepte vulregels:<br></p><p><strong>Opleidingen (vo).</strong><br>Gebruik de opleidingseenheidcode (O-code, formaat 9999O9999, bv. 1002O2254). </p><p>Voor vo is dit een wijziging: tot nu toe was dit de 4-cijferige erkende-opleidingscode (EO-code). </p><p>Vanaf de januari-release 2027 geldt alleen de O-code. </p><p><em>Let op! </em>Een aantal nieuwe opleidingen en een deel van de opleidingsgroepen heeft nog geen O-code, omdat ze op dit moment nog door DUO en Edustandaard verwerkt worden. De definitieve versie is eind oktober 2026 beschikbaar</p><p><strong>Vakken (po en vo). </strong></p><p>Bron: tabblad Leermiddelenketen. Gebruik de Prefix (kolom C) samen met de Vaknaam (kolom B). </p><p>Het gaat om versie 2026-2027 v1.01; die vervangt versie 2025-2026 v1.0.</p><p> Een aantal prefixen komt bij meer dan één vak voor, dus identificeer een vak altijd met prefix én naam.</p><p><strong>Onderwijsniveau (StudyLevel)</strong></p><p>De belangrijkste wijziging: we vervangen hier de SLO-niveau’s. Behalve “StudyLevelPrefix” zie verderop.</p><p>StudyLevel, aanpak wordt gelaagd:</p><p>De samengestelde code (bv. OR-HAVO-5) wordt de waarde van <strong>studyLevelId en vervangt daarmee de SLO-uuid</strong>. Dat geldt ook voor Assessment.studyLevelId in de Results API. Bij vve, praktijkonderwijs, so en vso-arbeidsmarkt/-dagbesteding is er geen leerjaar; de samengestelde code is dan gelijk aan de OR-code (bv. OR-PRO). In po gebruik je de groepen OR-PO-1 t/m OR-PO-8. Voor mbo blijft de tijdelijke Edu-V-lijst gelden, omdat de mbo-waarden in de nieuwe lijst nog niet zijn vastgesteld.</p><p><strong>Onderwijsniveau (element:  studyLevelPrefix)</strong></p><p>Is een element binnen het Object StudyLevel: een viercijferige code op onderwijsniveau. De vulregel is niet gewijzigd. De waarde wordt bepaald door de SLO. Voor het vullen wordt dan ook verwezen naar SLO Curriculum API (2024).<br>Met bureau Edustandaard wordt verkend om deze waarde vanaf 2027/2028 op te nemen binnen de structuur van de RIO-waardenlijsten.</p><p><strong>Samenvatting Onderwijsniveau (studyLevelPrefix)</strong></p><p>Let op! studyLevelId en studyLevelPrefix moeten over hetzelfde niveau gaan.</p><p>Voor vakken verandert de versie van de lijst.</p><p>Daarnaast krijgt SubjectOffering.subjectCode in de Education API nu een vaste vulregel: de Prefix uit het tabblad Leermiddelenketen. Daarmee is het openstaande punt over de vakcodes afgerond. </p><p>Voor vo-opleidingen wordt studyCode de O-code in plaats van de EO-code; dat raakt vooral de leveranciers van leerlingadministratiesystemen. Ontbrekende O-codes voor nieuwe opleidingen en opleidingsgroepen zijn eind oktober 2026 beschikbaar; dat is ook van belang voor Product.studies in de Catalogue API. </p><p>StudyLevel is een inhoudelijke wijziging: studyLevelId wordt een code (bv. OR-HAVO-5) in plaats van een SLO-uuid. Dat raakt de Education API en de Results API, en vraagt een nieuwe schemaversie.</p></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Raakt verschillende praktijksituaties<br>•Voor opleidingen en vakken gaat het om nieuwe versies van lijsten die we al gebruiken.</p><p>•Bij het onderwijsniveau (StudyLevel): laten we de SLO-niveaus los en gaan over op de Edustandaard-lijst Niveaus, met uitzondering van het element studyLevelPrefix. Hier blijven we de waarden van SLO gebruiken. <a href="https://opendata.slo.nl/curriculum/2024/api/v1/niveau/" target="_blank">SLO Curriculum Browser</a></p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>

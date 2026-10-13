@@ -55,15 +55,23 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">15 Sep 2026</div>
+  <div class="field-value">8 Oct 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>Er zijn twee valide mogelijkheden, afhankelijk van wat de intentie was met de specificatie:</p><ol><li><p>Indien het meegeven van een land als <strong>verplicht</strong> bedoeld was:</p><ol><li><p>CountryCode zou verplicht moeten zijn (betrouwbare informatievoorziening).</p></li><li><p>Country zou optioneel moeten zijn. (Het veld verwijderen heft ook de verwarring op. Verplicht kan eventueel ook, al is het minder essentieel.)</p></li></ol></li><li><p>Indien het meegeven van een land als <strong>optioneel</strong> bedoeld was:</p><ol><li><p>CountryCode zou optioneel moeten zijn.</p></li><li><p>Country zou optioneel moeten zijn. (Het veld verwijderen heft ook de verwarring op.)</p></li></ol></li></ol></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Het is zeer verwarrend dat country code <em>optioneel</em> is, terwijl country (zijn “human-readable” afgeleide) <em>verplicht</em> is.</p><p>Laten we kiezen voor een van de denkbare combinaties die geen verwarring schept. Ieder van deze combinaties maakt country code leidend:</p><ul><li><p>country verwijderen; of</p></li><li><p>beide verplicht; of</p></li><li><p>enkel country code verplicht; of</p></li><li><p>beide optioneel.</p></li></ul></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>In Address in de Order API wordt country optioneel. countryCode (ISO 3166 alpha-2) blijft optioneel maar wordt sterk aanbevolen en is leidend als beide gevuld zijn. Bij de volgende major versie wordt countryCode verplicht.</p></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Afnemers worden aangeraden countryCode mee te sturen; afnemers die nu alleen country sturen hoeven niets aan te passen. Bronnen gebruiken countryCode als leidend en accepteren adressen zonder country.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag. Een verplicht veld optioneel maken is backward compatible. Aandachtspunt: zolang countryCode niet verplicht is, kan een adres zonder land voorkomen. Dit wordt opgelost bij de volgende major versie.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Het land in een afleveradres wordt betrouwbaar uitgewisseld via een ISO-code in plaats van vrije tekst.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

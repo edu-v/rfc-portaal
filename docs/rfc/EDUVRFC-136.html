@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-136 — Toevoegen referentiecomponent Inkoopomgeving leermiddelen</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+    .intro { font-size: 13px; color: #333; margin-bottom: 24px; max-width: 820px; }
+    .intro p { margin: 0 0 10px; line-height: 1.6; }
+    .intro a { color: #2176c7; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-136 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-136" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Toevoegen referentiecomponent Inkoopomgeving leermiddelen</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>7 Oct 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Stelsel</div>
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">11 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Verwerven en in gebruikname</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p>In het conceptueel model voor Verwerven en in gebruik nemen leermiddelen is de referentiecomponent <code>Bestelomgeving leermiddelen</code> uitgewerkt met diverse gegevensdiensten. De referentiecomponent draagt zorg voor het realiseren van <code>UC4: Bestellen leermiddelen</code> door een Besteller. Daarnaast is er een gegevensdienst <code>Leermiddelorders</code> ingetekend om bij een <code>Ordersysteem leermiddelen</code> van een Leermiddelenaanbieder leermiddelen in te kopen. In de praktijk zijn dit echter compleet gescheiden processen. Het verkopen van leermiddelen is een order-to-cash proces en het inkopen van leermiddelen is een purchase-to-pay proces. Het voorstel is om deze scheiding in functionaliteit scherper aan te brengen door de definitie van <code>Bestelomgeving leermiddelen</code> en <code>Ordersysteem leermiddelen</code> aan te passen.</p></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>Dit wijzigingsverzoek leidt tot een betere scheiding van verantwoordelijkheiden tussen de referentiecomponenten en maakt ook meerdere implementatiescenario's mogelijk. We lichten twee varianten toe.</p><p><strong>Verkoop via een distributeur</strong> In het traditionele model van verkopen via een distributeur, koopt een distributeur leermiddelen in en verkoopt deze vervolgens door aan scholen of particulieren. Een distributeur beschikt voor dit proces over een ERP systeem waarbij leermiddelen worden ingekocht (purchase-to-pay) en orders uit een shop (Bestelomgeving leermiddelen) worden verwerkt. Er is hier sprake van een inkooporder (PurchaseOrder) en een verkooporder (SalesOrder). De inkooporder leidt tot een factuur vanuit de uitgever die betaald moet worden. De verkooporder leidt tot een factuur die verzonden wordt naar de school en betaling ontvangen wordt.</p><p><strong>Directe verkoop aan schoolbesturen</strong> In het voortgezet onderwijs zijn er steeds meer schoolbesturen die met behulp van inkoop- en licentietools administratieve ondersteuning krijgen bij het inkopen van leermiddelen bij verschillende uitgevers. In dit scenario is er geen sprake van een traditionele relatie tussen leermiddelenverkoper en leermiddelenaanbieder (of distributeur en uitgever). Het schoolbestuur koopt rechtstreeks in bij de uitgever. De uitgever verwerkt de bestelling, levert deze conform de afgesproken voorwaarden (op school of bij een fulfilmentpartner) en stuurt de factuur naar het schoolbestuur (of naar de school). In dit scenario is er sprake van een inkooporder door het schoolbestuur. Immers het schoolbestuur ontvangt een factuur van de uitgever voor de bestelling.</p><p>We stellen voor om de referentiecomponenten als volgt te definieren:</p><p>ReferentiecomponentVerantwoordelijkheidGegevensdienstenInkoopomgeving leermiddelenEen applicatie waar vanuit een leermiddelenverkoper of een onderwijsorganisatie een inkooporder kan plaatsen bij een leermiddelenaanbieder. De inkooporder volgt uit een regulier purchase-to-pay proces en leidt tot een inkomende factuur.Catalogue API (afnemer) en Order API (verzender)Ordersysteem leermiddelenEen applicatie die een order kan verwerken, de levering kan initieren en zorg kan dragen voor facturatie naar de klant. De order volgt een regulier order-to-cash proces en leidt tot een uitgaande factuur.Catalogue API (afnemer, verplicht voor leermiddelenverkoper) Order API (ontvanger, verplicht voor leermiddelenaanbieder) en Delivery API (verzender, verplicht voor leermiddelenverkoper)</p><p>We stellen voor om de <code>Bestelomgeving leermiddelen</code> omwille van de duidelijkheid te schrappen. Dit betreft enkel een UI waar een school of particulier een bestelling kan plaatsen. Afhankelijk van de toepassing kan dit een UI zijn op het ordersysteem leermiddelen van een uitgever (webshop uitgever), het ordersysteem leermiddelen van een distributeur (webshop distributeur) of de inkoopomgeving leermiddelen van een softwareleverancier (inkoop- en licentietool).</p><p>Bovenstaande wijziging maakt de volgende scenario's mogelijk:</p><p>** 1. School bestelt bij uitgever**</p><ol><li><p>School plaatst inkooporder bij Uitgever. School kan gebruik maken van inkoopomgeving om order via Order API te plaatsen.</p></li><li><p>Uitgever verwerkt order en levert uit.</p></li><li><p>School ontvangt bevestiging van levering.</p></li><li><p>Uitgever factureert aan school.</p></li></ol><p>** 2. School bestelt bij distributeur** Inkoop door distributeur:</p><ol><li><p>Distributeur plaatst inkooporder bij Uitgever. Distributeur maakt gebruikt van inkoopomgeving om order via Order API te plaatsen.</p></li><li><p>Uitgever verwerkt order en levert uit.</p></li><li><p>Distributeur ontvangt bevestiging van levering.</p></li><li><p>Uitgever factureert aan distributeur.</p></li></ol><p>Verkoop door distributeur:</p><ol><li><p>School plaatst inkooporder bij Distributeur. School kan gebruik maken van inkoopomgeving om order via Order API te plaatsen.</p></li><li><p>Distributeur verwerkt order en levert uit. Bij uitlevering wordt allocatie voor school gemaakt en gedeeld met uitgever.</p></li><li><p>School ontvangt bevestiging van levering.</p></li><li><p>Distributeur factureert aan school.</p></li></ol></div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>
