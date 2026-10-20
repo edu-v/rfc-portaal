@@ -45,8 +45,8 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Check Stelselarchitect voor architectenraad</span></td></tr>
+    <tr><td>RFC-type</td><td>Minor</td></tr>
     <tr><td>Datum aangemaakt</td><td>21 Aug 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
@@ -55,7 +55,7 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">15 Sep 2026</div>
+  <div class="field-value">15 Oct 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -65,11 +65,17 @@
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/21069947/Entitlement+API</div>
   <div class="field-label">Impact Technisch</div>
-  <div class="field-value"><p>Er ligt al een uitgewerkt voorstel voor dit probleem: entitlement-api-test2.yaml splitst het gedeelde EntitlementConfirmation-schema via oneOf in drie varianten — EntitlementConfirmationLicentieregistratie (newEntitlementStatus verplicht), EntitlementConfirmationLeermiddelenportaal (newUrlStatus verplicht) en EntitlementConfirmationAfwijzing (status verplicht bij success: false). Dit raakt hetzelfde object als RFC-104, dat on hold staat in afwachting van de bredere entitlements-deepdive (autoriteitsvraag entitlementStatus/urlStatus, werkgroep oktober). Deze RFC wordt meegenomen zodra de entitlement-api aan de beurt is in de OpenAPI 3.1-migratie, samen met de uitkomst van RFC-104.</p></div>
+  <div class="field-value"><p>Analyse: documentatie (Confluence) en YAML spreken elkaar tegen. Confluence zet <code>newEntitlementStatus</code> én <code>newUrlStatus</code> op V, de YAML heeft beide optioneel. In de praktijk stuurt de Licentieregistratie alleen <code>newEntitlementStatus</code> en het Leermiddelenportaal alleen <code>newUrlStatus</code>.</p><p>Stap 1 (Entitlement API 1.1.x): Confluence gelijktrekken met de YAML. Beide velden worden V* met vullingsregel:</p><ul><li><p><code>newEntitlementStatus</code>: verplicht indien bevestiging van de Licentieregistratie en <code>success</code> true.</p></li><li><p><code>newUrlStatus</code>: verplicht indien bevestiging van het Leermiddelenportaal en <code>success</code> true.</p></li></ul><p>In de YAML dezelfde vullingsregel opnemen in de beschrijving. Het schema verandert niet.</p><p>Stap 2 (OpenAPI 3.1-migratie Entitlement API): <code>EntitlementConfirmation</code> als <code>oneOf</code> met drie varianten (Licentieregistratie, Leermiddelenportaal, Afwijzing), onderscheiden op <code>success</code>. Daarmee worden de vullingsregels volledig gevalideerd.</p></div>
   <div class="field-label">Impact Implementatie</div>
-  <div class="field-value"><p>Niet als losse patch vooraf doorvoeren. Wordt gebundeld met de 3.1-migratie van de entitlement-api (staat nog op de planning, nog niet gestart) en met de uitkomst van de entitlements-deepdive voor RFC-104, zodat het schema niet twee keer wijzigt.</p></div>
+  <div class="field-value"><p>Stap 1: geen impact voor implementaties die al één veld per actor sturen; dat is de huidige praktijk. Stap 2: zenders die bij <code>success</code> true beide velden of geen van beide sturen, worden bij validatie afgewezen.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag. Stap 1 is alleen documentatie en legt de bestaande praktijk vast. Stap 2 dwingt af wat in stap 1 beschreven is. Aandachtspunt: de testvoorziening valideert pas volledig na stap 2.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Leveranciers kunnen nu niet aan de documentatie voldoen, want geen actor kan beide velden vullen. Na deze wijziging zijn documentatie en YAML eenduidig en weet elke actor welk veld hij terugstuurt.</p></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p>Niet voorgelegd aan de werkgroep: stap 1 is een documentatiewijziging die de bestaande praktijk vastlegt. Stap 2 (<code>oneOf</code>-validatie) valt onder de OpenAPI 3.1-migratie en wordt in de release notes daarvan benoemd.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

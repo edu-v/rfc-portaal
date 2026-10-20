@@ -55,15 +55,23 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">29 Sep 2026</div>
+  <div class="field-value">15 Oct 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>De <a href="https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1266122753/Status-+en+foutcodes+0.9.3" target="_blank">statuscodes</a>, zoals o.a. voor de Order API, bevatten enkele zoals deze:</p><p>6002: requestReferenceId already used (requestReferenceId is al eerder gebruikt.)</p><p>Volgens mij zouden die codes niet moeten bestaan, i.v.m. idempotence. Zie de onderbouwing.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>De statuscodes van “… is al eerder gebruikt” insinueren dat het praktijkvoorbeeld anders zou moeten lopen. Als we die implicatie volgen, dan zou de ontvanger in stap 5 van het praktijkvoorbeeld een <em>afwijzing</em> hebben gegeven, met status 6002 “requestReferenceId already used”. Dat verhindert degelijke idempotence.</p><p>Er is een goede kans dat de aanroeper zijn request zal blijven proberen. Dit vormt een “pit of failure”, omdat het verkeerd gaat <em>tenzij de aanroeper het scenario expliciet afvangt en juist afhandelt</em>.</p><p>Het is bij idempotence zeer wenselijk dat het oorspronkelijke resultaat wordt teruggegeven, om te garanderen dat de aanroeper in de juiste staat eindigt. In het voorbeeld betekent dit 202=Accepted i.c.m. Edu-V-statuscode 0002=Accepted. Daaruit volgt dat de codes van “… is al eerder gebruikt” niet inzetbaar zijn; hun bestaan zet je enkel op het verkeerde been.</p></div>
+  <div class="field-label">Impact Technisch</div>
+  <div class="field-value"><p>Correctie: in de Order API is <code>6002</code> "requestReferenceId unknown"; de bedoelde code is <code>6003</code> "requestReferenceId already used".</p><p>Idempotent gedrag is al de afspraak: "If a party receives another request with the same requestReferenceId value, the receiving party should not process the request again. It should send the confirmation again." (Order API; gelijke tekst in de Entitlement API). Wat ontbreekt is wanneer de "already used"-codes wel gelden. Dat geldt voor tien codes in vijf API's: Consent 1002/1004, Entitlement 4003/4005, Delivery 4103/4105, ActivationCode 5002/5004, Order 6003/6005.</p><p>Voorstel: de codes niet schrappen maar definiëren op de pagina Status- en foutcodes en in de YAML-beschrijvingen:</p><ul><li><p>Identieke retry (zelfde ID, zelfde inhoud): niet opnieuw verwerken, de oorspronkelijke bevestiging opnieuw sturen.</p></li><li><p>Hergebruik van een ID met afwijkende inhoud: afwijzen met de "already used"-code.</p></li></ul></div>
+  <div class="field-label">Impact Implementatie</div>
+  <div class="field-value"><p>Ontvangers die een identieke retry nu afwijzen met een "already used"-code moeten de oorspronkelijke bevestiging opnieuw sturen, zoals de bestaande afspraak al voorschrijft. Ontvangers moeten de inhoud van een herhaald bericht kunnen vergelijken met het origineel. Geldt voor alle vijf API's.</p></div>
+  <div class="field-label">Impact Risico's</div>
+  <div class="field-value"><p>Laag. Verduidelijking van bestaande codes, geen codes verwijderd, niet-breaking. Stelselbreed: de pagina Status- en foutcodes valt onder de Architectenraad, dus afstemming buiten de werkgroep Verwerven nodig. Aandachtspunt: "zelfde inhoud" moet eenduidig worden gedefinieerd (bijvoorbeeld de volledige payload).</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
+  <div class="field-label">Impact Praktijksituatie</div>
+  <div class="field-value"><p>Een aanroeper die na een crash of time-out een bericht opnieuw stuurt, krijgt de oorspronkelijke uitkomst terug en kan stoppen met opnieuw proberen. Een aanroeper die per vergissing een ID hergebruikt voor een ander bericht, krijgt een herkenbare fout.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

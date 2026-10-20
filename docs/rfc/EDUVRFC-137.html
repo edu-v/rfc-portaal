@@ -45,21 +45,27 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
-    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>RFC-type</td><td>Nog vast te stellen</td></tr>
     <tr><td>Datum aangemaakt</td><td>8 Oct 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
   </tbody>
 </table>
 
+  <div class="field-label">RFC-scope</div>
+  <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">8 Oct 2026</div>
+  <div class="field-value">16 Oct 2026</div>
+  <div class="field-label">Werkgroep</div>
+  <div class="field-value">Administratiesystemen</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>Aan het pad GET organisations in de yaml de query parameter schoolPeriodId als optioneel filter toevoegen. <br>In de specificatie de beoogde werking toelichten:<br>- Zonder toevoegen van het filter retourneert de GET organisations aanvraag de organisatieonderdelen die in gebruik zijn in de actuele schoolperiode en die binnen eventueel andere opgegeven filters vallen. <br>- Met toevoegen van het filter en het opgeven van de volgende schoolperiode geeft de aanvraag als resultaat ook organisatieonderdelen die actief worden in die periode.<br>Het is belangrijk om te benadrukken dat hierin van het LAS alleen een best effort gevraagd kan worden op basis van beschikbare gegevens in het LAS: Organisatieonderdelen zijn normaal gezien niet schooljaar gebonden, maar i.v.m. bekostiging valt een wijziging in de praktijk in principe wel altijd samen met het begin of einde van het schooljaar. Omdat er geen werkelijke koppeling tussen een organisatieonderdeel en een schoolperiode bestaat moet het LAS deze beredeneren op basis van begin- en einddatums. Deze zijn niet in alle gevallen gevuld voor een organisatieonderdeel. Om die reden kan het onmogelijk zijn om vast te stellen of een organisatieonderdeel in een vorige periode actief was. Dat is echter niet de aanleiding voor de vraag en wordt daarom door de indieners niet als een probleem gezien. De indieners zien in het gebruik van de parameter schoolPeriodId vooral als voordeel dat dit overeenkomt met alle andere aanvragen voor de volgende schoolperiode. Dit betekent dat ontwikkelaars ook op deze API hetzelfde patroon kunnen gebruiken in plaats hiervoor een afwijkend patroon te hanteren. Dat dit op een aanroep met een schoolPeriodId uit het verleden mogelijk niet het correcte resultaat geeft is acceptabel, het gaat hier om het kunnen opvragen van het volgende schooljaar.</p></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Alle andere API’s konden met de schoolPeriodId van het volgende schooljaar aangeroepen worden om valide data voor het volgende schooljaar te ontvangen, uitgezonderd het GET organisations endpoint en op deze API bleek deze voorziening ook noodzakelijk. Dus om Edu-v te kunnen gebruiken in de uitrol 27/28 is deze wijziging noodzakelijk, want anders kunnen schoolonderdelen die nieuw zijn of wijzigen niet bediend worden. Voor het beoogde doel heedft de schoolPeriodId als voordeel dat deze in dit scenario ook op alle andere endpoints gebruikt wordt en het nuttig is om vast te houden aan één filterpatroon voor het ophalen van data van een volgend schooljaar. Het lijkt niet zinvol om een uitzondering te maken op dit endpoint en het patroon te breken.<br><br>Het toevoegen van het schoolPeriodId zoals beschreven, waarbij uiteraard ook de alias “2027-2028“ weer geldig is, is een non-breaking change en vergt daardoor alleen een minor versie ophoging.</p></div>
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/1250820183/Education+API+1.1.1</div>
+  <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
+  <div class="field-value">Ja</div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

@@ -55,7 +55,7 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Stelsel</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">8 Oct 2026</div>
+  <div class="field-value">15 Oct 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -63,11 +63,11 @@
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Het veld is verplicht is bij de respectievelijke invoer-endpoints en zou daarom altijd beschikbaar moeten zijn.</p><p>Het veld is niet alleen <em>handig</em> voor het ophalen van de order waarop terugkoppeling wordt gegeven, maar kan zelfs <em>essentieel</em> zijn. Waarom? De enige momenteel verplichte (lees: gegarandeerde) teruggekoppelde referentie uit de invoer is requestReferenceId. Dat veld vervult echter al de rol van <em>idempotence key</em> en is daarom ongeschikt om gelijktijdig de rol van order ID te vervullen. (Zie het praktijkvoorbeeld.)</p><p>Al met al is het natuurlijk en praktisch dat het order ID altijd wordt teruggegeven in de terugkoppeling op een order.</p></div>
   <div class="field-label">Impact Technisch</div>
-  <div class="field-value"><p>purchaseOrderId wordt verplicht in OrderConfirmation in de Order API. In CreditOrderConfirmation is het veld al verplicht; daarmee zijn beide confirmations gelijk. requestReferenceId blijft de idempotency key. Het veld is verplicht in de OrderRequest, dus de waarde is bij de bron altijd bekend.</p></div>
+  <div class="field-value"><p>Het gaat alleen om de OrderConfirmation; in de CreditOrderConfirmation is <code>purchaseOrderId</code> al verplicht. Volgens de huidige afspraak (Order API 1.0.0) is echo-en optioneel: "Optioneel kan de Aanbieder het purchaseOrderId echo-en." Er zijn drie opties: (1) optioneel laten, (2) echo-en aanbevelen in de vullingsregel, wat niet-breaking is, (3) verplicht maken bij de volgende major. De keuze wordt voorgelegd aan de werkgroep.</p></div>
   <div class="field-label">Impact Implementatie</div>
   <div class="field-value"><p>Bronnen (Ordersysteem leermiddelen) die purchaseOrderId nog niet terugsturen, nemen het veld op in de OrderConfirmation. Afnemers hoeven niets aan te passen en kunnen erop vertrouwen dat het veld aanwezig is.</p></div>
   <div class="field-label">Impact Risico's</div>
-  <div class="field-value"><p>Laag. Formeel een nieuw verplicht veld voor de bron, maar de waarde is altijd beschikbaar uit de request. Aandachtspunt: de titel van de RFC noemt salesOrderId, de inhoud betreft purchaseOrderId.</p></div>
+  <div class="field-value"><p>Optie 3 is breaking voor Ordersystemen die het veld nu volgens de afspraak weglaten. De noodzaak is beperkt: de Bestelomgeving maakt het requestReferenceId zelf aan en kan de koppeling met de eigen order zelf bijhouden. Aandachtspunt: de titel noemt <code>salesOrderId</code>, de inhoud gaat over <code>purchaseOrderId</code>.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
   <div class="field-label">Impact Praktijksituatie</div>

@@ -45,7 +45,7 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#e07020;">Impactanalyse</span></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Check Stelselarchitect voor architectenraad</span></td></tr>
     <tr><td>RFC-type</td><td>Nog vast te stellen</td></tr>
     <tr><td>Datum aangemaakt</td><td>18 May 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
@@ -55,7 +55,7 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">15 Sep 2026</div>
+  <div class="field-value">16 Oct 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -65,15 +65,17 @@
   <div class="field-label">Link naar Confluence-pagina</div>
   <div class="field-value">https://edu-v.atlassian.net/wiki/spaces/AFSPRAKENS/pages/842924033/Entitlement+API+1.1.0</div>
   <div class="field-label">Impact Technisch</div>
-  <div class="field-value"><p>Nog nader te bepalen nadat de voorgestelde uitwerking besproken is met de werkgroep.</p><p><br><u>Concept uitwerkingsrichting:</u><br>Vullingsregel urlStatus : verduidelijken dat urlStatus in een request een actietrigger is; <strong>het portaal is de autoriteit over de werkelijke status van de url binnen zijn omgeving en rapporteert via newUrlStatus</strong>.</p><p><strong>In gebruik nemen digitaal leermiddel</strong><br>o InitialActivation: toevoegen dat het portaal urlStatus: initialized accepteert wanneer de huidige status processed is, en antwoordt met newUrlStatus: processed<br></p></div>
+  <div class="field-value"><p><strong>Schema ongewijzigd, gedrag wel.</strong> Er verandert geen veld, enum of verplichting. Wel verandert de betekenis van <code>urlStatus</code> in een EntitlementRequest: portalen die nu sturen op <code>urlStatus</code> en Aanspraakmanagers die <code>urlStatus</code> zelf zetten, moeten hun implementatie aanpassen. Daarmee is dit functioneel mogelijk breaking; of dit een major versie vraagt, is een afweging voor Architectenraad/CAB.</p><p>Uitgangspunt: <code>entitlementStatus</code> is de opdracht van de Aanspraakmanager. <code>urlStatus</code> is van het portaal (één per portaal in <code>urlStatuses[]</code>) en is alleen terugkoppeling via <code>newUrlStatus</code>. De AM zet zelf geen <code>urlStatus</code>; tot de eerste terugkoppeling blijft die <code>uninitialized</code>. <code>initialized</code> blijft bestaan als terugkoppeling van het portaal: ontvangen, link nog niet geplaatst.</p><p>Aan te passen in Entitlement API (YAML en Confluence):</p><ul><li><p><code>EntitlementConfirmation</code>, beschrijving: confirmations van het Leermiddelenportaal worden getriggerd door <code>entitlementStatus</code>, niet door <code>urlStatus</code>.</p></li><li><p><code>expirationDate</code>, beschrijving: de zin "The urlStatus is updated to initialized" vervalt. De AM stuurt het bijgewerkte entitlement, het portaal koppelt terug via <code>newUrlStatus</code>.</p></li><li><p>Vullingsregels <code>entitlementStatus</code> en <code>urlStatus</code> op Confluence herschrijven volgens het uitgangspunt.</p></li></ul><p>Buiten scope: consent-push (zie Advies werkgroep).</p></div>
   <div class="field-label">Impact Implementatie</div>
-  <div class="field-value"><p>Re-work bij bestaande implementatie.</p></div>
+  <div class="field-value"><p>Re-work bij bestaande implementaties die nu op <code>urlStatus</code> sturen. Implementaties die al volgens het uitgangspunt werken, hoeven niets te wijzigen.</p><ul><li><p>Leermiddelenportaal: handelen op <code>entitlementStatus</code>, niet op de ontvangen <code>urlStatus</code>. Elk EntitlementRequest verwerken als laatste stand, niet als stap in een verplichte volgorde. Eigen status terugkoppelen via <code>newUrlStatus</code>.</p></li><li><p>Aanspraakmanager: zelf geen <code>urlStatus</code> meer zetten. <code>urlStatuses[]</code> alleen vullen met de terugkoppeling per portaal.</p></li><li><p>Initiële vulling bij een nieuw portaal blijft via de bestaande GET: geen nieuwe bouw.</p></li></ul><p>Aandachtspunt: eerder is aangegeven dat bestaande portaalimplementaties niet tegen dit issue aanlopen. Per leverancier valideren of de huidige implementatie al aan het uitgangspunt voldoet.</p></div>
   <div class="field-label">Impact Risico's</div>
   <div class="field-value"><p>Laag bij goed RFC traject en implementatie traject. Lijkt op dit moment 1 portaalleverancier te raken. </p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
   <div class="field-label">Impact Praktijksituatie</div>
   <div class="field-value"><ul><li><p>Verwerven en ingeruiknemen. <br>In binnen het processcenario  stuurt de Aanspraakmanager urlStatus: initialized naar een portaal dat al processed is.</p></li><li><p>Het portaal weigert deze update, want het toestandsdiagram kent geen overgang processed → initialized.<br>Beide partijen handelen spec-conform.</p></li><li><p>De RFC stelde voor de overgang processed → initialized toe te voegen aan het toestandsdiagram.</p></li><li><p>Dat is onjuist: urlStatus in een EntitlementRequest is een actie-trigger van de Aanspraakmanager, geen<br>gewenste eindstatus van het portaal.</p></li><li><p>Het portaal gaat in dit scenario niet naar initialized; het verwerkt de opdracht en antwoordt met<br>newUrlStatus: processed.</p></li></ul></div>
+  <div class="field-label">Advies werkgroep</div>
+  <div class="field-value"><p><strong>Werkgroep Verwerven en in gebruik nemen, 13 oktober 2026: positief advies, met aanpassing.</strong></p><p>De werkgroep steunt de voorgestelde richting als verbetering ten opzichte van de huidige beschrijving:</p><ul><li><p><code>entitlementStatus</code> is de opdracht van de Aanspraakmanager. De AM is leidend over dit veld.</p></li><li><p><code>urlStatus</code> hoort bij het portaal (één per portaal) en is alleen terugkoppeling via <code>newUrlStatus</code>.</p></li></ul><p>Aanpassing op verzoek van de werkgroep: de consent-push (bij een nieuw portaal de volledige set opnieuw versturen) valt buiten deze RFC. De initiële vulling blijft via de bestaande GET lopen. Als er later vraag is naar een consent-push, komt daar een aparte RFC voor, zodat alle leveranciers het gelijk implementeren.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
 <div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
 </body>

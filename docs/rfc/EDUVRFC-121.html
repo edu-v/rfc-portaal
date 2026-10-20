@@ -55,7 +55,7 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">8 Oct 2026</div>
+  <div class="field-value">15 Oct 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -63,11 +63,11 @@
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>Het is zeer verwarrend dat country code <em>optioneel</em> is, terwijl country (zijn “human-readable” afgeleide) <em>verplicht</em> is.</p><p>Laten we kiezen voor een van de denkbare combinaties die geen verwarring schept. Ieder van deze combinaties maakt country code leidend:</p><ul><li><p>country verwijderen; of</p></li><li><p>beide verplicht; of</p></li><li><p>enkel country code verplicht; of</p></li><li><p>beide optioneel.</p></li></ul></div>
   <div class="field-label">Impact Technisch</div>
-  <div class="field-value"><p>In Address in de Order API wordt country optioneel. countryCode (ISO 3166 alpha-2) blijft optioneel maar wordt sterk aanbevolen en is leidend als beide gevuld zijn. Bij de volgende major versie wordt countryCode verplicht.</p></div>
+  <div class="field-value"><p>Volgens de huidige afspraak is <code>country</code> leidend: de vullingsregel van <code>countryCode</code> zegt dat de code correspondeert met het land in <code>country</code>. De RFC vraagt deze ontwerpkeuze om te keren. Hetzelfde Address-patroon (<code>country</code> V, <code>countryCode</code> O) zit ook in de Students API.</p><p>Voorstel: nu (niet-breaking) in de vullingsregel <code>countryCode</code> sterk aanbevelen, met de regel dat beide velden overeenkomen als ze allebei gevuld zijn. Bij de volgende major <code>countryCode</code> V en <code>country</code> O, tegelijk in Order API en Students API, zodat er één Address-patroon in het stelsel blijft.</p></div>
   <div class="field-label">Impact Implementatie</div>
-  <div class="field-value"><p>Afnemers worden aangeraden countryCode mee te sturen; afnemers die nu alleen country sturen hoeven niets aan te passen. Bronnen gebruiken countryCode als leidend en accepteren adressen zonder country.</p></div>
+  <div class="field-value"><p>Nu: geen verplichte wijziging; Bestelomgevingen wordt aangeraden <code>countryCode</code> mee te sturen. Bij de volgende major: verzenders moeten <code>countryCode</code> vullen, ontvangers mogen niet meer rekenen op <code>country</code>. Geldt voor Order API en Students API.</p></div>
   <div class="field-label">Impact Risico's</div>
-  <div class="field-value"><p>Laag. Een verplicht veld optioneel maken is backward compatible. Aandachtspunt: zolang countryCode niet verplicht is, kan een adres zonder land voorkomen. Dit wordt opgelost bij de volgende major versie.</p></div>
+  <div class="field-value"><p>Laag voor de niet-breaking stap. De omkering bij de major is breaking voor beide kanten: verzenders moeten <code>countryCode</code> gaan vullen en ontvangers die op <code>country</code> rekenen moeten aanpassen. Daarom niet eerder dan een major, en niet los per API. De Students API valt onder een andere werkgroep; afstemming nodig.</p></div>
   <div class="field-label">Past de wijziging binnen bestaande roadmap</div>
   <div class="field-value">Ja</div>
   <div class="field-label">Impact Praktijksituatie</div>
