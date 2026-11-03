@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>EDUVRFC-141 — Aanpassing vakcodes in Results API en SIS API’s</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; margin: 40px; color: #222; background: white; max-width: 1100px; }
+    h1 { font-size: 20px; color: #2176c7; margin-bottom: 4px; }
+    h2 { font-size: 15px; color: #2176c7; margin: 28px 0 6px; border-bottom: 1px solid #e0e8f0; padding-bottom: 4px; }
+    .meta { color: #888; font-size: 11px; margin-bottom: 16px; }
+    .badges { margin-bottom: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #2176c7; color: white; text-align: left; padding: 8px 12px; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:hover { background: #f9f9f9; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; white-space: nowrap; color: white; }
+    .field-label { font-size: 11px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 16px; margin-bottom: 2px; }
+    .field-value { font-size: 13px; color: #222; }
+    .field-value p { margin: 4px 0; }
+    .field-value ul, .field-value ol { margin: 4px 0; padding-left: 20px; }
+    .field-value pre { background: #f5f5f5; padding: 8px; border-radius: 3px; overflow-x: auto; font-size: 11px; }
+    .field-value blockquote { border-left: 3px solid #ccc; margin: 4px 0; padding-left: 10px; color: #555; }
+    .field-value a { color: #2176c7; }
+    .nav { margin-bottom: 24px; font-size: 12px; }
+    .nav a { color: #2176c7; text-decoration: none; }
+    .footer { margin-top: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 12px; }
+    .rfc-key { font-size: 12px; color: #888; font-family: monospace; margin-bottom: 8px; }
+    .rfc-title { font-size: 20px; font-weight: bold; color: #222; margin: 0 0 10px; line-height: 1.4; }
+    .disclaimer { font-style: italic; color: #666; font-size: 12px; margin-bottom: 28px; }
+    .status-tbl { width: auto; min-width: 400px; margin: 8px 0 32px; }
+    .status-tbl th { background: transparent; color: #222; border-bottom: 2px solid #ddd; font-weight: bold; }
+    .status-tbl td:first-child { color: #555; width: 180px; }
+    .contact-note { margin-top: 32px; padding-top: 12px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+    .intro { font-size: 13px; color: #333; margin-bottom: 24px; max-width: 820px; }
+    .intro p { margin: 0 0 10px; line-height: 1.6; }
+    .intro a { color: #2176c7; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="index.html">← RFC Overzicht</a></div>
+<div class="rfc-key">EDUVRFC-141 &nbsp;|&nbsp; <a href="https://edu-v.atlassian.net/browse/EDUVRFC-141" target="_blank" style="color:#2176c7;">Bekijk in Jira</a></div>
+<div class="rfc-title">Aanpassing vakcodes in Results API en SIS API’s</div>
+<p class="disclaimer">Deze pagina is automatisch gegenereerd en wordt bijgewerkt op basis van de actuele status van de RFC in de Edu-V RFC-tooling (Jira).</p>
+<h2>Status</h2>
+<table class="status-tbl">
+  <thead><tr><th>Onderdeel</th><th></th></tr></thead>
+  <tbody>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">Intake RFC</span></td></tr>
+    <tr><td>RFC-type</td><td></td></tr>
+    <tr><td>Datum aangemaakt</td><td>3 Nov 2026</td></tr>
+    <tr><td>Datum release</td><td></td></tr>
+  </tbody>
+</table>
+
+  <div class="field-label">Laatst gewijzigd</div>
+  <div class="field-value">3 Nov 2026</div>
+  <div class="field-label">Beschrijving</div>
+  <div class="field-value"><p><strong>Beschrijving van de gewenste wijziging</strong></p><p>In de Results API wordt in het object Assessment de mogelijkheid gegeven om één of meerdere vakken mee te geven. Voorwaarde is dat het vak gevuld wordt op basis van de Waardelijst vakken (<a href="https://edu-v.atlassian.net/wiki/x/BYC2F" target="_blank">https://edu-v.atlassian.net/wiki/x/BYC2F</a> ), en wel specifiek met de subjectPrefix en de subjectName uit het bijbehorende Excel bestand. Dit is voor Somtoday geen werkbare oplossing. </p><p>LASsen werken op basis van de wettelijke Regeling codetabellen vo, vso en mbo, te vinden via <u><a href="https://wetten.overheid.nl/BWBR0048579/2026-08-01/0" target="_blank">https://wetten.overheid.nl/BWBR0048579/2026-08-01/0</a></u> (let op, link verandert jkaarlijks). Daarbij is het essentieel dat de resultaten aan het juiste vak worden gekoppeld, op basis van de 4-cijferige vakcode zoals te vinden vanaf halverwege deze pagina. </p><p>Er is geen eenduidige vertaling mogelijk vanuit de waardelijst van Edu-V en de wettelijke vakcodes uit eerdergenoemde pagina. </p><p>Beseffende dat backwards compatibility een issue kan zijn, en er geen Regeling codetabellen is voor het PO, is ons voorstel tweeledig: </p><ol><li><p>Sta toe dat de vullingsregels van het veld Subjects worden verruimd, waarbij de mogelijkheid wordt toegevoegd dat een object uit het array van subjects ook gevuld mag worden met een 4-cijferige code uit de regeling codetabellen. Concreet voorstel:</p><ol><li><p>Breidt het array uit met 2 velden, namelijk subjectType (Enum, WLV of RCT) en legalSubjectCode (numeriek4). </p></li><li><p>Vullingsregel:  </p><ol><li><p>Indien subjectType=leeg, missend of gevuld met WLV: vullingsregel zoals nu beschreven. legalSubjectCode is dan idealiter leeg of missend, maar kan hoe dan ook in de verwerking genegeerd worden..</p></li><li><p>Indien subjectType=RCT, dan moet legalSubjectCode gevuld zijn met een 4-cijferige code uit de Regeling codetabellen van de overheid. De velden subjectPrefix en subjectName zijn dan missend/leeg. </p></li></ol></li></ol></li></ol><p>Netter zou zijn om er een nieuw object van te maken met een type en een waarde, maar gezien backwards compatibility is bovenstaande mogelijk een betere oplossing. </p><p>Als we het goed hebben, zou dit geïmplementeerd kunnen worden volgens het oneOf principe van het polyformisme patroon uit OpenApi (<a href="https://swagger.io/docs/specification/v3_0/data-models/oneof-anyof-allof-not/#oneof" target="_blank">https://swagger.io/docs/specification/v3_0/data-models/oneof-anyof-allof-not/#oneof</a> ). </p><ol><li><p>In de Education API komt nu de vakcode voor in het object SubjectOffering. Het gaat om een string. In de vullingsregels staat vermeld: “Indien het vak onderdeel is van het curriculum uit een opleiding dan is dit veld verplicht. <em>Er vindt overleg plaats met de werkgroep Waardelijsten RIO voor het opstellen van een lijst met vakcodes voor veelvoorkomende vakken in het po en vo.”</em><br>Pas de vullingsregel aan in de Education API door in de subjectCode voor het vak de code uit de Regeling codetabellen toe te staan, of neem deze op in de nog te definiëren waardelijst. </p></li></ol></div>
+  <div class="field-label">Onderbouwing van nut of noodzaak</div>
+  <div class="field-value"><p>LASsen hebben een wettelijke taak het curriculum te bewaken, inclusief de voortgang erop. Dit gebeurt op basis van de wettelijke vakcodes uit de Regeling codetabellen vo, vso en mbo. Zonder de juiste vakcodes zijn LASsen niet in staat om een PTO/PTA resultaat met zekerheid aan de juiste vakcode te koppelen. Er is geen betrouwbare en eenduidige koppeltabel te maken tussen de vakken uit de Waardelijst vakken van Edu-V en de wettelijke Regeling codetabellen.</p><p>Zonder deze aanpassing is het voor Somtoday onmogelijk om resultaten te verwerken die bedoeld zijn voor het PTO/PTA.</p></div>
+<div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
+<div class="footer">Edu-V Afsprakenstelsel &nbsp;|&nbsp; www.edu-v.org</div>
+</body>
+</html>
