@@ -45,7 +45,7 @@
 <table class="status-tbl">
   <thead><tr><th>Onderdeel</th><th></th></tr></thead>
   <tbody>
-    <tr><td>Status</td><td><span class="badge" style="background:#888;">Check Stelselarchitect voor architectenraad</span></td></tr>
+    <tr><td>Status</td><td><span class="badge" style="background:#888;">CAB beoordeling advies</span></td></tr>
     <tr><td>RFC-type</td><td>Nog vast te stellen</td></tr>
     <tr><td>Datum aangemaakt</td><td>18 May 2026</td></tr>
     <tr><td>Datum release</td><td></td></tr>
@@ -55,7 +55,7 @@
   <div class="field-label">RFC-scope</div>
   <div class="field-value">Gegevensdienst</div>
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">16 Oct 2026</div>
+  <div class="field-value">17 Nov 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
@@ -74,6 +74,8 @@
   <div class="field-value">Ja</div>
   <div class="field-label">Impact Praktijksituatie</div>
   <div class="field-value"><ul><li><p>Verwerven en ingeruiknemen. <br>In binnen het processcenario  stuurt de Aanspraakmanager urlStatus: initialized naar een portaal dat al processed is.</p></li><li><p>Het portaal weigert deze update, want het toestandsdiagram kent geen overgang processed → initialized.<br>Beide partijen handelen spec-conform.</p></li><li><p>De RFC stelde voor de overgang processed → initialized toe te voegen aan het toestandsdiagram.</p></li><li><p>Dat is onjuist: urlStatus in een EntitlementRequest is een actie-trigger van de Aanspraakmanager, geen<br>gewenste eindstatus van het portaal.</p></li><li><p>Het portaal gaat in dit scenario niet naar initialized; het verwerkt de opdracht en antwoordt met<br>newUrlStatus: processed.</p></li></ul></div>
+  <div class="field-label">Advies CAB</div>
+  <div class="field-value"><p>Is akkoord met deze RFC</p></div>
   <div class="field-label">Advies werkgroep</div>
   <div class="field-value"><p><strong>Werkgroep Verwerven en in gebruik nemen, 13 oktober 2026: positief advies, met aanpassing.</strong></p><p>De werkgroep steunt de voorgestelde richting als verbetering ten opzichte van de huidige beschrijving:</p><ul><li><p><code>entitlementStatus</code> is de opdracht van de Aanspraakmanager. De AM is leidend over dit veld.</p></li><li><p><code>urlStatus</code> hoort bij het portaal (één per portaal) en is alleen terugkoppeling via <code>newUrlStatus</code>.</p></li></ul><p>Aanpassing op verzoek van de werkgroep: de consent-push (bij een nieuw portaal de volledige set opnieuw versturen) valt buiten deze RFC. De initiële vulling blijft via de bestaande GET lopen. Als er later vraag is naar een consent-push, komt daar een aparte RFC voor, zodat alle leveranciers het gelijk implementeren.</p></div>
 <div class="contact-note">Bij vragen over deze RFC, neem contact op via <a href="mailto:rfc@edu-v.org" style="color:#2176c7;">rfc@edu-v.org</a> en vermeld daarbij het RFC-nummer in de titel.</div>
