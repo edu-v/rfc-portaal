@@ -53,13 +53,15 @@
 </table>
 
   <div class="field-label">Laatst gewijzigd</div>
-  <div class="field-value">9 Sep 2026</div>
+  <div class="field-value">19 Nov 2026</div>
   <div class="field-label">Werkgroep</div>
   <div class="field-value">Verwerven en in gebruikname</div>
   <div class="field-label">Beschrijving</div>
   <div class="field-value"><p>In de Catalogue API zijn twee hoofdobjecten beschikbaar: Product en ProductInfo. ProductInfo is feitelijk een subset van Product. Maar in de beschrijving zien we wat mis gaan bij de verplichtheid van velden. </p><p>In het object ProductInfo (voornamelijk bedoeld voor ELO's) staat bij het veld "type" dat het een enum is met mogelijke waarden "physical", "digital" of "combi". Physical lijkt me hier onlogisch. Vooral omdat verderop staat (in het object MediaCollectionProductInfo) dat de velden "publisherThumbnail" en "mainThumbnailURL" verplicht zijn, terwijl in het object MediaCollection (vanuit het object Product) het attribuut mainThumbnailURL optioneel is. </p><p>Vandaar dat we twee wijzigingen voorstellen: </p><ol><li><p>ProductInfo bevat per definitie de subset van producten waarvoor type = digital of combi. Dat houdt in dat in de objectdefinitie "physical" uit de enum van het type moet verdwijnen. </p></li><li><p>In product worden de hiervoven genoemde velden conditioneel verplicht. Als in Product het type physical is, dan zijn de waarden leeg. Als het type de waarde combi of digital heeft, dan zijn de velden verplicht.</p></li></ol></div>
   <div class="field-label">Onderbouwing van nut of noodzaak</div>
   <div class="field-value"><p>De huidige beschrijving is niet consistent en kan tot problemen leiden bij de verwerking van de catalogus als geheel en de afhandeling in ELO's.</p></div>
+  <div class="field-label">Link naar Confluence-pagina</div>
+  <div class="field-value">https://github.com/edu-v/afsprakenstelsel/blob/Catalogue-API-2.1.0-rc.1/apis/catalogue-api.yaml</div>
   <div class="field-label">Impact Technisch</div>
   <div class="field-value"><p>In product worden de hierboven genoemde velden conditioneel verplicht. Als in Product het type physical is, dan zijn de waarden leeg. Als het type de waarde combi of digital heeft, dan zijn de velden verplicht.</p><p><br>Dit ook doorvoeren voor andere attributen zoals “<strong>defaultAccessUrl</strong>”</p></div>
   <div class="field-label">Impact Implementatie</div>
